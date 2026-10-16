@@ -1,0 +1,24 @@
+name: fetch-backtest-data
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/project-thread-0l5egv]
+    paths: [research/backtest/fetch_data.py, .github/workflows/fetch-backtest-data.yml]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "yfinance>=0.2.50" pandas
+      - run: mkdir -p research/backtest/data && python research/backtest/fetch_data.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add research/backtest/data
+          git commit -m "data: refresh S&P 500 daily prices for backtest"
+          git push
