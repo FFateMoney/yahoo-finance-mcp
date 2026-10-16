@@ -1,13 +1,13 @@
 """Backtest the short-term screening rules and common price factors on S&P 500 daily data.
 
-Usage: python research/backtest/backtest.py [prices.csv.gz]
+Usage: python research/backtest/backtest.py [prices.csv.gz] [holding_days]
 """
 import sys
 
 import numpy as np
 import pandas as pd
 
-H = 10  # holding period in trading days
+H = int(sys.argv[2]) if len(sys.argv) > 2 else 10  # holding period in trading days
 path = sys.argv[1] if len(sys.argv) > 1 else "research/backtest/data/prices.csv.gz"
 px = pd.read_csv(path, parse_dates=["Date"])
 close = px.pivot(index="Date", columns="Ticker", values="Close").sort_index()
@@ -78,12 +78,12 @@ for name, m in conds.items():
     d5, _ = per_period(m, hit_dn5)
     w, _ = per_period(m, (fwd > 0).astype(float).where(fwd.notna()))
     rows.append({
-        "条件": name, "平均只数": n.mean(), "10日平均收益%": 100 * r.mean(),
+        "条件": name, "平均只数": n.mean(), f"{H}日平均收益%": 100 * r.mean(),
         "超额SPY%": 100 * x.mean(), "超额t值": tstat(x), "上涨概率%": 100 * w.mean(),
         "触及+3%%": 100 * u.mean(), "触及-3%%": 100 * d3.mean(), "触及-5%%": 100 * d5.mean(),
     })
 A = pd.DataFrame(rows).set_index("条件")
-print("== Part A: 流程里的短线条件（10 个交易日后）==")
+print(f"== Part A: 流程里的短线条件（{H} 个交易日后）==")
 print(A.round(2).to_string(), "\n")
 
 # relative to baseline, by year
@@ -127,10 +127,10 @@ for name, f in factors.items():
                  "Q5-Q1%": spread.mean(), "t值": tstat(spread),
                  "Q5胜Q1占比%": 100 * (spread > 0).mean(), "IC均值": ic.mean(), "IC t值": tstat(ic)})
 B = pd.DataFrame(rows).set_index("因子")
-print("== Part B: 因子五分组（Q1=因子值最低，Q5=最高；10日收益%）==")
+print(f"== Part B: 因子五分组（Q1=因子值最低，Q5=最高；{H}日收益%）==")
 print(B.round(3).to_string(), "\n")
 print("== 因子 IC 按年 ==")
 print(pd.DataFrame(ics).groupby(lambda d: d.year).mean().round(3).to_string())
 
-A.to_csv("research/backtest/result_rules.csv")
-B.to_csv("research/backtest/result_factors.csv")
+A.to_csv(f"research/backtest/result_rules_{H}d.csv")
+B.to_csv(f"research/backtest/result_factors_{H}d.csv")
