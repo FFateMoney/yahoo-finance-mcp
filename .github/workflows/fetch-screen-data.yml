@@ -1,0 +1,25 @@
+name: fetch-screen-data
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/project-thread-jkng1s]
+    paths: [research/screen/fetch_screen.py, .github/workflows/fetch-screen-data.yml]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "yfinance>=0.2.50" pandas requests lxml html5lib
+      - run: mkdir -p research/screen/out && python research/screen/fetch_screen.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add research/screen/out
+          git commit -m "data: refresh screening inputs"
+          git pull --rebase
+          git push
