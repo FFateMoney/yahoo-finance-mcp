@@ -1,0 +1,872 @@
+{
+ "AES": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "AMCR": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "AOS": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "APA": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "APTV": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "ARE": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "BAC": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "BAX": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "BEN": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "BF-B": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "BKR": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "BSX": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "BXP": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CARR": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CCL": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CMCSA": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CMG": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CNP": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "COO": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CPRT": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CSGP": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CSX": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "CVNA": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "DOC": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "DOW": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "DVN": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "EIX": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "EQT": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "EXC": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "F": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "FAST": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "FE": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "FIS": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "FISV": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "FITB": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "FOX": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "FTV": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "GEN": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "GIS": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "HAL": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "HBAN": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "HPE": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "HPQ": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "HRL": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "HST": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "INVH": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "IP": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "IVZ": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "KDP": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "KEY": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "KHC": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "KIM": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "KMI": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "KVUE": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "LUV": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "LVS": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "MGM": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "MKC": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "MNST": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "MOS": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "NCLH": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "NI": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "NKE": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "NWS": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "NWSA": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "O": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "PCG": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "PFE": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "PNR": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "PPL": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "PYPL": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "RF": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "ROL": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "SKYD": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "SLB": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "SMCI": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "SW": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "T": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "TFC": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "TSCO": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "TSN": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "UDR": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "USB": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "VICI": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "VTRS": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "VZ": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ },
+ "WY": {
+  "Altman Z-Score": "",
+  "Piotroski F-Score": "",
+  "Interest Coverage": "",
+  "Free Cash Flow": "",
+  "Debt / Equity": "",
+  "Profit Margin": "",
+  "Return on Invested Capital (ROIC)": "",
+  "Current Ratio": ""
+ }
+}
