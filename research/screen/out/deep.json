@@ -1,0 +1,539 @@
+{
+ "KMI": {
+  "annual_years": [
+   "2025-12-31",
+   "2024-12-31",
+   "2023-12-31",
+   "2022-12-31",
+   "2021-12-31"
+  ],
+  "income": {
+   "Total Revenue": [
+    16937000000.0,
+    15100000000.0,
+    15334000000.0,
+    19200000000.0,
+    null
+   ],
+   "Net Income": [
+    3056000000.0,
+    2613000000.0,
+    2391000000.0,
+    2548000000.0,
+    null
+   ],
+   "EBIT": [
+    4724000000.0,
+    4384000000.0,
+    4263000000.0,
+    4065000000.0,
+    null
+   ],
+   "Operating Income": [
+    4724000000.0,
+    4384000000.0,
+    4263000000.0,
+    4065000000.0,
+    null
+   ],
+   "Gross Profit": [
+    8955000000.0,
+    8409000000.0,
+    8146000000.0,
+    7759000000.0,
+    null
+   ]
+  },
+  "balance": {
+   "Total Assets": [
+    72748000000.0,
+    71407000000.0,
+    71020000000.0,
+    70078000000.0,
+    null
+   ],
+   "Current Assets": [
+    2754000000.0,
+    2521000000.0,
+    2542000000.0,
+    3803000000.0,
+    null
+   ],
+   "Current Liabilities": [
+    4322000000.0,
+    5101000000.0,
+    7221000000.0,
+    6930000000.0,
+    null
+   ],
+   "Retained Earnings": [
+    -10181000000.0,
+    -10633000000.0,
+    -10689000000.0,
+    -10551000000.0,
+    null
+   ],
+   "Total Liabilities Net Minority Interest": [
+    40299000000.0,
+    39540000000.0,
+    39291000000.0,
+    37964000000.0,
+    null
+   ],
+   "Long Term Debt": [
+    30556000000.0,
+    29660000000.0,
+    27846000000.0,
+    28183000000.0,
+    null
+   ],
+   "Total Debt": [
+    31782000000.0,
+    31669000000.0,
+    31895000000.0,
+    31568000000.0,
+    null
+   ],
+   "Stockholders Equity": [
+    31162000000.0,
+    30531000000.0,
+    30306000000.0,
+    30742000000.0,
+    null
+   ],
+   "Ordinary Shares Number": [
+    2224777750.0,
+    2221647775.0,
+    2219729644.0,
+    2247681626.0,
+    null
+   ]
+  },
+  "cashflow": {
+   "Operating Cash Flow": [
+    5917000000.0,
+    5635000000.0,
+    6491000000.0,
+    4967000000.0,
+    null
+   ],
+   "Free Cash Flow": [
+    2891000000.0,
+    3006000000.0,
+    4174000000.0,
+    3346000000.0,
+    null
+   ],
+   "Capital Expenditure": [
+    -3026000000.0,
+    -2629000000.0,
+    -2317000000.0,
+    -1621000000.0,
+    null
+   ]
+  },
+  "altman_z": 1.3437719055125017,
+  "piotroski": 6,
+  "piotroski_parts": [
+   true,
+   true,
+   true,
+   true,
+   false,
+   true,
+   false,
+   false,
+   true
+  ],
+  "info": {
+   "exDividendDate": 1785715200,
+   "dividendRate": 1.18,
+   "dividendYield": 3.47,
+   "trailingPE": 20.824074,
+   "forwardPE": 21.77477,
+   "pegRatio": 3.52,
+   "marketCap": 75121172480,
+   "targetMeanPrice": 36.45455,
+   "recommendationKey": "buy",
+   "fiftyTwoWeekHigh": 34.81,
+   "fiftyTwoWeekLow": 25.6
+  },
+  "calendar": {
+   "Dividend Date": "2026-08-17",
+   "Ex-Dividend Date": "2026-08-03",
+   "Earnings Date": "[datetime.date(2026, 10, 21)]",
+   "Earnings High": "0.411",
+   "Earnings Low": "0.37",
+   "Earnings Average": "0.3872",
+   "Revenue High": "4804564000",
+   "Revenue Low": "4343000000",
+   "Revenue Average": "4584969500"
+  },
+  "news": [],
+  "stockanalysis": {
+   "Altman Z-Score": "Altman Z-Score n/a Piotroski F-Score 7 Data Source: S&amp;P ",
+   "Piotroski F-Score": "Piotroski F-Score 7 Data Source: S&amp;P Global Market Intel",
+   "Interest Coverage": "Interest Coverage 3.08 Financial Efficiency Return on equity",
+   "Earnings Date": "Earnings Date Oct 21, 2026 Ex-Dividend Date Aug 3, 2026 Shar",
+   "Ex-Dividend Date": "Ex-Dividend Date Aug 3, 2026 Share Statistics Kinder Morgan "
+  }
+ },
+ "FAST": {
+  "annual_years": [
+   "2025-12-31",
+   "2024-12-31",
+   "2023-12-31",
+   "2022-12-31"
+  ],
+  "income": {
+   "Total Revenue": [
+    8200500000.0,
+    7546000000.0,
+    7346700000.0,
+    6980600000.0
+   ],
+   "Net Income": [
+    1258400000.0,
+    1150600000.0,
+    1155000000.0,
+    1086900000.0
+   ],
+   "EBIT": [
+    1661200000.0,
+    1515400000.0,
+    1532800000.0,
+    1454300000.0
+   ],
+   "Interest Expense": [
+    6200000.0,
+    7300000.0,
+    10800000.0,
+    14300000.0
+   ],
+   "Operating Income": [
+    1655700000.0,
+    1510000000.0,
+    1528700000.0,
+    1453600000.0
+   ],
+   "Gross Profit": [
+    3691200000.0,
+    3401900000.0,
+    3354500000.0,
+    3215800000.0
+   ]
+  },
+  "balance": {
+   "Total Assets": [
+    5052900000.0,
+    4698000000.0,
+    4462900000.0,
+    4548600000.0,
+    null
+   ],
+   "Current Assets": [
+    3472100000.0,
+    3211900000.0,
+    3020900000.0,
+    3124800000.0,
+    null
+   ],
+   "Current Liabilities": [
+    715600000.0,
+    687100000.0,
+    661300000.0,
+    789800000.0,
+    null
+   ],
+   "Retained Earnings": [
+    3867700000.0,
+    3613500000.0,
+    3356900000.0,
+    3218700000.0,
+    null
+   ],
+   "Total Liabilities Net Minority Interest": [
+    1109300000.0,
+    1081700000.0,
+    1114100000.0,
+    1385400000.0,
+    null
+   ],
+   "Long Term Debt": [
+    100000000.0,
+    125000000.0,
+    200000000.0,
+    353200000.0,
+    null
+   ],
+   "Total Debt": [
+    441900000.0,
+    485400000.0,
+    535000000.0,
+    802100000.0,
+    null
+   ],
+   "Stockholders Equity": [
+    3943600000.0,
+    3616300000.0,
+    3348800000.0,
+    3163200000.0,
+    null
+   ],
+   "Ordinary Shares Number": [
+    1148057473.0,
+    1146640904.0,
+    1143964734.0,
+    1141623348.0,
+    null
+   ]
+  },
+  "cashflow": {
+   "Operating Cash Flow": [
+    1295900000.0,
+    1173300000.0,
+    1432700000.0,
+    941000000.0,
+    null
+   ],
+   "Free Cash Flow": [
+    1050600000.0,
+    946800000.0,
+    1259900000.0,
+    767200000.0,
+    null
+   ],
+   "Capital Expenditure": [
+    -245300000.0,
+    -226500000.0,
+    -172800000.0,
+    -173800000.0,
+    null
+   ]
+  },
+  "altman_z": 36.93807847728659,
+  "interest_coverage": 267.93548387096774,
+  "piotroski": 7,
+  "piotroski_parts": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false,
+   false,
+   true
+  ],
+  "info": {
+   "exDividendDate": 1793145600,
+   "dividendRate": 1.04,
+   "dividendYield": 1.98,
+   "trailingPE": 42.577232,
+   "forwardPE": 37.120255,
+   "pegRatio": 3.39,
+   "marketCap": 60094447616,
+   "targetMeanPrice": 51.06923,
+   "recommendationKey": "hold",
+   "fiftyTwoWeekHigh": 52.92,
+   "fiftyTwoWeekLow": 38.97
+  },
+  "calendar": {
+   "Dividend Date": "2026-11-25",
+   "Ex-Dividend Date": "2026-10-28",
+   "Earnings Date": "[datetime.date(2026, 10, 14)]",
+   "Earnings High": "0.314",
+   "Earnings Low": "0.29",
+   "Earnings Average": "0.30434",
+   "Revenue High": "2361000000",
+   "Revenue Low": "2272000000",
+   "Revenue Average": "2328545730"
+  },
+  "news": [],
+  "stockanalysis": {
+   "Altman Z-Score": "Altman Z-Score of 27.67 and a Piotroski F-Score of 6. Altman",
+   "Piotroski F-Score": "Piotroski F-Score of 6. Altman Z-Score 27.67 Piotroski F-Sco",
+   "Interest Coverage": "Interest Coverage 490.66 Financial Efficiency Return on equi",
+   "Earnings Date": "Earnings Date Oct 14, 2026 Ex-Dividend Date Oct 28, 2026 Sha",
+   "Ex-Dividend Date": "Ex-Dividend Date Oct 28, 2026 Share Statistics FAST has 1.15"
+  }
+ },
+ "CSX": {
+  "annual_years": [
+   "2025-12-31",
+   "2024-12-31",
+   "2023-12-31",
+   "2022-12-31",
+   "2021-12-31"
+  ],
+  "income": {
+   "Total Revenue": [
+    14092000000.0,
+    14540000000.0,
+    14657000000.0,
+    14853000000.0,
+    null
+   ],
+   "Net Income": [
+    2889000000.0,
+    3470000000.0,
+    3668000000.0,
+    4114000000.0,
+    null
+   ],
+   "EBIT": [
+    4613000000.0,
+    5387000000.0,
+    5638000000.0,
+    6087000000.0,
+    null
+   ],
+   "Interest Expense": [
+    844000000.0,
+    832000000.0,
+    809000000.0,
+    742000000.0,
+    null
+   ],
+   "Operating Income": [
+    4718000000.0,
+    5403000000.0,
+    5528000000.0,
+    5795000000.0,
+    null
+   ],
+   "Gross Profit": [
+    4685000000.0,
+    5353000000.0,
+    5499000000.0,
+    5716000000.0,
+    null
+   ]
+  },
+  "balance": {
+   "Total Assets": [
+    43682000000.0,
+    42764000000.0,
+    42212000000.0,
+    41912000000.0
+   ],
+   "Current Assets": [
+    2550000000.0,
+    2820000000.0,
+    3359000000.0,
+    3849000000.0
+   ],
+   "Current Liabilities": [
+    3133000000.0,
+    3276000000.0,
+    3223000000.0,
+    2471000000.0
+   ],
+   "Retained Earnings": [
+    10560000000.0,
+    9988000000.0,
+    9609000000.0,
+    10363000000.0
+   ],
+   "Total Liabilities Net Minority Interest": [
+    30522000000.0,
+    30257000000.0,
+    30227000000.0,
+    29287000000.0
+   ],
+   "Long Term Debt": [
+    18165000000.0,
+    17897000000.0,
+    17975000000.0,
+    17896000000.0
+   ],
+   "Total Debt": [
+    19352000000.0,
+    18989000000.0,
+    19024000000.0,
+    18535000000.0
+   ],
+   "Stockholders Equity": [
+    13155000000.0,
+    12502000000.0,
+    11980000000.0,
+    12615000000.0
+   ],
+   "Ordinary Shares Number": [
+    1859740714.0,
+    1900189590.0,
+    1958427685.0,
+    2066000000.0
+   ]
+  },
+  "cashflow": {
+   "Operating Cash Flow": [
+    4613000000.0,
+    5247000000.0,
+    5514000000.0,
+    5526000000.0,
+    null
+   ],
+   "Free Cash Flow": [
+    1711000000.0,
+    2718000000.0,
+    3257000000.0,
+    3413000000.0,
+    null
+   ],
+   "Capital Expenditure": [
+    -2902000000.0,
+    -2529000000.0,
+    -2257000000.0,
+    -2113000000.0,
+    null
+   ]
+  },
+  "altman_z": 2.8815086908144676,
+  "interest_coverage": 5.4656398104265405,
+  "piotroski": 5,
+  "piotroski_parts": [
+   true,
+   true,
+   false,
+   true,
+   true,
+   false,
+   true,
+   false,
+   false
+  ],
+  "info": {
+   "exDividendDate": 1795996800,
+   "dividendRate": 0.56,
+   "dividendYield": 1.16,
+   "trailingPE": 27.002605,
+   "forwardPE": 22.326677,
+   "pegRatio": 1.74,
+   "marketCap": 96041566208,
+   "targetMeanPrice": 53.36394,
+   "recommendationKey": "buy",
+   "fiftyTwoWeekHigh": 53.6,
+   "fiftyTwoWeekLow": 33.63
+  },
+  "calendar": {
+   "Dividend Date": "2026-12-15",
+   "Ex-Dividend Date": "2026-11-30",
+   "Earnings Date": "[datetime.date(2026, 10, 21)]",
+   "Earnings High": "0.55173",
+   "Earnings Low": "0.49",
+   "Earnings Average": "0.51942",
+   "Revenue High": "4091469370",
+   "Revenue Low": "3828164920",
+   "Revenue Average": "3960644230"
+  },
+  "news": [],
+  "stockanalysis": {
+   "Altman Z-Score": "Altman Z-Score n/a Piotroski F-Score 7 Data Source: S&amp;P ",
+   "Piotroski F-Score": "Piotroski F-Score 7 Data Source: S&amp;P Global Market Intel",
+   "Interest Coverage": "Interest Coverage 6.51 Financial Efficiency Return on equity",
+   "Earnings Date": "Earnings Date Oct 21, 2026 Ex-Dividend Date Nov 30, 2026 Sha",
+   "Ex-Dividend Date": "Ex-Dividend Date Nov 30, 2026 Share Statistics CSX Corporati"
+  }
+ }
+}
