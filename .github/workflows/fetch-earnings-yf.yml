@@ -1,0 +1,26 @@
+name: fetch-earnings-yf
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/project-thread-03k1wx]
+    paths: [research/fullflow/fetch_earn_yf.py, .github/workflows/fetch-earnings-yf.yml]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "yfinance>=0.2.50" pandas lxml
+      - run: python research/fullflow/fetch_earn_yf.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add research/fullflow/data/earnings_yf.csv.gz
+          git commit -m "data: Yahoo earnings dates"
+          git pull --rebase
+          git push
