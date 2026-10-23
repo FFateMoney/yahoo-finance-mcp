@@ -1,0 +1,24 @@
+name: fetch-membership
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/project-thread-rwrqhj]
+    paths: [research/factors/fetch_universe.py, .github/workflows/fetch-membership.yml]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "yfinance>=0.2.50" pandas lxml
+      - run: mkdir -p research/factors/data/membership && python research/factors/fetch_membership.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add research/factors/data
+          git commit -m "data: index membership history"
+          git push
