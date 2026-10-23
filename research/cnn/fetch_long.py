@@ -6,10 +6,10 @@ Writes research/cnn/work/prices.parquet (not committed; too large), research/cnn
 (latest fja05680 file) and research/cnn/data/sp500_changes.csv.
 """
 import io
-import json
 import os
 import re
-import urllib.parse
+import shutil
+import subprocess
 import urllib.request
 
 import pandas as pd
@@ -22,14 +22,12 @@ os.makedirs(f"{OUT}/work", exist_ok=True)
 os.makedirs(f"{OUT}/data", exist_ok=True)
 
 # Latest fja05680 daily S&P 500 membership file (file names carry MM-DD-YYYY dates, so sort by parsed date)
-idx = json.loads(urllib.request.urlopen(urllib.request.Request(
-    "https://api.github.com/repos/fja05680/sp500/contents", headers=UA)).read().decode())
-files = [f["name"] for f in idx if f["name"].startswith("S&P 500 Historical Components") and f["name"].endswith(".csv")]
+# (git clone instead of the GitHub API, which rate-limits shared Actions runners)
+subprocess.run(["git", "clone", "-q", "--depth", "1", "https://github.com/fja05680/sp500.git", f"{OUT}/work/fja"], check=True)
+files = [n for n in os.listdir(f"{OUT}/work/fja") if n.startswith("S&P 500 Historical Components") and n.endswith(".csv")]
 latest = max(files, key=lambda n: pd.to_datetime(re.search(r"(\d{2}-\d{2}-\d{4})", n).group(1), format="%m-%d-%Y"))
 print("fja05680 files:", files, "-> using", latest)
-data = urllib.request.urlopen(urllib.request.Request(
-    "https://raw.githubusercontent.com/fja05680/sp500/master/" + urllib.parse.quote(latest), headers=UA)).read()
-open(f"{OUT}/data/sp500_history.csv", "wb").write(data)
+shutil.copy(f"{OUT}/work/fja/{latest}", f"{OUT}/data/sp500_history.csv")
 
 # Wikipedia change table: optional, only used for dates after the fja file ends
 changes = pd.DataFrame()
