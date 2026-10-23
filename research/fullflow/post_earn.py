@@ -41,6 +41,7 @@ last = d["date"].max()
 WIN = {"最近 1 年": last - pd.DateOffset(years=1), "最近 3 个月": last - pd.DateOffset(months=3), "最近 1 个月": last - pd.DateOffset(months=1)}
 SKIP = {
     "R1（不加）": None,
+    "前后 1 个月内有财报的不买": d["since"] <= 21,
     "跳过：20 天内发过财报": d["since"] <= 20,
     "跳过：20 天内发过财报且财报后下跌": (d["since"] <= 20) & (d["reaction"] < 0),
     "跳过：40 天内发过财报且财报后下跌": (d["since"] <= 40) & (d["reaction"] < 0),
