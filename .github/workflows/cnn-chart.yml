@@ -61,7 +61,7 @@ jobs:
         with: {name: "pred-${{ matrix.seed }}-${{ matrix.chunk }}", path: "research/cnn/work/pred_*.parquet", retention-days: 7}
   evaluate:
     needs: [fetch, predict]
-    if: always() && needs.fetch.result == 'success'
+    if: always() && needs.fetch.result == 'success' && needs.predict.result != 'skipped' && needs.predict.result != 'cancelled'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -74,7 +74,7 @@ jobs:
         with: {name: changes, path: research/cnn/data}
       - uses: actions/download-artifact@v4
         with: {pattern: "pred-*", path: research/cnn/work, merge-multiple: true}
-      - run: python research/cnn/evaluate_cnn.py | tee research/cnn/out_eval.txt
+      - run: set -o pipefail; python research/cnn/evaluate_cnn.py | tee research/cnn/out_eval.txt
       - run: |
           mkdir -p research/cnn/out && mv research/cnn/out_eval.txt research/cnn/out/output.txt
           git config user.name "github-actions[bot]"
