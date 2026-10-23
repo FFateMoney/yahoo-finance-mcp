@@ -2,6 +2,8 @@
 for every ticker in research/factors/data. Runs on GitHub Actions (the cloud container cannot reach sec.gov).
 Output: research/fullflow/data/earnings.csv.gz, facts.csv.gz, cik_map.csv
 """
+import json
+import os
 import time
 
 import pandas as pd
@@ -47,7 +49,11 @@ for url in ["https://data.sec.gov/submissions/CIK0000320193.json",
     ok[url.split("/")[2]] = r.status_code == 200
     time.sleep(0.2)
 cik = {}
-j = get("https://www.sec.gov/files/company_tickers.json") if ok["www.sec.gov"] else None
+LOCAL = f"{OUT}/company_tickers.json"  # a copy saved from a browser also works
+if os.path.exists(LOCAL):
+    j = json.load(open(LOCAL, encoding="utf-8"))
+else:
+    j = get("https://www.sec.gov/files/company_tickers.json") if ok["www.sec.gov"] else None
 if j:
     tick = pd.DataFrame(j).T
     cik = dict(zip(tick["ticker"].str.replace(".", "-", regex=False).str.upper(), tick["cik_str"].astype(int)))
