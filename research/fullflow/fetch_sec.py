@@ -9,7 +9,8 @@ import time
 import pandas as pd
 import requests
 
-UA = {"User-Agent": "FFateMoney Research ffatemoney-research@users.noreply.github.com", "Accept-Encoding": "gzip, deflate"}
+# SEC requires "name + real contact email"; set SEC_UA in the environment so the email is not committed
+UA = {"User-Agent": os.environ["SEC_UA"], "Accept-Encoding": "gzip, deflate"}
 OUT = "research/fullflow/data"
 TAGS = {
     "us-gaap": ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "SalesRevenueNet", "NetIncomeLoss",
