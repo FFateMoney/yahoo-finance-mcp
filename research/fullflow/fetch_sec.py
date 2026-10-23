@@ -7,7 +7,7 @@ import time
 import pandas as pd
 import requests
 
-UA = {"User-Agent": "yahoo-finance-mcp research (github-actions@users.noreply.github.com)"}
+UA = {"User-Agent": "FFateMoney Research ffatemoney-research@users.noreply.github.com", "Accept-Encoding": "gzip, deflate"}
 OUT = "research/fullflow/data"
 TAGS = {
     "us-gaap": ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "SalesRevenueNet", "NetIncomeLoss",
@@ -31,13 +31,19 @@ def get(url):
             return r.json()
         if r.status_code == 404:
             return None
+        print("HTTP", r.status_code, url, r.text[:200], flush=True)
         time.sleep(2 ** k)
     return None
 
 
-tick = pd.DataFrame(get("https://www.sec.gov/files/company_tickers.json")).T
-tick["ticker"] = tick["ticker"].str.replace(".", "-", regex=False).str.upper()
-cik = dict(zip(tick["ticker"], tick["cik_str"].astype(int)))
+j = get("https://www.sec.gov/files/company_tickers.json")
+if j:
+    tick = pd.DataFrame(j).T
+    cik = dict(zip(tick["ticker"].str.replace(".", "-", regex=False).str.upper(), tick["cik_str"].astype(int)))
+else:  # plain-text fallback: "ticker\tcik" per line
+    txt = s.get("https://www.sec.gov/include/ticker.txt", timeout=60).text
+    cik = {a.replace(".", "-").upper(): int(b) for a, b in (ln.split("\t") for ln in txt.splitlines() if "\t" in ln)}
+print("CIK map", len(cik), flush=True)
 ours = set(pd.read_csv("research/factors/data/constituents.csv")["yf"])
 rem = pd.read_csv("research/factors/data/prices_removed.csv.gz", usecols=["Ticker"])["Ticker"].unique()
 ours |= set(rem)
