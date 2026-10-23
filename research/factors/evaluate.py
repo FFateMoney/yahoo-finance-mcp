@@ -12,8 +12,15 @@ import pandas as pd
 H = int(sys.argv[1]) if len(sys.argv) > 1 else 5
 D = "research/factors/data"
 COST = {"SP500": 0.05, "SP400": 0.10}  # % per side
+PIT = "--pit" in sys.argv  # point-in-time membership + removed tickers (less survivorship bias)
 px = pd.read_csv(f"{D}/prices.csv.gz", parse_dates=["Date"])
 cons = pd.read_csv(f"{D}/constituents.csv").set_index("yf")
+if PIT:
+    rem = pd.read_csv(f"{D}/prices_removed.csv.gz", parse_dates=["Date"])
+    rem = rem[~rem["Ticker"].isin(cons.index)]
+    px = pd.concat([px, rem])
+    extra = pd.DataFrame({"Sector": "Unknown", "Universe": "SP400"}, index=rem["Ticker"].unique())
+    cons = pd.concat([cons, extra])
 P = {k: px.pivot(index="Date", columns="Ticker", values=k).sort_index() for k in ["Open", "High", "Low", "Close", "Volume"]}
 spy = P["Close"]["SPY"]
 for k in P:
@@ -93,6 +100,9 @@ T_A = 3.5 if M > 20 else 3.0
 spy_fwd = (spy.shift(-(H + 1)) / spy.shift(-1) - 1) * 100
 fwd = O.shift(-(H + 1)) / O.shift(-1) - 1
 valid = (C > 5) & (dvol.rolling(21).mean() > 5e6) & fwd.notna()
+if PIT:
+    from pit import membership
+    valid &= membership(C, dvol)
 dates = C.index[C.index >= C.index[260]]
 dates = dates[valid.loc[dates].sum(axis=1) > 500]
 reb = dates[::H]
@@ -200,4 +210,4 @@ pd.set_option("display.max_columns", 40)
 num = T.drop(columns=["正年数", "等级"]).astype(float).round(3)
 num["正年数"], num["等级"] = T["正年数"], T["等级"]
 print("\n", num.to_string())
-T.to_csv(f"research/factors/result_{H}d.csv")
+T.to_csv(f"research/factors/result_{H}d{'_pit' if PIT else ''}.csv")
