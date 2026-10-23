@@ -136,5 +136,24 @@ for name, pool in [("全部股价 ≤ $180 的股票里随便挑", d[(d["price"]
         r = pool.assign(u=rng.random(len(pool)))
         res.append(simulate(r.loc[r.groupby("date")["u"].idxmax()], cal[k0], last)[0] / 180 - 1)
     lines.append(f"{name}（200 次）：总收益 5% 分位 {np.percentile(res, 5):+.0%}，中位 {np.median(res):+.0%}，95% 分位 {np.percentile(res, 95):+.0%}")
+lines.append("\n== 6 只看最近：1 年、3 个月、1 个月（$180，整股，一次一只）==")
+d["RSI_neg"] = -d["RSI14"]
+cands = d[d["base"] & (d["离20日线"] < 0) & d["RSI14"].between(30, 50) & (d["price"] <= 180) & d["ret_3%"].notna()]
+allc = d[(d["price"] <= 180) & d["ret_3%"].notna()]
+for w, t0 in WIN.items():
+    k = cal.searchsorted(t0)
+    out = []
+    for name, tp in [("R1 原排序", picks(cap=180)), ("同分按 RSI 最低", picks(cap=180, rank="RSI_neg"))]:
+        cap_end, n_tr, n_win = simulate(tp.copy(), cal[k], last)
+        offs = [simulate(tp.copy(), cal[k + o], last)[0] / 180 - 1 for o in range(min(10, len(cal) - k - 1))]
+        out.append(f"{name} {cap_end / 180 - 1:+.1%}（{n_tr} 笔，赚 {n_win}；换起步日 {min(offs):+.1%}~{max(offs):+.1%}）")
+    for name, pool in [("条件内随便挑", cands), ("全部随便挑", allc)]:
+        res = []
+        for _ in range(200):
+            r = pool.assign(u=rng.random(len(pool)))
+            res.append(simulate(r.loc[r.groupby("date")["u"].idxmax()], cal[k], last)[0] / 180 - 1)
+        out.append(f"{name} 中位 {np.median(res):+.1%}（{np.percentile(res, 5):+.1%}~{np.percentile(res, 95):+.1%}）")
+    spy = spy_c[spy_c.index[-1]] / spy_c[spy_c.index[spy_c.index.searchsorted(t0)]] - 1
+    lines.append(f"{w}（{t0.date()} 起）：" + "；".join(out) + f"；SPY {spy:+.1%}")
 open("research/fullflow/r1_checks.txt", "w").write("\n".join(lines))
 print("\n".join(lines))
