@@ -1,2 +1,3 @@
 out/panel.parquet
+out/panel_daily.parquet
 __pycache__/

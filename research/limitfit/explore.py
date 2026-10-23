@@ -4,7 +4,7 @@ Not a pre-registered test. Data: research/factors/data (S&P 500 + 400, point-in-
 tickers), 2020-10 to 2026-10. Signal at close t (every 5 trading days), buy open t+1, limit sell at entry*(1+n);
 if not filled in 10 trading days (~14 calendar days) keep the order 10 more, then sell at close (R=2).
 Outcome = plan return after costs minus SPY over the same days held. Features are compared within each date.
-Usage: python research/limitfit/explore.py
+Usage: python research/limitfit/explore.py [step] [first_signal_date]
 """
 import sys
 
@@ -15,7 +15,9 @@ sys.path.insert(0, "research/factors")
 from pit import membership  # noqa: E402
 
 D = "research/factors/data"
-STEP, ROUND, R = 5, 10, 2
+STEP = int(sys.argv[1]) if len(sys.argv) > 1 else 5
+FIRST = pd.Timestamp(sys.argv[2]) if len(sys.argv) > 2 else None
+ROUND, R = 10, 2
 L = ROUND * R
 NS = {"2%": 0.02, "3%": 0.03, "5%": 0.05, "7%": 0.07, "10%": 0.10, "1σ": None, "hold": 99.0}  # hold = never fills, sell day 20
 OUT = "research/limitfit/out"
@@ -98,6 +100,8 @@ Oa, Ha, Ca = O.to_numpy(), Hi.to_numpy(), C.ffill().to_numpy()
 SO, SC = spy_o.to_numpy(), spy_c.ffill().to_numpy()
 v20 = vol20.to_numpy()
 start = 260
+if FIRST is not None:
+    start = max(start, cal.searchsorted(FIRST))
 sig = list(range(start, len(cal) - 1 - L, STEP))
 rows = []
 for i in sig:
@@ -125,11 +129,12 @@ for i in sig:
         rec[f"ex_{name}"] = (r - spy)[ok]
         rec[f"hit_{name}"] = hit[ok]
         rec[f"days_{name}"] = days[ok]
+        rec[f"n_{name}"] = nn[ok]
     for f, df in F.items():
         rec[f] = df.iloc[i].to_numpy()[ok]
     rows.append(pd.DataFrame(rec))
 d = pd.concat(rows, ignore_index=True)
 d["date"] = cal[d["i"]]
 d["ticker"] = C.columns[d["tk"]]
-d.to_parquet(f"{OUT}/panel.parquet")
+d.to_parquet(f"{OUT}/panel.parquet" if FIRST is None else f"{OUT}/panel_daily.parquet")
 print("panel", d.shape, d["date"].min().date(), d["date"].max().date(), d["date"].nunique(), "dates")
