@@ -24,8 +24,10 @@ rising = (ma200 > ma200.shift(20)).stack().rename("ma200_up").reset_index().rena
 price = C.stack().rename("price").reset_index().rename(columns={"Date": "date", "Ticker": "ticker"})
 d = d.merge(rising, on=["date", "ticker"], how="left").merge(price, on=["date", "ticker"], how="left")
 
-# earnings: any 8-K item 2.02 filed in the 28 calendar days after the signal (covers the whole holding period)
-e = pd.read_csv("research/fullflow/data/earnings.csv.gz", parse_dates=["filed"])
+# earnings: any announcement in the 28 calendar days after the signal (covers the whole holding period).
+# Yahoo calendar (covers removed tickers too) plus SEC 8-K item 2.02 filing dates.
+e = pd.concat([pd.read_csv(f"research/fullflow/data/{f}", parse_dates=["filed"])[["ticker", "filed"]]
+               for f in ("earnings_yf.csv.gz", "earnings.csv.gz")]).drop_duplicates()
 have_e = set(e["ticker"])
 e = e.sort_values("filed")
 nxt = []

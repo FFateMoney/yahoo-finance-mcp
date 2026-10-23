@@ -2,12 +2,16 @@
 A value counts on a date only after the filing that reported it (the fact's `filed` date).
 Output: research/fullflow/data/scores.parquet with one row per ticker and filing date.
 """
+import os
+
 import numpy as np
 import pandas as pd
 
 OUT = "research/fullflow/data"
 f = pd.read_csv(f"{OUT}/facts.csv.gz", parse_dates=["start", "end", "filed"])
 f = f[f["unit"].isin(["USD", "USD/shares", "shares"])]
+if os.environ.get("ONLY"):  # quick check on a few tickers, e.g. ONLY=AAPL,JNJ
+    f = f[f["ticker"].isin(os.environ["ONLY"].split(","))]
 REV = ["RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues", "SalesRevenueNet"]
 INT = ["InterestExpense", "InterestExpenseNonoperating", "InterestExpenseDebt"]
 
@@ -80,14 +84,33 @@ def instant(g, tags):
     return x.sort_values("filed").drop_duplicates("end", keep="first")[["end", "val", "filed"]]
 
 
-rows = []
-for tk, g in f.groupby("ticker"):
+PRETAX = "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
+
+
+def combine(a, b, sign):
+    """Quarter-by-quarter a + sign * b (same period end), known once both are filed."""
+    m = a.merge(b, on="end", suffixes=("", "_b"))
+    return pd.DataFrame({"end": m["end"], "val": m["val"] + sign * m["val_b"], "filed": m[["filed", "filed_b"]].max(axis=1)})
+
+
+def score_one(item):
+    tk, g = item
+    rows = []
     flows = {}
     for name, tags in [("rev", REV), ("ni", ["NetIncomeLoss"]), ("cfo", ["NetCashProvidedByUsedInOperatingActivities"]),
                        ("capex", ["PaymentsToAcquirePropertyPlantAndEquipment"]), ("opinc", ["OperatingIncomeLoss"]),
-                       ("int", INT), ("eps", ["EarningsPerShareDiluted"])]:
+                       ("int", INT), ("eps", ["EarningsPerShareDiluted"]), ("pretax", [PRETAX]),
+                       ("tax", ["IncomeTaxExpenseBenefit"])]:
         x = pick(g, tags)
         flows[name] = quarters(x) if len(x) else pd.DataFrame(columns=["end", "val", "filed"])
+    # fallbacks for companies that do not use the main tags
+    if not len(flows["ni"]) and len(flows["pretax"]) and len(flows["tax"]):
+        flows["ni"] = combine(flows["pretax"], flows["tax"], -1)
+    if not len(flows["opinc"]) and len(flows["pretax"]):
+        flows["opinc"] = combine(flows["pretax"], flows["int"], +1) if len(flows["int"]) else flows["pretax"]
+    if not len(flows["eps"]):
+        flows["eps"] = flows["ni"]  # growth of net income instead of EPS
+    del flows["pretax"], flows["tax"]
     inst = {k: instant(g, t) for k, t in [("eq", ["StockholdersEquity"]), ("ltd", ["LongTermDebtNoncurrent", "LongTermDebt"]),
                                           ("std", ["DebtCurrent", "LongTermDebtCurrent"]), ("ca", ["AssetsCurrent"]),
                                           ("cl", ["LiabilitiesCurrent"]), ("ta", ["Assets"]), ("tl", ["Liabilities"]),
@@ -96,7 +119,7 @@ for tk, g in f.groupby("ticker"):
     T = {k: ttm(v) for k, v in flows.items() if k != "eps" and len(v)}
     Y = {k: yoy_q(flows[k]) for k in ("rev", "eps") if len(flows[k])}
     if "rev" not in T or "ni" not in T:
-        continue
+        return rows
     # evaluate at every filing date of this company
     for d in sorted(x for x in g["filed"].unique() if x >= pd.Timestamp("2020-06-01")):
         def last(df, col="val"):
@@ -115,6 +138,8 @@ for tk, g in f.groupby("ticker"):
         intexp = last(T["int"]) if "int" in T else np.nan
         eq, ca, cl, ta, tl, re_ = (last(inst[k]) for k in ("eq", "ca", "cl", "ta", "tl", "re"))
         debt = np.nansum([last(inst["ltd"]), last(inst["std"])])
+        if not np.isfinite(tl) and np.isfinite(ta) and np.isfinite(eq):
+            tl = ta - eq
         ry = Y["rev"][Y["rev"]["filed"] <= d].sort_values("end").tail(1) if "rev" in Y else pd.DataFrame()
         ey = Y["eps"][Y["eps"]["filed"] <= d].sort_values("end").tail(1) if "eps" in Y else pd.DataFrame()
         margin = ni / rev
@@ -136,7 +161,14 @@ for tk, g in f.groupby("ticker"):
                      "wc_ta": (ca - cl) / ta if ta else np.nan, "re_ta": re_ / ta if ta else np.nan,
                      "ebit_ta": opinc / ta if ta else np.nan, "sales_ta": rev / ta if ta else np.nan,
                      "tl": tl, "shares": sh.iloc[-1] if len(sh) else np.nan, "period_end": last_end(T["rev"])})
-s = pd.DataFrame(rows)
-s.to_parquet(f"{OUT}/scores.parquet")
-print(s.shape, s["ticker"].nunique(), "tickers")
-print(s.groupby(s["filed"].dt.year)["score"].describe())
+    return rows
+
+
+if __name__ == "__main__":
+    from multiprocessing import Pool
+    with Pool(4) as pool:
+        rows = [r for rs in pool.map(score_one, list(f.groupby("ticker")), chunksize=8) for r in rs]
+    s = pd.DataFrame(rows)
+    s.to_parquet(f"{OUT}/scores.parquet" if not os.environ.get("ONLY") else f"{OUT}/scores_check.parquet")
+    print(s.shape, s["ticker"].nunique(), "tickers")
+    print(s.groupby(s["filed"].dt.year)["score"].describe())
