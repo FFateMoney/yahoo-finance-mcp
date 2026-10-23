@@ -29,20 +29,31 @@ def get(url):
         if r.status_code == 200:
             time.sleep(0.12)
             return r.json()
-        if r.status_code == 404:
+        if r.status_code in (403, 404):
+            if r.status_code == 403:
+                print("HTTP 403", url, flush=True)
             return None
         print("HTTP", r.status_code, url, r.text[:200], flush=True)
         time.sleep(2 ** k)
     return None
 
 
-j = get("https://www.sec.gov/files/company_tickers.json")
+ok = {}
+for url in ["https://data.sec.gov/submissions/CIK0000320193.json",
+            "https://efts.sec.gov/LATEST/search-index?keysTyped=AAPL",
+            "https://www.sec.gov/files/company_tickers.json"]:
+    r = s.get(url, timeout=60)
+    print("probe", r.status_code, url, flush=True)
+    ok[url.split("/")[2]] = r.status_code == 200
+    time.sleep(0.2)
+cik = {}
+j = get("https://www.sec.gov/files/company_tickers.json") if ok["www.sec.gov"] else None
 if j:
     tick = pd.DataFrame(j).T
     cik = dict(zip(tick["ticker"].str.replace(".", "-", regex=False).str.upper(), tick["cik_str"].astype(int)))
-else:  # plain-text fallback: "ticker\tcik" per line
-    txt = s.get("https://www.sec.gov/include/ticker.txt", timeout=60).text
-    cik = {a.replace(".", "-").upper(): int(b) for a, b in (ln.split("\t") for ln in txt.splitlines() if "\t" in ln)}
+w = pd.read_csv("research/factors/data/membership/sp500_table0.csv")  # Wikipedia S&P 500 list carries CIKs
+for t, c in zip(w["Symbol"].str.replace(".", "-", regex=False), w["CIK"]):
+    cik.setdefault(t, int(c))
 print("CIK map", len(cik), flush=True)
 ours = set(pd.read_csv("research/factors/data/constituents.csv")["yf"])
 rem = pd.read_csv("research/factors/data/prices_removed.csv.gz", usecols=["Ticker"])["Ticker"].unique()
@@ -50,8 +61,17 @@ ours |= set(rem)
 ours -= {"SPY", "MDY"}
 mp = pd.DataFrame({"ticker": sorted(ours)})
 mp["cik"] = mp["ticker"].map(cik)
+for k, t in enumerate(mp.loc[mp["cik"].isna(), "ticker"] if ok["efts.sec.gov"] else []):  # look up the rest by ticker in EDGAR full-text search
+    j = get(f"https://efts.sec.gov/LATEST/search-index?keysTyped={t}")
+    for h in (j or {}).get("hits", {}).get("hits", []):
+        src = h.get("_source", {})
+        if t in [x.upper() for x in src.get("tickers", "").split(",")] or src.get("ticker", "").upper() == t:
+            mp.loc[mp["ticker"] == t, "cik"] = int(h["_id"])
+            break
 mp.to_csv(f"{OUT}/cik_map.csv", index=False)
 print("tickers", len(mp), "with CIK", mp["cik"].notna().sum(), flush=True)
+if not ok["data.sec.gov"]:
+    raise SystemExit("data.sec.gov is not reachable from this runner")
 
 earn, facts = [], []
 for k, (t, c) in enumerate(mp.dropna().itertuples(index=False)):
