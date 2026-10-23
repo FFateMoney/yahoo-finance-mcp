@@ -24,6 +24,8 @@ model.to(DEVICE)
 model.eval()
 rows = []
 for tk, d, arr in stocks(px):
+    if len(d) < 20:  # too short for a 20-day image (and negative indices would go out of bounds)
+        continue
     te = np.where(pd.Series(d).isin(want).to_numpy())[0]
     if not len(te):
         continue
