@@ -102,4 +102,6 @@ for w, t0 in W.items():
         parts.append(f"直接持有20天 {hold.mean():+.2%}")
         lines.append(" | ".join(parts))
 open("research/fullflow/out.txt", "w").write("\n".join(lines))
+d["full"] = m & (trend | pull)
+d.to_parquet("research/fullflow/flow_panel.parquet")
 print("\n".join(lines))
