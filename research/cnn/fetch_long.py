@@ -7,7 +7,6 @@ Writes research/cnn/work/prices.parquet (not committed; too large), research/cnn
 """
 import io
 import os
-import re
 import shutil
 import subprocess
 import urllib.request
@@ -21,11 +20,11 @@ UA = {"User-Agent": "Mozilla/5.0"}
 os.makedirs(f"{OUT}/work", exist_ok=True)
 os.makedirs(f"{OUT}/data", exist_ok=True)
 
-# Latest fja05680 daily S&P 500 membership file (file names carry MM-DD-YYYY dates, so sort by parsed date)
+# fja05680 daily S&P 500 membership; "(Updated)" is the maintained file (runs to 2026), the other stops in 2019.
 # (git clone instead of the GitHub API, which rate-limits shared Actions runners)
 subprocess.run(["git", "clone", "-q", "--depth", "1", "https://github.com/fja05680/sp500.git", f"{OUT}/work/fja"], check=True)
 files = [n for n in os.listdir(f"{OUT}/work/fja") if n.startswith("S&P 500 Historical Components") and n.endswith(".csv")]
-latest = max(files, key=lambda n: pd.to_datetime(re.search(r"(\d{2}-\d{2}-\d{4})", n).group(1), format="%m-%d-%Y"))
+latest = next((n for n in files if "Updated" in n), sorted(files)[-1])
 print("fja05680 files:", files, "-> using", latest)
 shutil.copy(f"{OUT}/work/fja/{latest}", f"{OUT}/data/sp500_history.csv")
 
