@@ -16,7 +16,7 @@ import torch.nn as nn
 sys.path.insert(0, os.path.dirname(__file__))
 from data import STEP, H, TRAIN_END, TRAIN_START, WORK, load, stocks  # noqa: E402
 from images import stock_images  # noqa: E402
-from model import CNN20, batches  # noqa: E402
+from model import CNN20, DEVICE, batches  # noqa: E402
 
 SEED = int(sys.argv[1])
 QUICK = "--quick" in sys.argv
@@ -48,7 +48,8 @@ cut = int(0.7 * len(X))
 tr, va = perm[:cut], perm[cut:]
 print(f"train {len(tr)} val {len(va)} images, up share {y.mean():.3f}, built in {time.time() - T0:.0f}s", flush=True)
 
-model = CNN20()
+model = CNN20().to(DEVICE)
+print('device', DEVICE, flush=True)
 opt = torch.optim.Adam(model.parameters(), lr=1e-5)
 lossf = nn.CrossEntropyLoss()
 best, bad, state, last = np.inf, 0, None, 0.0
@@ -61,21 +62,21 @@ for ep in range(2 if QUICK else 20):
     order = tr[torch.randperm(len(tr), generator=torch.Generator().manual_seed(SEED * 100 + ep)).numpy()]
     for j, xb in batches(X, order, 128):
         opt.zero_grad()
-        lossf(model(xb), torch.from_numpy(y[j])).backward()
+        lossf(model(xb), torch.from_numpy(y[j]).to(DEVICE)).backward()
         opt.step()
     model.eval()
     tot, acc = 0.0, 0
     with torch.no_grad():
         for j, xb in batches(X, va, 1024):
             out = model(xb)
-            yb = torch.from_numpy(y[j])
+            yb = torch.from_numpy(y[j]).to(DEVICE)
             tot += lossf(out, yb).item() * len(j)
             acc += (out.argmax(1) == yb).sum().item()
     vl = tot / len(va)
     last = time.time() - t0
     print(f"epoch {ep} val loss {vl:.5f} acc {acc / len(va):.4f} ({last:.0f}s)", flush=True)
     if vl < best - 1e-6:
-        best, bad, state = vl, 0, {k: t.clone() for k, t in model.state_dict().items()}
+        best, bad, state = vl, 0, {k: t.detach().cpu().clone() for k, t in model.state_dict().items()}
     else:
         bad += 1
         if bad >= 2:

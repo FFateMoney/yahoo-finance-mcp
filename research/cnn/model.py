@@ -26,7 +26,10 @@ class CNN20(nn.Module):
         return self.fc(self.conv(x))
 
 
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
 def batches(X, idx, bs):
     for i in range(0, len(idx), bs):
         j = idx[i : i + bs]
-        yield j, torch.from_numpy(X[j]).float().unsqueeze(1)
+        yield j, torch.from_numpy(X[j]).float().unsqueeze(1).to(DEVICE, non_blocking=True)

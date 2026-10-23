@@ -13,13 +13,14 @@ import torch
 sys.path.insert(0, os.path.dirname(__file__))
 from data import WORK, load, stocks  # noqa: E402
 from images import stock_images  # noqa: E402
-from model import CNN20, batches  # noqa: E402
+from model import CNN20, DEVICE, batches  # noqa: E402
 
 SEED, CHUNK, N = (int(a) for a in sys.argv[1:4])
 px, test_dates = load("--quick" in sys.argv)
 want = set(test_dates.iloc[CHUNK::N])
 model = CNN20()
-model.load_state_dict(torch.load(f"{WORK}/model_{SEED}.pt"))
+model.load_state_dict(torch.load(f"{WORK}/model_{SEED}.pt", map_location="cpu"))
+model.to(DEVICE)
 model.eval()
 rows = []
 for tk, d, arr in stocks(px):
@@ -31,7 +32,7 @@ for tk, d, arr in stocks(px):
         continue
     im = im[ok]
     with torch.no_grad():
-        p = np.concatenate([torch.softmax(model(xb), 1)[:, 1].numpy()
+        p = np.concatenate([torch.softmax(model(xb), 1)[:, 1].cpu().numpy()
                             for _, xb in batches(im, np.arange(len(im)), 2048)])
     rows.append(pd.DataFrame({"Date": d[te[ok]], "Ticker": tk, "p": p.astype(np.float32)}))
 out = pd.concat(rows)
