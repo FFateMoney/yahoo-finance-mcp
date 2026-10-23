@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [claude/project-thread-rwrqhj]
-    paths: [research/factors/fetch_universe.py, .github/workflows/fetch-membership.yml]
+    paths: [research/factors/fetch_membership.py, research/factors/fetch_removed.py]
 permissions:
   contents: write
 jobs:
@@ -15,10 +15,10 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install "yfinance>=0.2.50" pandas lxml
-      - run: mkdir -p research/factors/data/membership && python research/factors/fetch_membership.py
+      - run: mkdir -p research/factors/data/membership && python research/factors/fetch_membership.py && python research/factors/fetch_removed.py
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add research/factors/data
-          git commit -m "data: index membership history"
+          git commit -m "data: index membership history and removed-ticker prices"
           git push
