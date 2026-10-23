@@ -9,7 +9,10 @@ import numpy as np
 import pandas as pd
 
 D = "research/factors/data"
-d = pd.read_parquet("research/limitfit/out/panel.parquet")
+import sys
+
+DAILY = "--daily" in sys.argv  # daily signals 2024-09 on (panel_daily) instead of every 5 days since 2021-11
+d = pd.read_parquet("research/limitfit/out/panel_daily.parquet" if DAILY else "research/limitfit/out/panel.parquet")
 cons = pd.read_csv(f"{D}/constituents.csv").set_index("yf")
 d["sector"] = d["ticker"].map(cons["Sector"]).fillna("Unknown")
 d["sp500"] = d["ticker"].map(cons["Universe"]).eq("SP500")
@@ -71,7 +74,7 @@ extra = [("对照：只避开财报", d["no_earn"]), ("对照：只看财务打�
          ("对照：完整流程 + 复核（利息覆盖≥3，Z≥1.81）", m & (trend | pull) & (d["int_cov"] >= 3) & (d["altman_z"] >= 1.81))]
 
 
-def nw_t(x, lag=4):
+def nw_t(x, lag=20 if DAILY else 4):
     x = pd.Series(x).dropna()
     e_ = (x - x.mean()).to_numpy()
     T = len(e_)
@@ -82,8 +85,9 @@ def nw_t(x, lag=4):
 
 
 last = d["date"].max()
-W = {"全部（2021-11 起）": d["date"].min(), "2年": last - pd.DateOffset(years=2), "1年": last - pd.DateOffset(years=1)}
-lines = [f"信号 {d['date'].min().date()} 至 {last.date()}，每 5 个交易日一次；收益扣交易成本",
+W = ({"1年": last - pd.DateOffset(years=1), "3个月": last - pd.DateOffset(months=3), "1个月": last - pd.DateOffset(months=1)}
+     if DAILY else {"全部（2021-11 起）": d["date"].min(), "2年": last - pd.DateOffset(years=2), "1年": last - pd.DateOffset(years=1)})
+lines = [f"信号 {d['date'].min().date()} 至 {last.date()}，{'每个交易日' if DAILY else '每 5 个交易日'}一次；收益扣交易成本",
          f"有财报日期数据的股票：{d.loc[d['earn_data'], 'ticker'].nunique()} / {d['ticker'].nunique()}；"
          f"有财务打分的行：{d['score'].notna().mean():.0%}"]
 all_by_date = {n: d.groupby("date")[f"ret_{n}"].mean() for n in ["3%", "5%", "hold"]}
@@ -101,7 +105,7 @@ for w, t0 in W.items():
         hold = s.groupby("date")["ret_hold"].mean()
         parts.append(f"直接持有20天 {hold.mean():+.2%}")
         lines.append(" | ".join(parts))
-open("research/fullflow/out.txt", "w").write("\n".join(lines))
+open("research/fullflow/out_daily.txt" if DAILY else "research/fullflow/out.txt", "w").write("\n".join(lines))
 d["full"] = m & (trend | pull)
-d.to_parquet("research/fullflow/flow_panel.parquet")
+d.to_parquet("research/fullflow/flow_panel_daily.parquet" if DAILY else "research/fullflow/flow_panel.parquet")
 print("\n".join(lines))
