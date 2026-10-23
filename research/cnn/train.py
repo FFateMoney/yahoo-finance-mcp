@@ -29,6 +29,8 @@ rng = np.random.default_rng(0)  # same training sample and split for every seed;
 X, y = [], []
 for tk, d, arr in stocks(px):
     c = arr[3]
+    if len(d) <= H + 20:
+        continue
     lab_ok = np.zeros(len(d), bool)
     lab_ok[: len(d) - H] = d[H:] <= np.datetime64(TRAIN_END)
     cand = np.where((d >= np.datetime64(TRAIN_START)) & lab_ok)[0]
