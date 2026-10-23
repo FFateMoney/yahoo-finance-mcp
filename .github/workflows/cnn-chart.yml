@@ -1,0 +1,84 @@
+name: cnn-chart
+# Chart-image CNN (F127): fetch long price history, train 5 models, predict 2011+, evaluate, commit results.
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/project-thread-60g7gc]
+    paths: [research/cnn/RUN]
+permissions:
+  contents: write
+env:
+  PIP: pip install pandas pyarrow numpy
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: $PIP "yfinance>=0.2.50" lxml
+      - run: python research/cnn/fetch_long.py
+      - uses: actions/upload-artifact@v4
+        with: {name: prices, path: research/cnn/work/prices.parquet, retention-days: 7}
+      - uses: actions/upload-artifact@v4
+        with: {name: changes, path: research/cnn/data/sp500_changes.csv, retention-days: 7}
+  train:
+    needs: fetch
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix: {seed: [1, 2, 3, 4, 5]}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: $PIP && pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - uses: actions/download-artifact@v4
+        with: {name: prices, path: research/cnn/work}
+      - run: python research/cnn/train.py ${{ matrix.seed }}
+        env: {TRAIN_BUDGET_MIN: "290"}
+      - uses: actions/upload-artifact@v4
+        with: {name: "model-${{ matrix.seed }}", path: "research/cnn/work/model_${{ matrix.seed }}.pt", retention-days: 7}
+  predict:
+    needs: train
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix: {seed: [1, 2, 3, 4, 5], chunk: [0, 1, 2, 3]}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: $PIP && pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - uses: actions/download-artifact@v4
+        with: {name: prices, path: research/cnn/work}
+      - uses: actions/download-artifact@v4
+        with: {name: "model-${{ matrix.seed }}", path: research/cnn/work}
+      - run: python research/cnn/predict.py ${{ matrix.seed }} ${{ matrix.chunk }} 4
+      - uses: actions/upload-artifact@v4
+        with: {name: "pred-${{ matrix.seed }}-${{ matrix.chunk }}", path: "research/cnn/work/pred_*.parquet", retention-days: 7}
+  evaluate:
+    needs: [fetch, predict]
+    if: always() && needs.fetch.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: $PIP
+      - uses: actions/download-artifact@v4
+        with: {name: prices, path: research/cnn/work}
+      - uses: actions/download-artifact@v4
+        with: {name: changes, path: research/cnn/data}
+      - uses: actions/download-artifact@v4
+        with: {pattern: "pred-*", path: research/cnn/work, merge-multiple: true}
+      - run: python research/cnn/evaluate_cnn.py | tee research/cnn/out_eval.txt
+      - run: |
+          mkdir -p research/cnn/out && mv research/cnn/out_eval.txt research/cnn/out/output.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add research/cnn/out research/cnn/data/sp500_changes.csv
+          git commit -m "data: CNN chart-signal evaluation results"
+          git pull --rebase && git push
