@@ -4,6 +4,8 @@
   not filled within 20 trading days (~28 days)        -> 0
 Payoffs compared: within 14 days only, within 28 days, and per trading day held (payoff / days, unfilled = 20 days).
 Correlation = within-date Spearman rank IC of each feature with the payoff, averaged over recent windows.
+Real versions ("真实28天", "真实每天"): unfilled positions are valued at the day-20 close instead of 0
+(no trading costs in either, so costs do not differ between S&P 500 and 400 names).
 Usage: python research/limitfit/touch_ic.py   (run `explore.py 1 2024-09-01` first)
 """
 import numpy as np
@@ -15,12 +17,17 @@ FEATS = [c for c in d.columns if not c.startswith(("ret_", "ex_", "hit_", "days_
 last = d["date"].max()
 WIN = {"3个月": last - pd.DateOffset(months=3), "今年": pd.Timestamp("2026-01-01"),
        "1年": last - pd.DateOffset(years=1), "2年": last - pd.DateOffset(years=2)}
-PAY = {"14天内": {}, "28天内": {}, "每天": {}}
+cons = pd.read_csv("research/factors/data/constituents.csv").set_index("yf")
+cost = d["ticker"].map(cons["Universe"].map({"SP500": 0.0005, "SP400": 0.001})).fillna(0.001)
+PAY = {"14天内": {}, "28天内": {}, "每天": {}, "真实28天": {}, "真实每天": {}}
 for n in NS:
     hit, days, nn = d[f"hit_{n}"], d[f"days_{n}"], d[f"n_{n}"]
     PAY["14天内"][n] = (hit & (days <= 10)) * nn
     PAY["28天内"][n] = hit * nn
     PAY["每天"][n] = hit * nn / days
+    real = (d[f"ret_{n}"] + 2 * cost).where(~hit, nn)  # filled: exactly n; unfilled: day-20 close vs entry
+    PAY["真实28天"][n] = real
+    PAY["真实每天"][n] = real / days
 
 
 def nw_t(x, lag=20):  # daily signals with 20-day outcomes overlap
@@ -55,7 +62,9 @@ for w, t0 in WIN.items():
         lines.append(f"  n={n:>3}: 14天内达到 {(d.loc[m, f'hit_{n}'] & (d.loc[m, f'days_{n}'] <= 10)).mean():.0%}，"
                      f"28天内达到 {d.loc[m, f'hit_{n}'].mean():.0%}；期望 14天 {PAY['14天内'][n][m].mean():.2%}，"
                      f"28天 {PAY['28天内'][n][m].mean():.2%}，每交易日 {PAY['每天'][n][m].mean():.3%}；"
-                     f"真实（没成交按市价）{d.loc[m, f'ret_{n}'].mean():+.2%}")
+                     f"真实 28天 {PAY['真实28天'][n][m].mean():+.2%}，真实每交易日 {PAY['真实每天'][n][m].mean():+.3%}，"
+                     f"没成交平均 {PAY['真实28天'][n][m][~d.loc[m, f'hit_{n}']].mean():+.1%}，"
+                     f"同期直接持有 {(d.loc[m, 'ret_hold'] + 2 * cost[m]).mean():+.2%}")
 
 rows = []
 for p, by_n in PAY.items():
