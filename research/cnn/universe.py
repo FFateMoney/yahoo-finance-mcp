@@ -1,6 +1,6 @@
 """Point-in-time S&P 500 / S&P 400 membership on a daily calendar, 2000 on.
 
-S&P 500: fja05680 history through 2019-01-11, then Wikipedia's change table. Tickers with a
+S&P 500: latest fja05680 daily history, then Wikipedia's change table for any later dates. Tickers with a
 "-YYYYMM" suffix in fja are delisted/renamed; they count as members (for coverage) but have no prices.
 S&P 400: research/factors/pit.py logic, applied only to tickers that are current S&P 400 members or
 appear in the S&P 400 change table (reliable from 2012).
@@ -21,9 +21,14 @@ def _date(s):
 
 def sp500_sets(cal):
     """Dict date -> set of member symbols (Yahoo style), for each date in cal."""
-    fja = pd.read_csv(f"{F}/membership/sp500_history_fja05680.csv", parse_dates=["date"]).sort_values("date")
+    fja = pd.read_csv("research/cnn/data/sp500_history.csv", parse_dates=["date"]).sort_values("date")
     snaps = [(d, {s.replace(".", "-") for s in t.split(",")}) for d, t in zip(fja["date"], fja["tickers"])]
-    ch = pd.read_csv("research/cnn/data/sp500_changes.csv")
+    try:
+        ch = pd.read_csv("research/cnn/data/sp500_changes.csv")
+    except pd.errors.EmptyDataError:
+        ch = pd.DataFrame()
+    if ch.empty:
+        ch = pd.DataFrame({"Date": [], "Added | Ticker": [], "Removed | Ticker": []})
     dcol = next(c for c in ch.columns if c.startswith("Date") or c.startswith("Effective"))
     add = next(c for c in ch.columns if "Added" in c and "Ticker" in c)
     rem = next(c for c in ch.columns if "Removed" in c and "Ticker" in c)
