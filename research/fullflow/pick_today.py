@@ -4,6 +4,7 @@ no IT / communication, above a rising 200-day average, below the 20-day average 
 Ranked by score, then past +3% touch rate (doc rule) — also shown: ties by lowest RSI.
 Top 5 (2026-10-24): score then lowest RSI; if fewer than 5 pass, fill from stocks that reported in the last 21 trading days
 with a calm reaction (close the day after vs the close before within ±5%), everything else unchanged.
+Step 4 (2026-10-24): IT / communication no longer excluded; the old-version 7c pick is printed too.
 Step 7c (2026-10-24, trial): count trap traits (among the 2 lowest of the five on each of 7 features), drop the 4 with most, buy the one left.
 Usage: python research/fullflow/pick_today.py [cap] [as-of date YYYY-MM-DD]
 """
@@ -14,7 +15,7 @@ import pandas as pd
 
 CAP = float(sys.argv[1]) if len(sys.argv) > 1 else 180.0
 import os
-NOSEC = [] if os.environ.get("KEEP_TECH") else ["Information Technology", "Communication Services"]  # KEEP_TECH=1: no sector rule
+NOSEC = ["Information Technology", "Communication Services"] if os.environ.get("EXCL_TECH") else []  # since 2026-10-24 no sector rule; EXCL_TECH=1: old version
 D = "research/factors/data"
 cons = pd.read_csv(f"{D}/constituents.csv").set_index("yf")
 px = pd.read_csv(f"{D}/prices.csv.gz", parse_dates=["Date"])
@@ -101,3 +102,9 @@ near = x[acc.index.isin(x.index) & steps["价格/成交额"] & x["no_earn"] & (x
          & steps["+200日线上方且上升"].fillna(False).astype(bool) & ~m]
 print("\n只差“回调”条件的（等它们跌回 20 日线下方、RSI 30-50）：")
 print(near[["sector", "price", "score", "rsi", "ma20", "touch", "next_earn"]].round(3).to_string())
+
+if not os.environ.get("EXCL_TECH") and len(top):
+    import subprocess
+    o = subprocess.run([sys.executable, __file__, *sys.argv[1:]], env={**os.environ, "EXCL_TECH": "1"}, capture_output=True, text=True).stdout
+    pick = [ln.split()[0] for ln in o.splitlines() if "← 7c" in ln]
+    print(f"\n对比（旧版，排除科技、通信时 7c 会选）：{pick[0] if pick else '没有'}")
