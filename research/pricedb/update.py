@@ -70,13 +70,17 @@ def refresh_membership():
     t5 = wiki_tables("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies")
     t4 = wiki_tables("https://en.wikipedia.org/wiki/List_of_S%26P_400_companies")
     cur5 = pick(t5, ["Symbol", "GICS Sector"])
-    ch5 = pick(t5, ["Added", "Removed"])
     cur4 = pick(t4, ["Symbol", "GICS Sector"])
-    ch4 = pick(t4, ["Added", "Removed"])
     cur5.to_csv(f"{M}/sp500_current.csv", index=False)
-    ch5.to_csv(f"{M}/sp500_changes.csv", index=False)
     cur4.to_csv(f"{M}/sp400_current.csv", index=False)
-    ch4.to_csv(f"{M}/sp400_changes.csv", index=False)
+    changes = []
+    for key, t in (("sp500", t5), ("sp400", t4)):
+        try:  # the S&P 500 page has not carried its change table lately; fja05680 covers that history
+            ch = pick(t, ["Added", "Removed"])
+            ch.to_csv(f"{M}/{key}_changes.csv", index=False)
+            changes.append(ch)
+        except RuntimeError as e:
+            print(key, "change table not found:", e)
     cons = pd.concat([cur5[["Symbol", "GICS Sector"]].assign(Universe="SP500"),
                       cur4[["Symbol", "GICS Sector"]].assign(Universe="SP400")]).drop_duplicates("Symbol")
     cons = cons.rename(columns={"GICS Sector": "Sector"})
@@ -97,7 +101,7 @@ def refresh_membership():
         shutil.rmtree(tmp, ignore_errors=True)
 
     names = set(cons["Symbol"])
-    for t in (ch5, ch4):
+    for t in changes:
         for c in t.columns:
             if "Ticker" in c:
                 names |= set(t[c].dropna().astype(str))
