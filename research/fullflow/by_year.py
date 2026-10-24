@@ -8,7 +8,7 @@ exec(open("research/fullflow/full_set.py", encoding="utf-8").read().split("lines
 YEARS = [2023, 2024, 2025]
 recent = d["since"] <= 21
 primary = picks(recent, 180, "RSI_neg")
-fallback = picks(~recent | ~(d["reaction"].abs() <= 0.05), 180, "RSI_neg")
+fallback = picks(~recent | ~(d["reaction"].abs() <= 0.05) | (d["since"] < 1), 180, "RSI_neg")  # since >= 1: reaction known
 both = pd.concat([primary, fallback[~fallback["date"].isin(primary["date"])]]).sort_values("date")
 touch = picks(recent, 180, "touch")
 rng = np.random.default_rng(0)

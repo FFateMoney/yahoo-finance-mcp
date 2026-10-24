@@ -15,7 +15,7 @@ def topn(skip, n):
 
 recent = d["since"] <= 21
 p1 = topn(recent, 5).assign(src="main")
-fb = topn(~recent | ~(d["reaction"].abs() <= 0.05), 5).assign(src="fallback")
+fb = topn(~recent | ~(d["reaction"].abs() <= 0.05) | (d["since"] < 1), 5).assign(src="fallback")  # since >= 1: reaction known
 fb = fb[~fb.set_index(["date", "ticker"]).index.isin(p1.set_index(["date", "ticker"]).index)]
 allp = pd.concat([p1, fb])
 allp["rank"] = allp.groupby("date").cumcount() + (allp["src"] == "fallback") * 100

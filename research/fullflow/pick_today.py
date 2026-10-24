@@ -2,6 +2,8 @@
 S&P 500/400 now, price > $5 and <= CAP, 21-day dollar volume > $5M, no earnings within ±1 month, score >= 8,
 no IT / communication, above a rising 200-day average, below the 20-day average with RSI14 30-50.
 Ranked by score, then past +3% touch rate (doc rule) — also shown: ties by lowest RSI.
+Top 5 (2026-10-24): score then lowest RSI; if fewer than 5 pass, fill from stocks that reported in the last 21 trading days
+with a calm reaction (close the day after vs the close before within ±5%), everything else unchanged. Jasper picks one.
 Usage: python research/fullflow/pick_today.py [cap] [as-of date YYYY-MM-DD]
 """
 import sys
@@ -37,6 +39,12 @@ next_e = e[e["filed"] > t].groupby("ticker")["filed"].min()
 x["last_earn"], x["next_earn"] = last_e, next_e
 x["next_earn"] = x["next_earn"].fillna(x["last_earn"] + pd.Timedelta(days=91))  # not announced yet: estimate
 x["no_earn"] = (x["last_earn"] < past21) & ((x["next_earn"] - t).dt.days > 28)
+k_last = C.index.searchsorted(x["last_earn"].fillna(pd.Timestamp("1900-01-01")))
+since = len(C.index) - 1 - k_last
+pre = np.array([C[c].iat[k - 1] if c in C and 1 <= k < len(C.index) else np.nan for c, k in zip(x.index, k_last)])
+post = np.array([C[c].iat[k + 1] if c in C and k + 1 < len(C.index) else np.nan for c, k in zip(x.index, k_last)])
+x["reaction"] = np.where(since >= 1, post / pre - 1, np.nan)
+x["calm_recent"] = (since >= 1) & (since <= 21) & (np.abs(x["reaction"]) <= 0.05) & ((x["next_earn"] - t).dt.days > 28)
 
 sc = pd.read_parquet("research/fullflow/data/scores.parquet")
 sc = sc[sc["filed"] <= t].sort_values("filed").groupby("ticker").last()
@@ -58,6 +66,17 @@ for k, v in steps.items():
     acc &= v.fillna(False).astype(bool)
     print(f"{k}: {int(acc.sum())}")
 print(q.sort_values("doc_rank")[cols].to_string() if len(q) else "今天没有符合全部条件的股票")
+rest = ((x["price"] > 5) & (x["price"] <= CAP) & (x["dvol"] > 5e6) & (x["score"] >= 8)
+        & ~x["sector"].isin(["Information Technology", "Communication Services"]) & (x["ma200"] > 0) & x["ma200_up"]
+        & (x["ma20"] < 0) & x["rsi"].between(30, 50))
+top = q.assign(src="主规则", s=q["score"] * 10 - q["rsi"]).sort_values("s", ascending=False).head(5)
+if len(top) < 5:
+    fb = x[rest & x["calm_recent"] & ~x.index.isin(top.index)].copy()
+    fb = fb.assign(src="补选：刚发完财报、反应平稳", s=fb["score"] * 10 - fb["rsi"]).sort_values("s", ascending=False)
+    top = pd.concat([top, fb.head(5 - len(top))])
+print("\n前五（财务分、RSI 最低优先；不够 5 只用财报平稳的补）—— 从这五只里人工挑一只：")
+print(top[["src", "sector", "price", "score", "rsi", "ma20", "ma200", "touch", "last_earn", "reaction"]].round(3).to_string()
+      if len(top) else "没有")
 near = x[acc.index.isin(x.index) & steps["价格/成交额"] & x["no_earn"] & (x["score"] >= 8) & steps["+排除科技通信"]
          & steps["+200日线上方且上升"].fillna(False).astype(bool) & ~m]
 print("\n只差“回调”条件的（等它们跌回 20 日线下方、RSI 30-50）：")

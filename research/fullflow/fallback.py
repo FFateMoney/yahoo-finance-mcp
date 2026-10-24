@@ -8,7 +8,7 @@ exec(open("research/fullflow/full_set.py", encoding="utf-8").read().split("lines
 
 recent = d["since"] <= 21
 primary = picks(recent, 180, "RSI_neg")
-fb_skip = ~recent | ~(d["reaction"].abs() <= 0.05)
+fb_skip = ~recent | ~(d["reaction"].abs() <= 0.05) | (d["since"] < 1)  # since >= 1: the reaction (next-day close) is known
 fallback = picks(fb_skip, 180, "RSI_neg")
 both = pd.concat([primary, fallback[~fallback["date"].isin(primary["date"])]]).sort_values("date")
 
