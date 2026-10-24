@@ -21,7 +21,7 @@ SINCE = NOW - timedelta(days=DAYS)
 # words worth a second look before buying
 RISK = re.compile(r"lawsuit|sues|sued|class action|investigat|probe|subpoena|fraud|restat|downgrad|cut[s]? (?:to|price target)|"
                   r"guidance (?:cut|lower)|lowers? (?:guidance|outlook)|miss|resign|steps down|ousted|departure|layoff|recall|"
-                  r"offering|dilut|delist|bankrupt|default|short seller|halt|antitrust|breach|hack|outage|warning", re.I)
+                  r"offering|dilut|delist|bankrupt|default|short seller|halt|antitrust|breach|hack|outage|warning|sell-?off|plunge|tumble|slump|rout", re.I)
 EVENT = re.compile(r"acqui|merger|buyout|takeover|deal|upgrad|raises? (?:guidance|outlook)|buyback|repurchase|dividend|"
                    r"earnings|results|beat|partnership|contract|activist|stake|index", re.I)
 ITEMS = {"1.01": "签重大协议", "1.02": "终止重大协议", "1.03": "破产", "2.01": "完成收购/处置", "2.02": "业绩公告",
@@ -97,6 +97,25 @@ def sec_filings(cik):
     return out, n4
 
 
+# sector-wide news that moves a whole group (e.g. an AI model launch hitting software / chip stocks); one set per sector
+THEMES = {
+    "Information Technology": ['"tech stocks"', '"AI stocks"', '"software stocks"', '"chip stocks" OR semiconductor stocks',
+                               'OpenAI OR Anthropic OR Gemini OR DeepSeek new model', 'Nvidia stock'],
+    "Communication Services": ['"tech stocks"', '"AI stocks"', 'OpenAI OR Anthropic OR Gemini OR DeepSeek new model', '"media stocks"'],
+    "Financials": ['"bank stocks"', '"Federal Reserve" rates', '"asset managers" stocks', '"financial stocks"'],
+    "Health Care": ['"healthcare stocks"', '"biotech stocks"', 'FDA drug pricing'],
+    "Energy": ['"oil prices"', '"energy stocks"', 'OPEC'],
+    "Consumer Discretionary": ['"retail stocks"', '"consumer spending"', 'tariffs consumer'],
+    "Consumer Staples": ['"consumer staples" stocks', '"consumer spending"'],
+    "Industrials": ['"industrial stocks"', 'tariffs manufacturing', '"defense stocks"'],
+    "Materials": ['"materials stocks"', '"copper prices" OR "steel prices"'],
+    "Real Estate": ['REIT stocks', '"mortgage rates"'],
+    "Utilities": ['"utility stocks"', '"power demand" data centers'],
+}
+ALL = ['"stock market" today', 'S&P 500 sell-off OR rally']
+THEME_DAYS = 7
+
+
 def norm(t):
     return re.sub(r"\W+", " ", re.sub(r" - [^-]+$", "", t or "")).lower().strip()[:80]
 
@@ -138,11 +157,39 @@ for t in TICKERS:
     res[t] = r
     time.sleep(1)
 
+sectors = {}
+cons = f"{HERE}/../factors/data/constituents.csv"
+if os.path.exists(cons):
+    for l in list(open(cons))[1:]:
+        sym, sector, _, yf = l.strip().split(",")[:4]
+        if yf in TICKERS:
+            sectors.setdefault(sector, []).append(yf)
+themes = {}
+for sector, ts in [("全市场", TICKERS)] + sorted(sectors.items()):
+    seen, keep = set(), []
+    for q in (ALL if sector == "全市场" else THEMES.get(sector, [])):
+        try:
+            arts = google(q)
+        except Exception as e:
+            arts = []; print("theme", q, e)
+        time.sleep(1)
+        for a in arts:
+            k = norm(a["title"])
+            if k in seen or a["date"] < (NOW - timedelta(days=THEME_DAYS)).isoformat():
+                continue
+            seen.add(k)
+            a["flag"] = "risk" if RISK.search(a["title"]) else ("event" if EVENT.search(a["title"]) else "")
+            keep.append(a)
+    themes[sector] = {"tickers": ts, "articles": sorted(keep, key=lambda a: a["date"], reverse=True)}
+res["_themes"] = themes
+
 os.makedirs(f"{HERE}/out", exist_ok=True)
 stamp = NOW.strftime("%Y-%m-%d")
 json.dump(res, open(f"{HERE}/out/news_{stamp}.json", "w"), ensure_ascii=False, indent=1)
 L = [f"# 候选股新闻与公告 {stamp}（近 {DAYS} 天）", "", "⚠ = 标题含风险词（诉讼、调查、下调、高管离职、增发等），★ = 重大事件（并购、上调、回购、业绩等）。", ""]
 for t, r in res.items():
+    if t == "_themes":
+        continue
     risk = sum(a["flag"] == "risk" for a in r["articles"])
     L += [f"## {t}  {r['name']}", f"新闻 {len(r['articles'])} 条，其中风险词 {risk} 条；SEC 公告 {len(r['filings'])} 份；内部人交易 Form 4 {r['form4']} 份", ""]
     if r["filings"]:
@@ -155,6 +202,13 @@ for t, r in res.items():
         L.append(f"- {a['date'][:10]} {mark}{a['title']} — {a['source']} [{a['via']}]({a['url']})")
     if r["errors"]:
         L += ["", "抓取出错：" + "；".join(r["errors"])]
+    L.append("")
+L += [f"# 行业与大盘新闻（近 {THEME_DAYS} 天）", "", "整个行业一起涨跌的消息（如 AI 新模型发布、芯片出口限制、利率），每个行业一组。", ""]
+for sector, g in themes.items():
+    L += [f"## {sector}（{' '.join(g['tickers'])}）", ""]
+    for a in g["articles"][:30]:
+        mark = {"risk": "⚠ ", "event": "★ "}.get(a["flag"], "")
+        L.append(f"- {a['date'][:10]} {mark}{a['title']} — {a['source']} [{a['via']}]({a['url']})")
     L.append("")
 open(f"{HERE}/out/news_{stamp}.md", "w").write("\n".join(L))
 print("\n".join(L))
