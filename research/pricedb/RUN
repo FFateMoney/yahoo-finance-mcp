@@ -1,0 +1,2 @@
+--no-earnings
+# First line = arguments for update.py (may be empty). Edit and push this file to run the pricedb-update workflow.
