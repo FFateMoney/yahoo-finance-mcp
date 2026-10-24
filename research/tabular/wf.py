@@ -19,9 +19,10 @@ def load_panel(path=None):
         P = {k: z[k] for k in z.files}
     else:  # split copy (each part < 30 MB) made by split_panel.py
         P = {}
-        for part in ("panel_X.npz", "panel_meta.npz"):
-            z = np.load(os.path.join(os.path.dirname(path), part))
-            P.update({k: z[k] for k in z.files})
+        d = os.path.dirname(path)
+        z = np.load(f"{d}/panel_meta.npz")
+        P.update({k: z[k] for k in z.files})
+        P["X"] = np.concatenate([np.load(f"{d}/panel_X{i}.npz")["X"] for i in (1, 2)])
     X = P["X"].astype(np.float32)
     X[P["X"] == 255] = np.nan
     P["Xf"] = X / 254.0  # 0..1 percentile, NaN = missing
