@@ -33,7 +33,9 @@ pos = pd.Series(np.arange(len(cal)), index=cal)
 d["since"] = pos.reindex(d["date"]).values - pos.reindex(d["edate"]).fillna(-10**6).values  # trading days since last report
 d["below_pre"] = d["price"] < d["pre_close"]
 
-d["base"] = (d["no_earn"] & (d["score"] >= 8) & ~d["sector"].isin(["Information Technology", "Communication Services"])
+import os
+NOSEC = [] if os.environ.get("KEEP_TECH") else ["Information Technology", "Communication Services"]  # KEEP_TECH=1: no sector rule
+d["base"] = (d["no_earn"] & (d["score"] >= 8) & ~d["sector"].isin(NOSEC)
              & (d["离200日线"] > 0) & d["ma200_up"].fillna(False).astype(bool) & (d["离20日线"] < 0) & d["RSI14"].between(30, 50))
 d["touch"] = d["过去触及率(+3%,10日)"]
 d["RSI_neg"] = -d["RSI14"]

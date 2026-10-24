@@ -35,6 +35,12 @@ for half, m in (("训练年", f["train"]), ("最近一年", ~f["train"])):
                              折合每20日=f"{keep[rr].mean() / keep[hd].mean() * 20:+.2%}", 被套=f"{keep['被套'].mean():.0%}",
                              亏钱=f"{(keep[rr] <= 0).mean():.0%}", 比五只=f"{diff.mean():+.2%}",
                              分块t=round(blk.mean() / blk.std() * np.sqrt(len(blk)), 2) if K else np.nan))
+        k1 = x[x["被排序"] > 4]
+        tech = k1["sector"].isin(["Information Technology", "Communication Services"])
+        out.append(f"  {ex}：7c 选的那只里科技/通信占 {tech.mean():.0%}，它们每笔 {k1.loc[tech, rr].mean():+.2%}，其他 {k1.loc[~tech, rr].mean():+.2%}；中位数 {k1[rr].median():+.2%}；去掉最好的 5 笔后平均 {k1[rr].sort_values().iloc[:-5].mean():+.2%}")
         out.append(f"  {ex}卖法（同期拿 SPY 20 个交易日每笔约 {spy_[ex]:+.2%}）\n" + pd.DataFrame(rows).to_string(index=False))
-open("research/blindtest/trap3.txt", "w").write("\n".join(out))
+import os
+out.insert(0, "不排除科技、通信" if os.environ.get("KEEP_TECH") else "排除科技、通信（现行）")
+out.insert(1, "科技/通信在五只里占比：" + ", ".join(f"{h} {f.loc[m_, 'sector'].isin(['Information Technology', 'Communication Services']).mean():.0%}" for h, m_ in (("训练年", f["train"]), ("最近一年", ~f["train"]))))
+open("research/blindtest/trap3" + ("_keep_tech" if os.environ.get("KEEP_TECH") else "") + ".txt", "w").write("\n".join(out))
 print("\n".join(out))

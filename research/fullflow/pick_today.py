@@ -13,6 +13,8 @@ import numpy as np
 import pandas as pd
 
 CAP = float(sys.argv[1]) if len(sys.argv) > 1 else 180.0
+import os
+NOSEC = [] if os.environ.get("KEEP_TECH") else ["Information Technology", "Communication Services"]  # KEEP_TECH=1: no sector rule
 D = "research/factors/data"
 cons = pd.read_csv(f"{D}/constituents.csv").set_index("yf")
 px = pd.read_csv(f"{D}/prices.csv.gz", parse_dates=["Date"])
@@ -52,7 +54,7 @@ sc = sc[sc["filed"] <= t].sort_values("filed").groupby("ticker").last()
 x["score"] = sc["score"].where((t - sc["filed"]).dt.days <= 200)
 
 m = ((x["price"] > 5) & (x["price"] <= CAP) & (x["dvol"] > 5e6) & x["no_earn"] & (x["score"] >= 8)
-     & ~x["sector"].isin(["Information Technology", "Communication Services"]) & (x["ma200"] > 0) & x["ma200_up"]
+     & ~x["sector"].isin(NOSEC) & (x["ma200"] > 0) & x["ma200_up"]
      & (x["ma20"] < 0) & x["rsi"].between(30, 50))
 q = x[m].copy()
 q["doc_rank"] = (q["score"] * 10 + q["touch"]).rank(ascending=False)
@@ -60,7 +62,7 @@ q["rsi_rank"] = (q["score"] * 10 - q["rsi"]).rank(ascending=False)
 cols = ["sector", "price", "score", "rsi", "ma20", "ma200", "touch", "last_earn", "next_earn", "doc_rank", "rsi_rank"]
 print(f"数据日期 {t.date()}，股价上限 ${CAP:.0f}，通过全部条件 {len(q)} 只")
 steps = {"价格/成交额": (x["price"] > 5) & (x["price"] <= CAP) & (x["dvol"] > 5e6), "+财报前后1个月": x["no_earn"],
-         "+财务分>=8": x["score"] >= 8, "+排除科技通信": ~x["sector"].isin(["Information Technology", "Communication Services"]),
+         "+财务分>=8": x["score"] >= 8, "+排除科技通信": ~x["sector"].isin(NOSEC),
          "+200日线上方且上升": (x["ma200"] > 0) & x["ma200_up"], "+20日线下方且RSI 30-50": (x["ma20"] < 0) & x["rsi"].between(30, 50)}
 acc = pd.Series(True, index=x.index)
 for k, v in steps.items():
@@ -68,7 +70,7 @@ for k, v in steps.items():
     print(f"{k}: {int(acc.sum())}")
 print(q.sort_values("doc_rank")[cols].to_string() if len(q) else "今天没有符合全部条件的股票")
 rest = ((x["price"] > 5) & (x["price"] <= CAP) & (x["dvol"] > 5e6) & (x["score"] >= 8)
-        & ~x["sector"].isin(["Information Technology", "Communication Services"]) & (x["ma200"] > 0) & x["ma200_up"]
+        & ~x["sector"].isin(NOSEC) & (x["ma200"] > 0) & x["ma200_up"]
         & (x["ma20"] < 0) & x["rsi"].between(30, 50))
 top = q.assign(src="主规则", s=q["score"] * 10 - q["rsi"]).sort_values("s", ascending=False).head(5)
 if len(top) < 5:
