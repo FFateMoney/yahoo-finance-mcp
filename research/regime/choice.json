@@ -1,0 +1,7 @@
+{
+ "rate_shock": "tlt_lo",
+ "v_rebound": "beta_hi",
+ "bear": "beta_lo",
+ "narrow_bull": "big",
+ "broad_bull": "beta_hi"
+}
