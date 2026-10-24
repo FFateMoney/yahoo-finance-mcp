@@ -86,7 +86,7 @@ def sec_filings(cik):
     for i, form in enumerate(s["form"]):
         d = s["filingDate"][i]
         if d < str((NOW - timedelta(days=max(DAYS, 30))).date()):
-            break
+            continue
         if form in ("4", "3", "144", "424B2", "FWP"):  # insider forms / note offerings are noise here (Form 4 counted below)
             continue
         items = [f"{x} {ITEMS.get(x, '')}" for x in s["items"][i].split(",") if x and x != "9.01"]
@@ -111,17 +111,21 @@ for t in TICKERS:
     name = alias.get(t) or (clean_name(info["title"]) if info else t)
     r = {"ticker": t, "name": name, "sec_title": info["title"] if info else None, "errors": []}
     arts = []
+    words = [w for w in re.findall(r"[A-Za-z0-9&']+", name) if len(w) > 2][:1] or [name]
+    rel = re.compile(r"\b(" + "|".join(map(re.escape, words)) + r")\b", re.I)
+    rel_t = re.compile(r"(?<![A-Za-z])\$?" + re.escape(t) + r"(?![A-Za-z])")  # ticker in caps, e.g. (P), NYSE:P, $P
     for label, f in [("google name", lambda: google(f'"{name}"')), ("google ticker", lambda: google(f'"{t}" stock')),
                      ("gdelt", lambda: gdelt(f'"{name}"')), ("finnhub", lambda: finnhub(t))]:
         try:
             arts += f()
         except Exception as e:
             r["errors"].append(f"{label}: {e}")
-        time.sleep(1)
+        time.sleep(6)  # GDELT allows one request per 5 s
     seen, keep = set(), []
     for a in sorted(arts, key=lambda a: a["date"], reverse=True):
         k = norm(a["title"])
-        if k in seen or a["date"] < SINCE.isoformat():
+        # keep only headlines that name the company (first words of its name), or the ticker for tickers of 3+ letters
+        if k in seen or a["date"] < SINCE.isoformat() or not (rel.search(a["title"]) or (len(t) > 2 and rel_t.search(a["title"]))):
             continue
         seen.add(k)
         a["flag"] = "risk" if RISK.search(a["title"]) else ("event" if EVENT.search(a["title"]) else "")
