@@ -1,0 +1,35 @@
+device cuda NVIDIA GeForce RTX 4050 Laptop GPU
+mlp fold 2023-01-03 train 174718 [4ep/0.08381 4ep/0.08414 4ep/0.08414 4ep/0.08351 4ep/0.08376] block IC -0.0494 5s
+mlp fold 2023-04-04 train 216020 [4ep/0.08565 4ep/0.08599 4ep/0.08661 4ep/0.08521 4ep/0.08563] block IC -0.0830 3s
+mlp fold 2023-07-06 train 257625 [4ep/0.08503 4ep/0.08534 4ep/0.08561 4ep/0.08467 4ep/0.08478] block IC +0.0438 4s
+mlp fold 2023-10-04 train 300415 [4ep/0.08423 4ep/0.08422 4ep/0.08489 4ep/0.08418 4ep/0.08382] block IC -0.0316 4s
+mlp fold 2024-01-04 train 342574 [4ep/0.08367 4ep/0.08392 4ep/0.08374 4ep/0.08385 4ep/0.08373] block IC +0.1110 5s
+mlp fold 2024-04-05 train 385560 [4ep/0.08355 4ep/0.08390 5ep/0.08354 4ep/0.08351 4ep/0.08355] block IC -0.0463 6s
+mlp fold 2024-07-08 train 427720 [4ep/0.08302 5ep/0.08327 4ep/0.08316 4ep/0.08309 4ep/0.08294] block IC +0.0221 7s
+mlp fold 2024-10-04 train 470059 [4ep/0.08357 4ep/0.08376 4ep/0.08364 4ep/0.08337 4ep/0.08342] block IC +0.0083 7s
+mlp fold 2025-01-06 train 513424 [4ep/0.08393 4ep/0.08416 4ep/0.08404 4ep/0.08374 4ep/0.08394] block IC +0.0213 7s
+mlp fold 2025-04-08 train 556125 [4ep/0.08323 4ep/0.08346 4ep/0.08351 4ep/0.08335 4ep/0.08332] block IC +0.0482 7s
+mlp fold 2025-07-10 train 599957 [4ep/0.08333 4ep/0.08356 4ep/0.08346 4ep/0.08327 4ep/0.08323] block IC -0.0303 9s
+mlp fold 2025-10-08 train 643216 [4ep/0.08324 4ep/0.08346 4ep/0.08340 4ep/0.08324 4ep/0.08324] block IC +0.0061 9s
+mlp fold 2026-01-08 train 686516 [4ep/0.08336 4ep/0.08350 4ep/0.08338 4ep/0.08338 4ep/0.08340] block IC +0.0331 9s
+mlp fold 2026-04-10 train 730684 [4ep/0.08354 4ep/0.08381 4ep/0.08386 4ep/0.08367 4ep/0.08385] block IC +0.0292 10s
+mlp fold 2026-07-13 train 774106 [4ep/0.08355 4ep/0.08367 4ep/0.08372 4ep/0.08359 4ep/0.08380] block IC +0.0179 11s
+mlp done
+D:\finance\tabular\gpu_models.py:52: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(blk, layers)
+ftt fold 2023-01-03 train 174718 [5ep/0.08335 4ep/0.08319 4ep/0.08354] block IC -0.0594 58s
+ftt fold 2023-04-04 train 216020 [4ep/0.08504 4ep/0.08553 4ep/0.08516] block IC -0.0683 66s
+ftt fold 2023-07-06 train 257625 [4ep/0.08459 5ep/0.08499 5ep/0.08489] block IC +0.0461 91s
+ftt fold 2023-10-04 train 300415 [4ep/0.08356 4ep/0.08396 5ep/0.08383] block IC -0.0177 98s
+ftt fold 2024-01-04 train 342574 [4ep/0.08363 4ep/0.08370 5ep/0.08375] block IC +0.1052 112s
+ftt fold 2024-04-05 train 385560 [4ep/0.08344 6ep/0.08336 4ep/0.08358] block IC -0.0439 136s
+ftt fold 2024-07-08 train 427720 [5ep/0.08306 5ep/0.08289 7ep/0.08318] block IC +0.0305 182s
+ftt fold 2024-10-04 train 470059 [4ep/0.08329 4ep/0.08344 5ep/0.08335] block IC +0.0041 153s
+ftt fold 2025-01-06 train 513424 [4ep/0.08375 4ep/0.08379 5ep/0.08380] block IC +0.0389 168s
+ftt fold 2025-04-08 train 556125 [4ep/0.08335 4ep/0.08328 6ep/0.08341] block IC +0.0527 195s
+ftt fold 2025-07-10 train 599957 [5ep/0.08330 6ep/0.08328 5ep/0.08321] block IC -0.0074 240s
+ftt fold 2025-10-08 train 643216 [5ep/0.08316 5ep/0.08326 5ep/0.08314] block IC +0.0284 242s
+ftt fold 2026-01-08 train 686516 [5ep/0.08327 5ep/0.08305 4ep/0.08324] block IC +0.0438 241s
+ftt fold 2026-04-10 train 730684 [4ep/0.08348 5ep/0.08332 4ep/0.08345] block IC +0.0476 238s
+ftt fold 2026-07-13 train 774106 [4ep/0.08339 5ep/0.08343 5ep/0.08343] block IC +0.0381 271s
+ftt done
