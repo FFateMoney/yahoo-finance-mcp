@@ -2,7 +2,7 @@ name: fetch-earnings-yf
 on:
   workflow_dispatch:
   push:
-    branches: [claude/project-thread-03k1wx]
+    branches: [claude/project-thread-03k1wx, claude/project-thread-noawok]
     paths: [research/fullflow/fetch_earn_yf.py, .github/workflows/fetch-earnings-yf.yml]
 permissions:
   contents: write
