@@ -108,3 +108,10 @@ if not os.environ.get("EXCL_TECH") and len(top):
     o = subprocess.run([sys.executable, __file__, *sys.argv[1:]], env={**os.environ, "EXCL_TECH": "1"}, capture_output=True, text=True).stdout
     pick = [ln.split()[0] for ln in o.splitlines() if "← 7c" in ln]
     print(f"\n对比（旧版，排除科技、通信时 7c 会选）：{pick[0] if pick else '没有'}")
+
+if not os.environ.get("EXCL_TECH") and len(top) and len(sys.argv) <= 2:  # today's run: hand the five to the news check (research/news)
+    open("research/news/tickers.txt", "w").write("\n".join(top.index) + "\n")
+    print(f"\n已写入 research/news/tickers.txt：{' '.join(top.index)}（新闻排查：python research/news/fetch_news.py，或设 NEWS=1 直接跑）")
+    if os.environ.get("NEWS"):
+        import subprocess
+        subprocess.run([sys.executable, "research/news/fetch_news.py", *top.index])
