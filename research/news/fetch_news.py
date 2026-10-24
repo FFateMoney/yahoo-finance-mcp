@@ -1,6 +1,6 @@
 """Recent news and company filings for a few tickers (search by company name, not only ticker).
-Sources, all free and keyless: Google News RSS (company name and ticker), GDELT 2.0 doc API, SEC EDGAR filings (8-K items etc.).
-Optional: FINNHUB_KEY env adds Finnhub company news.
+Sources, all free and keyless: Google News RSS (company name and ticker), SEC EDGAR filings (8-K items etc.).
+GDELT answers 429 to GitHub runners, so it is off unless GDELT=1. Optional: FINNHUB_KEY env adds Finnhub company news.
 Usage: python research/news/fetch_news.py [TICKER ...] [--days 14]   (no tickers: read research/news/tickers.txt)
 Writes research/news/out/news_<date>.md and .json. Names come from SEC; research/news/aliases.csv (ticker,query) overrides.
 """
@@ -115,12 +115,12 @@ for t in TICKERS:
     rel = re.compile(r"\b(" + "|".join(map(re.escape, words)) + r")\b", re.I)
     rel_t = re.compile(r"(?<![A-Za-z])\$?" + re.escape(t) + r"(?![A-Za-z])")  # ticker in caps, e.g. (P), NYSE:P, $P
     for label, f in [("google name", lambda: google(f'"{name}"')), ("google ticker", lambda: google(f'"{t}" stock')),
-                     ("gdelt", lambda: gdelt(f'"{name}"')), ("finnhub", lambda: finnhub(t))]:
+                     ("gdelt", lambda: gdelt(f'"{name}"') if os.environ.get("GDELT") else []), ("finnhub", lambda: finnhub(t))]:
         try:
             arts += f()
         except Exception as e:
             r["errors"].append(f"{label}: {e}")
-        time.sleep(6)  # GDELT allows one request per 5 s
+        time.sleep(6 if label == "gdelt" else 1)  # GDELT allows one request per 5 s
     seen, keep = set(), []
     for a in sorted(arts, key=lambda a: a["date"], reverse=True):
         k = norm(a["title"])
