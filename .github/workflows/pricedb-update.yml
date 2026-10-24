@@ -1,0 +1,42 @@
+name: pricedb-update
+# Incremental update of the canonical price store (research/pricedb/data).
+# Runs after each US close (schedule only fires from the default branch), on manual dispatch,
+# or when research/pricedb/RUN is edited (its first line = extra arguments, e.g. "--full").
+on:
+  schedule:
+    - cron: "30 22 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      args:
+        description: "update.py arguments, e.g. --full, --no-earnings, --refetch AAPL,MSFT"
+        default: ""
+  push:
+    paths: [research/pricedb/RUN]
+permissions:
+  contents: write
+concurrency:
+  group: pricedb-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install "yfinance>=0.2.50" pandas pyarrow lxml
+      - name: update
+        run: |
+          ARGS="${{ github.event.inputs.args }}"
+          if [ "${{ github.event_name }}" = "push" ]; then ARGS="$(head -n1 research/pricedb/RUN | sed 's/#.*//')"; fi
+          echo "args: $ARGS"
+          python research/pricedb/update.py $ARGS
+      - name: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add research/pricedb/data
+          git diff --cached --quiet && { echo "no changes"; exit 0; }
+          git commit -q -m "data: pricedb update $(python -c "import json;print(json.load(open('research/pricedb/data/meta.json'))['last_bar'])")"
+          for i in 1 2 3 4; do git pull --rebase -q && git push -q && exit 0; sleep $((i*5)); done; exit 1
