@@ -3,7 +3,8 @@ S&P 500/400 now, price > $5 and <= CAP, 21-day dollar volume > $5M, no earnings 
 no IT / communication, above a rising 200-day average, below the 20-day average with RSI14 30-50.
 Ranked by score, then past +3% touch rate (doc rule) — also shown: ties by lowest RSI.
 Top 5 (2026-10-24): score then lowest RSI; if fewer than 5 pass, fill from stocks that reported in the last 21 trading days
-with a calm reaction (close the day after vs the close before within ±5%), everything else unchanged. Jasper picks one.
+with a calm reaction (close the day after vs the close before within ±5%), everything else unchanged.
+Step 7c (2026-10-24, trial): count trap traits (among the 2 lowest of the five on each of 7 features), drop the 4 with most, buy the one left.
 Usage: python research/fullflow/pick_today.py [cap] [as-of date YYYY-MM-DD]
 """
 import sys
@@ -74,9 +75,26 @@ if len(top) < 5:
     fb = x[rest & x["calm_recent"] & ~x.index.isin(top.index)].copy()
     fb = fb.assign(src="补选：刚发完财报、反应平稳", s=fb["score"] * 10 - fb["rsi"]).sort_values("s", ascending=False)
     top = pd.concat([top, fb.head(5 - len(top))])
-print("\n前五（财务分、RSI 最低优先；不够 5 只用财报平稳的补）—— 从这五只里人工挑一只：")
-print(top[["src", "sector", "price", "score", "rsi", "ma20", "ma200", "touch", "last_earn", "reaction"]].round(3).to_string()
+# step 7c: trap traits (research/blindtest/trap3.py); all 7: lower = more often trapped
+spy_r = C["SPY"].pct_change() if "SPY" in C else px[px["Ticker"] == "SPY"].set_index("Date")["Close"].reindex(C.index).pct_change()
+beta = r1.rolling(60).cov(spy_r).div(spy_r.rolling(60).var(), axis=0)
+T = {"20日波动率": r1.rolling(20).std(), "60日波动率": r1.rolling(60).std(), "残差波动率": (r1 - beta.mul(spy_r, axis=0)).rolling(21).std(),
+     "200日线斜率": ma200 / ma200.shift(20) - 1, "离52周低点": C / C.rolling(252).min() - 1, "6月涨幅": C / C.shift(126) - 1}
+for k, v in T.items():
+    top[k] = v.loc[t].reindex(top.index)
+top["上次财报次日反应"] = top["reaction"]
+T7 = [*T, "上次财报次日反应"]
+lr = top[T7].rank(method="min")
+top["被套特征数"] = (lr <= 2).sum(1)
+top["均排名"] = lr.mean(1)
+top["7c"] = ""
+if len(top):
+    top.loc[top.sort_values(["被套特征数", "均排名"], ascending=[True, False]).index[0], "7c"] = "← 7c 选这只"
+print("\n前五（财务分、RSI 最低优先；不够 5 只用财报平稳的补），被套特征数越少越好：")
+print(top[["src", "sector", "price", "score", "rsi", "ma20", "ma200", "last_earn", "reaction", "被套特征数", "7c"]].round(3).to_string()
       if len(top) else "没有")
+print("\n7 个被套特征（每只数值；五只里最低的 2 只算满足）：")
+print(top[T7].round(4).to_string() if len(top) else "")
 near = x[acc.index.isin(x.index) & steps["价格/成交额"] & x["no_earn"] & (x["score"] >= 8) & steps["+排除科技通信"]
          & steps["+200日线上方且上升"].fillna(False).astype(bool) & ~m]
 print("\n只差“回调”条件的（等它们跌回 20 日线下方、RSI 30-50）：")
