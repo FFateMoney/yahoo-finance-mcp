@@ -51,7 +51,7 @@ rows = allp[["date", "ticker"]]
 names = {"阶梯": [k for k in STEPS if k.startswith("阶梯")][0], "现行": [k for k in STEPS if k.startswith("现行")][0]}
 for lab, nm in names.items():
     r, dd = outcome_steps(rows, STEPS[nm], LEN[nm])
-    feat[f"结果_{lab}"] = r.round(5)
+    feat[f"结果_{lab}"] = pd.to_numeric(pd.Series(r, index=feat.index), errors="coerce").round(5)
     feat[f"持有天数_{lab}"] = dd
     rk = feat.groupby("date")[f"结果_{lab}"].rank(method="first")
     feat[f"当天最差1只_{lab}"] = (rk == 1).astype(int)

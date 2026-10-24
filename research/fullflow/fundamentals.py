@@ -121,7 +121,7 @@ def score_one(item):
     if "rev" not in T or "ni" not in T:
         return rows
     # evaluate at every filing date of this company
-    for d in sorted(x for x in g["filed"].unique() if x >= pd.Timestamp("2020-06-01")):
+    for d in sorted(x for x in g["filed"].unique() if x >= pd.Timestamp(os.environ.get("SCORE_FROM", "2020-06-01"))):  # SCORE_FROM=2018-03-01 for the 2018-21 check
         def last(df, col="val"):
             x = df[df["filed"] <= d]
             return x.sort_values("end")[col].iloc[-1] if len(x) else np.nan

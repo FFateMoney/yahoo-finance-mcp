@@ -44,4 +44,14 @@ def membership(C, dvol):
         if s in add500.index and pd.notna(add500[s]):
             m |= idx >= add500[s]
         mask[s] = m
+    # S&P 500 history (fja05680, daily lists) replaces the "date added" rule: covers removed members too
+    import os
+    fja = "research/pricedb/data/membership/sp500_history_fja.csv"
+    if os.path.exists(fja):
+        h = pd.read_csv(fja, parse_dates=["date"]).sort_values("date")
+        h = h[h["date"] <= idx[-1]]
+        sets = [set(x.replace(".", "-") for x in t.split(",")) for t in h["tickers"]]
+        pos = h["date"].searchsorted(idx, side="right") - 1
+        in500 = pd.DataFrame({s: [s in sets[p] if p >= 0 else False for p in pos] for s in C.columns}, index=idx)
+        mask |= in500
     return mask

@@ -7,7 +7,7 @@ exec(open("research/blindtest/trap.py", encoding="utf-8").read().split("\nskip =
 Dd = "research/factors/data"
 vo = pd.concat([pd.read_csv(f"{Dd}/prices.csv.gz", parse_dates=["Date"], usecols=["Date", "Ticker", "Volume"]),
                 pd.read_csv(f"{Dd}/prices_removed.csv.gz", parse_dates=["Date"], usecols=["Date", "Ticker", "Volume"])])
-V = vo.drop_duplicates(["Date", "Ticker"]).pivot(index="Date", columns="Ticker", values="Volume").reindex(index=O.index, columns=O.columns)
+V = vo.drop_duplicates(["Date", "Ticker"]).pivot(index="Date", columns="Ticker", values="Volume").reindex(index=O.index, columns=O.columns).replace(0, np.nan)  # zero-volume days (old data) -> missing
 C, Hh, Ll, Oo = Cl, H, Lw, O
 r1 = C.pct_change(fill_method=None)
 ma = {n: C.rolling(n).mean() for n in (5, 10, 20, 50, 200)}

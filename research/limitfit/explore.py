@@ -78,14 +78,14 @@ F = {
     "60日偏度": r1.rolling(60).skew(),
     "5日/60日成交量": V.rolling(5).mean() / V.rolling(60).mean(),
     "成交额(规模)": np.log(dvol.rolling(21).mean()),
-    "Amihud非流动性": (r1.abs() / dvol).rolling(21).mean(),
+    "Amihud非流动性": (r1.abs() / dvol.replace(0, np.nan)).rolling(21).mean(),
     "隔夜收益(21日)": overnight.rolling(21).sum(),
     "日内收益(21日)": intraday.rolling(21).sum(),
     "上涨天数占比(21日)": (r1 > 0).astype(float).rolling(21).mean().where(r1.notna()),
     "行业1月涨幅": sec_mean(ret(21)),
     "相对行业1月": ret(21) - sec_mean(ret(21)),
-    "布林位置": (C - ma(20)) / (2 * C.rolling(20).std()),
-    "20日区间位置": (C - Lo.rolling(20).min()) / (Hi.rolling(20).max() - Lo.rolling(20).min()),
+    "布林位置": (C - ma(20)) / (2 * C.rolling(20).std()).replace(0, np.nan),
+    "20日区间位置": (C - Lo.rolling(20).min()) / (Hi.rolling(20).max() - Lo.rolling(20).min()).replace(0, np.nan),
     "20日振幅": (Hi.rolling(20).max() - Lo.rolling(20).min()) / C,
     "过去触及率(+3%,10日)": None,  # filled below
 }
