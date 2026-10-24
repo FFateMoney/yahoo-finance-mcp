@@ -18,7 +18,9 @@ import argparse
 import datetime as dt
 import io
 import json
+import logging
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -109,7 +111,8 @@ def refresh_membership():
         fja = pd.read_csv(f"{M}/sp500_history_fja.csv")
         for x in fja.loc[fja["date"] >= START, "tickers"]:
             names |= {s for s in x.split(",") if "-" not in s}  # "-YYYYMM" = delisted/renamed, not on Yahoo
-    names = {s.strip().replace(".", "-") for s in names if s and s.strip() and s.strip() != "nan"}
+    names = {re.sub(r"\[.*?\]|\(.*?\)", "", s).strip().replace(".", "-") for s in names}  # "VSCO (NOW VSXY)[78]"
+    names = {s for s in names if s and s != "nan" and re.fullmatch(r"[A-Z0-9-]+", s)}
     print("universe:", len(cons), "current members,", len(names), "ever-members")
     return names, cons
 
@@ -144,31 +147,61 @@ def to_raw(d):
     return raw, acts
 
 
-def download(tickers, start):
-    """{ticker: (raw, acts)} for those Yahoo returned data for."""
+class _RateLimitLog(logging.Handler):
+    """yfinance reports rate limiting only through its logger; remember the tickers it names."""
+    def __init__(self):
+        super().__init__()
+        self.hit = False
+
+    def emit(self, record):
+        msg = record.getMessage()
+        if "Rate limit" in msg or "Too Many Requests" in msg or "RateLimit" in msg:
+            self.hit = True
+
+
+def _batch(batch, start):
+    rl = _RateLimitLog()
+    log = logging.getLogger("yfinance")
+    log.addHandler(rl)
+    try:
+        df = yf.download(batch, start=start, interval="1d", auto_adjust=False, actions=True,
+                         group_by="ticker", threads=True, progress=False, multi_level_index=True)
+    except Exception as e:
+        print("download error:", e)
+        df, rl.hit = None, True
+    finally:
+        log.removeHandler(rl)
     out = {}
-    for i in range(0, len(tickers), 50):
-        batch = tickers[i:i + 50]
-        for attempt in range(3):
-            try:
-                df = yf.download(batch, start=start, interval="1d", auto_adjust=False, actions=True,
-                                 group_by="ticker", threads=True, progress=False, multi_level_index=True)
-                break
-            except Exception as e:
-                print("download error, retrying:", e)
-                time.sleep(10 * (attempt + 1))
-        else:
-            continue
-        if df is None or len(df) == 0:
-            continue
+    if df is not None and len(df):
         have = set(df.columns.get_level_values(0))
         for t in batch:
             if t in have:
                 raw, acts = to_raw(df[t])
                 if raw is not None and len(raw):
                     out[t] = (raw, acts)
-        print(f"  {min(i + 50, len(tickers))}/{len(tickers)} tickers, {len(out)} with data", flush=True)
-    return out
+    return out, rl.hit
+
+
+def download(tickers, start):
+    """({ticker: (raw, acts)}, tickers still missing because Yahoo rate-limited us)."""
+    out, todo, size = {}, list(tickers), 50
+    for rnd in range(4):
+        limited = []
+        for i in range(0, len(todo), size):
+            batch = todo[i:i + size]
+            got, hit = _batch(batch, start)
+            out.update(got)
+            if hit:
+                limited += [t for t in batch if t not in got]
+                time.sleep(20)
+            print(f"  round {rnd + 1}: {min(i + size, len(todo))}/{len(todo)}, {len(out)} with data,"
+                  f" {len(limited)} rate-limited", flush=True)
+        if not limited:
+            return out, set()
+        todo, size = limited, 20
+        print(f"  rate-limited on {len(todo)} tickers; waiting {120 * (rnd + 1)}s", flush=True)
+        time.sleep(120 * (rnd + 1))
+    return out, set(todo)
 
 
 def drop_unfinished(raw):
@@ -214,6 +247,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--full", action="store_true", help="refetch every ticker since 2000")
     ap.add_argument("--refetch", default="", help="comma-separated tickers to refetch in full")
+    ap.add_argument("--retry-nodata", action="store_true", help="retry tickers Yahoo had no data for now")
     ap.add_argument("--no-earnings", action="store_true")
     ap.add_argument("--no-membership", action="store_true", help="reuse stored membership files")
     args = ap.parse_args()
@@ -248,7 +282,7 @@ def main():
                 inc.append(t)
         else:
             tried = reg["tried"].get(t) if "tried" in reg else None
-            if tried is None or pd.isna(tried) or (today - tried).days >= RETRY_NODATA_DAYS:
+            if args.retry_nodata or tried is None or pd.isna(tried) or (today - tried).days >= RETRY_NODATA_DAYS:
                 full.append(t)
     print(f"plan: {len(full)} full fetches, {len(inc)} incremental", flush=True)
 
@@ -260,7 +294,7 @@ def main():
         starts = {t: (last[t] - pd.Timedelta(days=OVERLAP_DAYS)).strftime("%Y-%m-%d") for t in inc}
         for s in sorted(set(starts.values())):
             batch = [t for t in inc if starts[t] == s]
-            got = download(batch, s)
+            got, _ = download(batch, s)
             for t in batch:
                 if t not in got:
                     continue
@@ -283,12 +317,15 @@ def main():
                     new_acts.append(a.assign(Ticker=t))
 
     if full:
-        got = download(full, START)
+        got, limited = download(full, START)
         for t in full:
             if t in got:
                 raw, a = got[t]
                 replace[t] = (drop_unfinished(raw).assign(Ticker=t), a.assign(Ticker=t))
-            reg.loc[t, "tried"] = today
+            if t not in limited:  # rate-limited tickers get retried next run
+                reg.loc[t, "tried"] = today
+        if limited:
+            print(f"WARNING: {len(limited)} tickers still rate-limited, will retry next run:", sorted(limited)[:20])
 
     # apply full replacements
     if replace:
@@ -323,7 +360,7 @@ def main():
     stats = pd.DataFrame({"first": g.min(), "last": g.max(), "rows": g.size()})
     for t in universe:
         if t not in reg.index:
-            reg.loc[t, "tried"] = today
+            reg.loc[t, "tried"] = pd.NaT
     reg = reg.drop(columns=[c for c in ("first", "last", "rows") if c in reg.columns]).join(stats, how="outer")
     reg["status"] = np.where(reg["rows"].fillna(0) > 0, "ok", "nodata")
     reg["current"] = reg.index.isin(list(current))

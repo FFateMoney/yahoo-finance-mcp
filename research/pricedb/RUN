@@ -1,2 +1,2 @@
---full
-# First line = arguments for update.py. Edit and push this file to run the pricedb-update workflow. (run 2)
+--retry-nodata --no-earnings
+# First line = arguments for update.py. Edit and push this file to run the pricedb-update workflow.
