@@ -34,6 +34,10 @@ allp = allp[allp["date"].isin(n5[n5 == 5].index)]
 END = cal[len(cal) - 1 - LMAX]
 MID = END - pd.DateOffset(years=1)
 START = END - pd.DateOffset(years=2)
+import os
+if os.environ.get("AV_START"):  # other window, e.g. AV_START=2022-12-31 AV_END=2023-12-31 (all rows count as "train")
+    START, END = pd.Timestamp(os.environ["AV_START"]), pd.Timestamp(os.environ["AV_END"])
+    MID = END
 allp = allp[(allp["date"] > START) & (allp["date"] <= END)].reset_index(drop=True)
 
 drop = [c for c in allp.columns if c.startswith(("ret_", "ex_", "hit_", "days_", "n_"))] + ["i", "tk", "k", "s", "base", "full",
