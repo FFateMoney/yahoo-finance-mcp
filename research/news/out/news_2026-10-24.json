@@ -3,9 +3,7 @@
   "ticker": "P",
   "name": "Everpure",
   "sec_title": "Everpure, Inc.",
-  "errors": [
-   "gdelt: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "articles": [
    {
     "date": "2026-10-24T00:34:46+00:00",
@@ -78,6 +76,14 @@
     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVHFHSklIckc4TmhaSjVTaVdiR3dPSS1uRGoxRWpJRVNsU24tZVdzemY2ZTZKamV6dXltczFlUG5HSTlSaFJwbDNxYTZoei00QzlFYzBqTG5rYjUwV2szR0lESVZCbHUyY2VZbFlvdWFFMWFrelNPbE1tVi1sRkVQLWdIY1ExUzRUemZrdWZ6R3FzXzg?oc=5",
     "via": "google",
     "flag": ""
+   },
+   {
+    "date": "2026-10-22T02:35:07+00:00",
+    "title": "How Investors Are Reacting To Everpure Stock As Earnings Estimates Rise - Simply Wall Street",
+    "source": "Simply Wall Street",
+    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQOUZzOGJTeHdMcUVNNkhkVUVZR3hjMjlGZGxFUGtPelVyeURlVENhVk9UYXdFQlZ3V2tORnVtY0xqNWdYRXlLY28yT09EYkszSDRPLXVvQzF3X19jVWhwQUM4a2VJLTNkMHhGa0ZJcHpDaFhSNmZ6cGxrclRpU3JwN19sSzZRZzU4aG1Rby1Nb0lrYV95UC1lTUVkTHl1bVZKQUVvWHphMmlxVkdyc1VPWWlVMThJV1hVN1HSAb8BQVVfeXFMTmFKaE0wQXVNRUFRUjRkX2w0dEIzc2VCb01IWnRVYUx1bzZiZTJfUzdTYjdMWk54d0ZpV3ZFQ0YxU2pNdzVRc0Z3SGR2SkxFSWhzUmlYYVM4OTZlYXd6ZHpFOVdXekw1RlNVcDMtUENaQTBJSE9GeWpRNHREcDdRT2hla0dDZW9UQ25ab1l5MC1VMlhqSUlHN0ZMX3NZMFN0STF0VXZhV2ZLb3o4WUg1SGhhbzZRVnFnWGpSTlZkTFU?oc=5",
+    "via": "google",
+    "flag": "event"
    },
    {
     "date": "2026-10-21T23:31:48+00:00",
@@ -168,10 +174,10 @@
     "flag": ""
    },
    {
-    "date": "2026-10-17T06:23:11+00:00",
-    "title": "Form 4 Everpure Inc: John Colgrove (Director, Chief Visionary Officer) For: 14 October - Investing.com Australia",
-    "source": "Investing.com Australia",
-    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPNVBFRGxKZGhzTGRPNlE4R3VoLW1Bemg0VzJDUlJkTmNZZVVSRl9iODltU1Q3aFVGRi00MmJDa25KaFlfeXVsenFZbDlmOEp5MzR6SUlpcGdoVUVHQzMwWWpBMkkwb2pPOVJWM0E4T01SQ29jZzRZQ1oybFZZaEg3alpZUkE4R2FPOW1qOW5BWWxNZjN6WW5FSzRKTEs4TVBCRDB5UEV0N3VnWE5sWUZEdk1ZMlFwLWVJUjN1QXRXV3VvMU5YQ25ZOWhQbkFuOWFaSmh5Tzh5NWhpQQ?oc=5",
+    "date": "2026-10-17T06:24:18+00:00",
+    "title": "Form 4 Everpure Inc: John Colgrove (Director, Chief Visionary Officer) For: 14 October - Investing.com Canada",
+    "source": "Investing.com Canada",
+    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNc0JIc3FKc3Z3NkNtTFVvbWdRZnEwdWU2Yl9ZeXFTQzltVnh5YVdCbFc5TVE3M2xsamVTeENoMUpCWWVhbjIyQjBhZTJDYUFLNU51cWRrTnlkbkpDbFhBblQwVjFtWFA1U2haUTJReXlIc1B2eEpheVVvYmRET2NfbU1mRm1hdi13Q2J4eS1WY1N4emlVc3J0MXRkU2hPMW5PNXM2cG05MlpXYVRKUktlZmlybFQ4ekdteXppUmhiYVYwTGZRM0JZY25NSm5ScFk5ZXVEbWMxcUU5QQ?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -272,18 +278,18 @@
     "flag": "event"
    },
    {
-    "date": "2026-10-15T11:05:51+00:00",
-    "title": "Invesco S&P 500 Equal Weight ETF (RSP) Adds Moderna and Everpure on Tuesday - Yahoo Finance",
+    "date": "2026-10-15T07:00:00+00:00",
+    "title": "Everpure Revenues Surge 38% in Q2: Can Growth Momentum Last? - Yahoo Finance",
     "source": "Yahoo Finance",
-    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPcGRrY2tKQklGSlFVUjdYUGdaNmd2NDFrSFhqLWxnVWVZb041djUxZkE1alhkNjlLX0dFRDNITlpPVExHRTRwQmhVeFNFUmgtQlVObmJwMEhzT2psZ3hpSGxreHZfeXJqRHh4QzV6Mm0xQktuLUhXQkhIVnpJSWFTV0w5MVA2NHVqTFVfdTFMajAxeWQ3M0E?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPcDd1V3RpNUE2TlVGbm5iRDg3NENQTDV0Z2plaHRVcEd0blpZc2xfRXcxUVd3U2NRdzRQOWpja216Um1YZHJ6ZE5oLXN5cms1NWRURjdyMVZJekJzTW5KbTFqM2RvVHp0UktIYTY2RVNjU0RkUTVMb09LRmVNZUJucnVIMHFYTG8xSnhIYV9Lb3o4T0xydnpwaENR?oc=5",
     "via": "google",
     "flag": ""
    },
    {
     "date": "2026-10-15T07:00:00+00:00",
-    "title": "Everpure Revenues Surge 38% in Q2: Can Growth Momentum Last? - Yahoo Finance",
+    "title": "Invesco S&P 500 Equal Weight ETF (RSP) Adds Moderna and Everpure on Tuesday - Yahoo Finance",
     "source": "Yahoo Finance",
-    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPcDd1V3RpNUE2TlVGbm5iRDg3NENQTDV0Z2plaHRVcEd0blpZc2xfRXcxUVd3U2NRdzRQOWpja216Um1YZHJ6ZE5oLXN5cms1NWRURjdyMVZJekJzTW5KbTFqM2RvVHp0UktIYTY2RVNjU0RkUTVMb09LRmVNZUJucnVIMHFYTG8xSnhIYV9Lb3o4T0xydnpwaENR?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPcGRrY2tKQklGSlFVUjdYUGdaNmd2NDFrSFhqLWxnVWVZb041djUxZkE1alhkNjlLX0dFRDNITlpPVExHRTRwQmhVeFNFUmgtQlVObmJwMEhzT2psZ3hpSGxreHZfeXJqRHh4QzV6Mm0xQktuLUhXQkhIVnpJSWFTV0w5MVA2NHVqTFVfdTFMajAxeWQ3M0E?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -489,17 +495,17 @@
    },
    {
     "date": "2026-10-13T07:00:00+00:00",
-    "title": "After selling $5.33M in shares, an Everpure (P) officer proposes another sale. - Stock Titan",
-    "source": "Stock Titan",
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNSW1iV2xHTm5yS0F5a0N2QTluRWp1M2lHamRvZmNKM2tXWEVMYU5taUYwckJGWHhVcVVMZTRXa2N2TEx3aVFVSmE0TlNQZHY2S2U4dUJhVUtocHBvRzA4THh4U2tRQS1vczZXYXdYTUJwWDdYV25jT3doQTl1d2hoSWpVNWpsSUlXUU1fSHppVQ?oc=5",
+    "title": "Everpure (P) Stock Could Be Undervalued On Current Sales Levels - Simply Wall Street",
+    "source": "Simply Wall Street",
+    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNd0xFN1hQMElpRzBDRjRkZnhFTFZXNWhwMmFjNVNiUVp4VkNSeV9VMWdzR3AtWTNHUmNfYXBRZms4ZlhyV2dYZXl3dm9xSzNldEJtcUppZUdTRmswMHZodURTbGUxMFB0YnpTd2NodldpTWhPd2VIM3FWMi05TVNtRDVmM0REUVBHVXVEOWUtdzRrRDdTUmtpRDdrRzlraE5zVDRFNkprRUVkWUNNU2lKRk44ZjBvTm1vbEHSAb8BQVVfeXFMTTBlT284VGlSSkNlOThmbldyaEozQ1dESVlybkJlb2I2RWZDeWJ3Z2IzZy1nTkwzUHVrZXBzRS1sd0h0Rm4xWjVHMHdDbWM0M0ZoWlRETDhfM2o0c2xEV1UwWk1FeXdfSldjMVdJNUQydFRsckswU0J6bWE1YjhEZENIZGVTUzNDQUVrQmpqOUY0bUJtWk1YR3ZzbzVUbGUwSklHLVIxS2VJbmJlV1NJZUdJZ1h2TVgtVVowNkRCeGM?oc=5",
     "via": "google",
     "flag": ""
    },
    {
     "date": "2026-10-13T07:00:00+00:00",
-    "title": "Everpure (P) Stock Could Be Undervalued On Current Sales Levels - Simply Wall Street",
-    "source": "Simply Wall Street",
-    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNd0xFN1hQMElpRzBDRjRkZnhFTFZXNWhwMmFjNVNiUVp4VkNSeV9VMWdzR3AtWTNHUmNfYXBRZms4ZlhyV2dYZXl3dm9xSzNldEJtcUppZUdTRmswMHZodURTbGUxMFB0YnpTd2NodldpTWhPd2VIM3FWMi05TVNtRDVmM0REUVBHVXVEOWUtdzRrRDdTUmtpRDdrRzlraE5zVDRFNkprRUVkWUNNU2lKRk44ZjBvTm1vbEHSAb8BQVVfeXFMTTBlT284VGlSSkNlOThmbldyaEozQ1dESVlybkJlb2I2RWZDeWJ3Z2IzZy1nTkwzUHVrZXBzRS1sd0h0Rm4xWjVHMHdDbWM0M0ZoWlRETDhfM2o0c2xEV1UwWk1FeXdfSldjMVdJNUQydFRsckswU0J6bWE1YjhEZENIZGVTUzNDQUVrQmpqOUY0bUJtWk1YR3ZzbzVUbGUwSklHLVIxS2VJbmJlV1NJZUdJZ1h2TVgtVVowNkRCeGM?oc=5",
+    "title": "After selling $5.33M in shares, an Everpure (P) officer proposes another sale. - Stock Titan",
+    "source": "Stock Titan",
+    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNSW1iV2xHTm5yS0F5a0N2QTluRWp1M2lHamRvZmNKM2tXWEVMYU5taUYwckJGWHhVcVVMZTRXa2N2TEx3aVFVSmE0TlNQZHY2S2U4dUJhVUtocHBvRzA4THh4U2tRQS1vczZXYXdYTUJwWDdYV25jT3doQTl1d2hoSWpVNWpsSUlXUU1fSHppVQ?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -697,19 +703,19 @@
    },
    {
     "date": "2026-10-08T07:00:00+00:00",
-    "title": "Needham raises Everpure stock price target on growth durability By Investing.com - Investing.com India",
-    "source": "Investing.com India",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNQnNEZXFqZWxUWkhWTzlmRWt5OERPQ3BNT1FNZDBTeDZOeE5oclo2ZUdLWW9BLWt0NjV6WlJKV2Uwak11Rm1Id05NN1NnYmFDUkVhelZ1X08zNzJnRXVJMmJPNnhCZFUxaXRFdDhtVFdkVnhpVXdDRjhsMVZKTEprZF8zemszR2Fjc1JMd282UVR6SFZMX0ZRalcxdGxBdUhNWktrTzJYVkZtb19NaVFKalRqb1dPUnpjbG1KOWlzZjNMZw?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-08T07:00:00+00:00",
     "title": "Data Access Upgrade Could Be A Big Deal For Everpure Stock (P) - Simply Wall Street",
     "source": "Simply Wall Street",
     "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNYWlLT0VodEFYdGlmV3F3eHlwaHhiSTRxa2VRYVl5ZXRzdmxwZzRlXzlURUg5YVBXWDVmVS04dEVlVC00TXVqa094Wko1OEVkQTZDekpGeE1ydVpkSFRmSEJVXzNqblJRUVVhN1hCaDh6cFl0ckNaYnh5dlF3X1FtMlZBZmtXdmdXVlg5Rks0WnpKTWtTV1dtaWJ5ckowakV6V2NHaG1EOXNWbmZVOUdGZDFscHJvdV81TEHSAb8BQVVfeXFMTlRpbEp3ZHdFTGtKRzRrZERSNk9LdXdnbHFmNjB6RXdnMTVjZmo2bmNpamJpRnJlSE1Va29SNzB5N2hJY1JXejUwTlV0LURrd3FjR2ZZU1JGXzFscHZQYTk3eFdHOHZhM2ppSWF4THB0WGJibkU4dUhuME5vNXZUWWRQQ1Z4SDNiaU5ibmtHdEFmdExXdzBiTi1LVWZvNDRjanFIb3QwWnltU0xqUXZ2bWNmcTA2TWo0WlJfRlI1eDQ?oc=5",
     "via": "google",
     "flag": "event"
+   },
+   {
+    "date": "2026-10-08T07:00:00+00:00",
+    "title": "Needham raises Everpure stock price target on growth durability By Investing.com - Investing.com India",
+    "source": "Investing.com India",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNQnNEZXFqZWxUWkhWTzlmRWt5OERPQ3BNT1FNZDBTeDZOeE5oclo2ZUdLWW9BLWt0NjV6WlJKV2Uwak11Rm1Id05NN1NnYmFDUkVhelZ1X08zNzJnRXVJMmJPNnhCZFUxaXRFdDhtVFdkVnhpVXdDRjhsMVZKTEprZF8zemszR2Fjc1JMd282UVR6SFZMX0ZRalcxdGxBdUhNWktrTzJYVkZtb19NaVFKalRqb1dPUnpjbG1KOWlzZjNMZw?oc=5",
+    "via": "google",
+    "flag": ""
    },
    {
     "date": "2026-10-08T07:00:00+00:00",
@@ -871,9 +877,7 @@
   "ticker": "NTNX",
   "name": "Nutanix",
   "sec_title": "Nutanix, Inc.",
-  "errors": [
-   "gdelt: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "articles": [
    {
     "date": "2026-10-24T00:57:18+00:00",
@@ -900,14 +904,6 @@
     "flag": ""
    },
    {
-    "date": "2026-10-23T12:54:58+00:00",
-    "title": "Nutanix, Inc. Class A Estimates – LSX:A2ACQE - TradingView",
-    "source": "TradingView",
-    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1FUUJSYV9fanlKWlF6OVZLbUtiNXVuNDZGV0tmOWxXUzh0UFlINjVfZjMyeGQzdFF1bXpRVFRnRW45ZnBoR3FXcTdFRU8yVVVFd3BmRmY4SGRLRVdjZDg1ekxpT21TOVU0SGRNTHBTQmRYWXlRT2d3?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
     "date": "2026-10-23T06:02:49+00:00",
     "title": "Nutanix Builds A Faster Foundation For Production AI - Menafn",
     "source": "Menafn",
@@ -920,6 +916,14 @@
     "title": "What Does Nutanix (NTNX) Gain From Its New AI Infrastructure Alliances? - Simply Wall Street",
     "source": "Simply Wall Street",
     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPRjZMa0NiUFpmdUtLWHpxdHZiSUJqdlFSZmJ5RUliOU1oYUdxRWpDRXZ0d3pfRlRkdjFudkEzcWNwdjh1UHJjSm91T2w2QU12QjlOOUVfY0Z5UURHdDd2Y25KenFSUVVUbDl3cFBQNDFvVkNOTGJKblVvVHktMHVZX1dBeE1Ic0dwMkdXUDk1dE9Qd0lxdWNudXpUUFV0SjlaN1pfeEVaZl9KTUNlaENsTlN4MG1KZHAyY0hqdkM5elZYQjJa0gHKAUFVX3lxTE43aVYyYVVudEJqZUJsTVhrcUdyVFpWZVZWR2RXbXkwcGNpVzVlM0U3Q1ZmTWRuY0lBVDJOQVU5VlZQSmU4Vl8zRWhQeGlxcjhFbzA1bVE1YmxJQVZtdUtUdnFMU29sWlR1aTJjRjdqWUM5dkI3akZneHFGTW1KYjc3S0QxUldERTEtMHF3NjQ1VkxMMkI2bUdZR2tXbHFHdFVBVWJsdlMxOVV0ajNRd1p3ZWRGekFPUFQtZUk1REY0b0dBZHkyY3d4aWc?oc=5",
+    "via": "google",
+    "flag": ""
+   },
+   {
+    "date": "2026-10-22T13:48:59+00:00",
+    "title": "Nutanix expands AI ecosystem with NVIDIA, Supermicro and Netris to accelerate production AI - Intelligent CIO",
+    "source": "Intelligent CIO",
+    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQeWpabWdIZ1FuOURlaFlnbUFSUE5qTExndGlEb1ZrRmlVYTFSRXpiRU1ILWpQNjFMTk1OVktRbjh3blFoblVGcDJhd3d0ZUtuWlJGNkVNS2JqRHJqa1dkcVN0bDN5dk40OWVVaXk3am9mMmZpQXpvM0lpcWVIZXp1bkFYWVBYQTV6NXZCcmZaUnlDeFMyMkx1Slk5dkdKRDdiN25reWU2UnUzUTZaTmh1TTItVkx4aElLTDctYWhfV0dVd1ZPR2xjNmoyNk9nNzNpR2c?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -940,10 +944,10 @@
     "flag": ""
    },
    {
-    "date": "2026-10-22T10:22:35+00:00",
-    "title": "Nutanix announcements at NVIDIA GTC Berlin | Security News - SourceSecurity.com",
-    "source": "SourceSecurity.com",
-    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPX1pVN28tQXlGQ1ZnN1NmWlo0VG5PM0Nwa2phQnl1WFdDc3NSUEpidnM5ZUJ6Y3ZDYnM5alMtZHh1MTBvbjJ3TFZGcl82R0t3SDJsWmg0WUdaeFQzYnVzWWh2Q0FFbjdrWXR1TlB4RU9XbldPVy1lZXd0c29uTG1TTy1BY3Z0T2xKcHFlOWR3RUZKS051eGJ0RWRWR0pjTi1HWTVUcVhzZjlhZXI0c21IR3FfUzA3N21JYU1v?oc=5",
+    "date": "2026-10-22T00:52:01+00:00",
+    "title": "Nutanix, Inc. (NTNX) Stock Forecasts - Yahoo Finance",
+    "source": "Yahoo Finance",
+    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQelpUOU11ZDh6V2dYU2ZFM2tXSS1veUpvUzY3RmJLT29UQjRmaEItM1p3LXlVODc0VTVqdjFvTm5oME9tR3ZKYjdjczVDTkdHd0VYR3dyN3huRUxKTXU3eXVXdXdxR3lITGFLODBjNUdMeGhoaTN5Vk9mMTRjY29iV1otZGJUMDBIUkgwbGlvYw?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -957,9 +961,9 @@
    },
    {
     "date": "2026-10-21T21:18:30+00:00",
-    "title": "Nutanix expands AI ties with NVIDIA, Supermicro & Netris - DataCenterNews Asia Pacific",
-    "source": "DataCenterNews Asia Pacific",
-    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQZGJ1aXItTnJIQWQ3dUduaHY1SWpKb2plTnNXemFSNlJmWU8xWTQyTXRxRHpCeUNlbEMzamZGUk5faHZpVmxEbVpIdHc3cndNbzVMMVl5QTVOUE5kaTdwWkluaXpLR3U4QjNob3BrbUx0aU10ci1CZGxPN054Y29YOEVmdXR0U05ON3Z5T0RSbFg?oc=5",
+    "title": "Nutanix expands AI ties with NVIDIA, Supermicro & Netris - ChannelLife Australia",
+    "source": "ChannelLife Australia",
+    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNSjFESnJFcGVhTlhWXzA0QTl2bDFiYTU1Wk4zZlRSSW5tWlhXMzJnWnRTYmhsbm1Kd1hNbWZkNmJ6ZWw2WXVIRFU1X3RaNFJDU2ItYm5RTGo4WjJBVkxobC1TaUtIcDNsN1R2UENjRVRuM05iMDQ5Uk9yZkIxZVBNNjA3cHhxSHV5NFhfY3VPZw?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -968,14 +972,6 @@
     "title": "Nutanix Founder Ajeet Singh Floats New AI Martech Startup Different - Inc42",
     "source": "Inc42",
     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPNm01VElHelpkSmc3NjBtbVRCamRMSE1xbVlkaWJObTJ0TF9qRFVvcW9fbjVlYmQ4M3BxOGZpX3YybmZNeVc2a0xua0I2c0lNSmxuU0paekY2RmxkWVhPUHI1QnJOc1h3V3V6bnhLbXpRM2dkZ0NQYVVQNG5hWFdFZTJpTmhoLUQ0R1d1SjRDNmlhUUtiYUE?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-21T19:26:00+00:00",
-    "title": "CLO Of Software Co. Nutanix Made $6.8 Million Last Year - Law360",
-    "source": "Law360",
-    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5CWWtTSkgxeUE5UW1ZMlFrZ21NcWRYTmhkcmZrTUhOQzZLbktyWGM5TlJPODM4YTVRa3ljZDBySWJKQzJhWUN5ZFN6UGRfLWRQbXRWSGpUUFBhakVRTFHSAV5BVV95cUxOQllrU0pIMXlBOVFtWTJRa2dtTXFkWE5oZHJma01ITkM2S25LclhjOU5STzgzOGE1UWt5Y2QwckliSkMyYVlDeWRTelBkXy1kUG10VkhqVFBQYWpFUUxR?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -1012,14 +1008,6 @@
     "flag": ""
    },
    {
-    "date": "2026-10-21T15:42:00+00:00",
-    "title": "What Do Nutanix (NASDAQ:NTNX), Royal Caribbean (NYSE:RCL), Arch Capital (NASDAQ:ACGL) and Western Midstream (NYSE:WES) Show With PEGs Below 1? - kalkine.ca",
-    "source": "kalkine.ca",
-    "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxPNHE0RTBoTVZxRkdHQnlfcjczU0RhX1ZlM3pIcEJsOGkwMlhONkdaVnluUXE2aVlfdy01Sk9nWVZycy1JMUd0Um90SEJHZzJJQVZER2ZFR21wNzhuNUlGSkNXYjJCVDRBcmxFdlg0MXpMWDBGek01U2ZYdFhSckxpZ0M4dzNTM1kzVHlEZjNaVmxCU25MOWpBeFd6SGFjRGpjNGRTT3V3N0t3RURraTNrTnpLbjM0T0VVVUhIanVYRDJDZjRiemE2eFktZzJSVDFTcHliaWswWGVNMlFjUmstSWVkc1plMWI0REFtZVpGb05ucWE2UzVN?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
     "date": "2026-10-21T14:25:00+00:00",
     "title": "Why Nutanix sees India leading the AI sovereign cloud repatriation trend - Fortune India",
     "source": "Fortune India",
@@ -1048,22 +1036,6 @@
     "title": "Nutanix makes trio of agentic AI developments - Blocks & Files",
     "source": "Blocks & Files",
     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPRlpkcHZZdzdPamVpTHZfRHhGcFNnX1ZYOTJnSkxTWW5QeW5ySzVmZDI1eGo0UTdiSXRmdzA4dUlENlZvTDRWcTd2ZXk2OWViNzBHMXd6a1NybDY4d3RZQTJicTZlWmlyRDRsYlJ2VGlKWVVpb0Y3TUY4MlpfWGM1eHJCRnFYVWV4RGh0dTYtanVERFRieXpPcWZReGpUa1VV?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-21T12:59:08+00:00",
-    "title": "Nutanix partners with Netris for multitenant AI infrastructure By Investing.com - Investing.com Nigeria",
-    "source": "Investing.com Nigeria",
-    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOYk9XYjU5aFNYQjk0eU13SlJCOGZLN2lBejVCcVlqR1Z4WV93eDZyeGZLa0tFTDlyQUhjU2R1YUtUTURFVTJCT0x0RzZTOEVWZnd5MENJaTNQaTFzSGhZbDhOb2pzWjR4Z2MxcEU2NHBwNG9EUjVIVGpiNWxrYUxoR1o1OVZiUWd1bnh3LUl6ZnpEMFhadlI3WHZVQ1VocHJMbVBwM1U2Um5SN3V2UXlGOHJYRkFhYURnZzdha2x1UjI?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-21T12:57:13+00:00",
-    "title": "Nutanix, Netris announce strategic collaboration - TipRanks",
-    "source": "TipRanks",
-    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPSkIwME5PTFFoWnZXdkIweDFUWE8ycHlfbjcyOWFHM3F6bVZIdTA5dzVySDR0R1hBTEhpbGFsNlBYQ1haX2JkanpNNkpPOHJha2twY2hSQWVRQUhVNnVjSnBpMU5FVUdOYjVYRktQVUZiLXcxNzBJWDdlUXZyVTZMbEFJamwyTy1VaXZ1SG9yOG1kaW12bVV0c0dCRDRxdw?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -1100,22 +1072,6 @@
     "flag": ""
    },
    {
-    "date": "2026-10-21T12:17:35+00:00",
-    "title": "Nutanix partners with Netris for multitenant AI infrastructure - Investing.com",
-    "source": "Investing.com",
-    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYk8xeHd3cVVQS2FOQjlGelZ3aWtzWENGaXBrWHNEenFmWHN3Qk1uaWd3RkdjUlBPMGJlMTdoUEFmMnpUdm5vS0VrYngzajExMEwyVFozVlRvemw0STVOa0pwMjNUX2RFVmVSbGQ2V0ZiV1JQU3kwUDBabENGd0VoN3dteG5Ob0h6ZFNHYnBCeUlmNlA4cHBGcmFmR2JmRmtwbDVodHNOeTBYZ0U1WndlSFJGOGV4ZGtvVlpr?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-21T12:14:59+00:00",
-    "title": "Nutanix, Supermicro Expand Collaboration For Engineered AI Infrastructure Solution - TradingView",
-    "source": "TradingView",
-    "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQdElfUXJ5cWp1V1pVS2owTFNSVFNvQVlCdUE5VnRMRk9TNmpOcXc4RmhZV3gwY0llN1o0ZEM1V1Btd1VRVzdFX2pjZU1ZaW52ODNfWVFtWDFxemp4dmllZDBta1BNRTBvVE5ZWWpVZFdyMGtpN3FrZ00wZlQ2YjhzckhpU0QyWllPX1V6cG9rNDRmWDJsaUFCRFJDR0tKVHIwYkdzci1WX0ROUUFfbTFIOER3Y0ZVWVhxNGhDU2ttQmZNWnVEdDFoenNNZmpQdExkRnNxckU3aEpCdVlnQ05GYU1QQWcydw?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
     "date": "2026-10-21T12:00:43+00:00",
     "title": "Nutanix, Super Micro plan for jointly engineered AI infrastructure solutions - TipRanks",
     "source": "TipRanks",
@@ -1124,10 +1080,10 @@
     "flag": ""
    },
    {
-    "date": "2026-10-21T11:41:00+00:00",
-    "title": "Nutanix and Netris Announce Strategic Collaboration to Deliver Multitenant AI Infrastructure Stack for Neoclouds and Enterprises - Quiver Quantitative",
-    "source": "Quiver Quantitative",
-    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPMGd1VW9USzNoWG1lcEhCUk51TFhhMjA3bUJBdENfZjlvU3hHMFhvVnBWSHNVLWQ2eHJxUHpwQmVMd290RlRSaTVoRmVPa0Zhd3BjWm1kN1lGTm03cEN0cGdmUVZCblRZT0x4Q20zQjVxMko1OGVnb2QwRGhTWjg0LTB0czRXc0tzbTZlenBQYjktTUFBUHFITFZMSTJiVnRXeXE4NUQ4NENnRG5jX096aU5XV1hCN0oyVTNuSUpvQ3lCZ3ZGWUF6MDNsencwZ1pvbDZEbTlJNkFYNHgyVDFlMi1jYWRlcm1TUGw5OFBmWjVwWlE?oc=5",
+    "date": "2026-10-21T11:58:21+00:00",
+    "title": "Nutanix partners with Netris for multitenant AI infrastructure By Investing.com - Investing.com India",
+    "source": "Investing.com India",
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOeVNtMzJVSjRxdnRPZVhtd1BRbzNCcnhhdmNkdlBubGUzY3RINlRlUjZuTGp3SXVyalBmR01zWmpkQmVrM0ZhOE94WExQYktHLWkxWlMyUmxGendZVHctdlo3NmRPTkh4cmhOQ2JUcVVzMUxWMHp0dW8xV0VsZ0otcDJXWlVxRHhMU2Z5MWFmajVpSEx2MC1wbW1DN1pIaER5RXFsc2tadHcwcVdxbmtZdndyN3QyNlkxUmNQY0UtNTQ?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -1180,30 +1136,6 @@
     "flag": ""
    },
    {
-    "date": "2026-10-20T21:27:59+00:00",
-    "title": "Nutanix Adds MCP Server to Automate Cloud Operations with AI Agents - HPCwire",
-    "source": "HPCwire",
-    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOaV81TlpWd0VUdmMwaUN6T25pTkV6dzAxM3lYYUktbmNScE9oZmF2R2pfZFEtdnMyQ1RVN1hIdjE3VXZNeW9yYTFTSE5IUHkyQzhZMVhybk1SV0Q4OW4wbF93N3lVaEVpSTJ5UDZEbGpSUC0wamxfMUltVWhxMkEzMTJORjlHYUxtX2Zlem1BbFBQQlIwTjdRU3hZb2dXMEp0NjdyeDlaOURXOHlXcnk0eVcyNFRncHRG?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-20T21:05:53+00:00",
-    "title": "With 14.5M shares still available, Nutanix (NTNX) proposes expanding its stock-award pool. - Stock Titan",
-    "source": "Stock Titan",
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZGctVHFDVS04SjVQYVBweEU1ZzBZbjBuQUx4VV9xRE8zUFBVd2lQa2tsTkwxTHdueDBsRHdLMGMtX19EQkVSUE9LOWZ2ZDd4S2NRcTRhaXBVb2tRbHJPMEFJaUdXSkFNN2EtSGVQd25CZExXM0xMYUJWNHNoRXdKZG9vajB6ZzUtQXdYVzVFVFRULVplV1VQUWxoRzdEYVNVNGd6b3g1MC1QbFho?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-20T16:16:25+00:00",
-    "title": "Nutanix pushes a dual-native platform where VMs and containers share one control plane - news.lavx.hu",
-    "source": "news.lavx.hu",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPV0gxcElGT1RsU1dDVElsVlJCb3ZSRE5PX3d6dlNPVHVpeWt3QVJBbVViY2JXS19XcWxuRmdjS0l1TWdZWG9tNUdhYVJVTmdfQ25mSXhrTGFyMzdxMi13bE80ODY2V3VmeFJ3LS1fMEhDM3Q1a1JuYUJLeTJ1RThHekRvX1VNMWVnMEdBWHNMNzVwVUloWFRBV3BtS2FVVjdwSkowaGd3VmlpVk1qYnBYSVNvZ3RBUQ?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
     "date": "2026-10-19T23:51:15+00:00",
     "title": "Nutanix (NTNX) Faces Leadership Changes, Is The Stock Still Cheap? - Simply Wall Street",
     "source": "Simply Wall Street",
@@ -1240,62 +1172,6 @@
     "title": "Nutanix (NTNX) Falls More Steeply Than Broader Market: What Investors Need to Know - Yahoo Finance",
     "source": "Yahoo Finance",
     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPeklHM1dlSzhSd3ZOLVdmak9zdzZkXzBSdG9vNGdtd3RYaC1QdWZ4NGpJRTl1cktra0tFNGZjWUUwaFJrVE1iT1ozNGpSQ1JJQVQzZFdUY28xV0VCamg2SUNfZ2pvVUJscUdNcmZ5cF9LLWlFUTdmMExWQ3M1MVRreTVLcVR2V2dDbXdRWjluUFR0QlRMVTh4N2ZPMTA?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-16T09:15:27+00:00",
-    "title": "Nutanix CTO on dual-native infrastructure, the AI Data Hub and why DevOps failed - Techzine Global",
-    "source": "Techzine Global",
-    "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPeWZVTktKWVVyd1YwRmdmU0ZhNnUyQlZXZGJkdjRaYkV4aXN5UFd6OFdubHdYcmxwZkNFMWZUYWZ0OEJpV1BPVTE2Y3hYakJaNDU1T1lwV3ZlaVpQOFBtakd4UmZLTGtweFc5ZlA2akNYd2V1Z2xQQnpHNnY2YnVQaGhZVG9HcDFMdkU0N3AwNnRMQnlSbzItVXZiTWpMREdIeXRTWTFFc185VmtqWUNIei1hWW01ekNDQ3JVTUo4cm1lckFVV3JZendGcXM?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-15T23:06:56+00:00",
-    "title": "Nutanix Elevates Faiz Shakir To VP - Sales For APAC & Japan - BW Marketing World",
-    "source": "BW Marketing World",
-    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxObFRqQWhsbUJ4OHZMd0wtUFg3MzBMMWNFMkIxUmk0TEJzZ3hyOGRMODJEcjQ1cE4yQ2tVVWFLUklZd0N6Y0ZyclVsbWs2M09IODdMVjNYZ3k4eXFNd0I5QlktdjVRQmZBUE1yN1FJZ3Y1U1ZiMzl4WVBKa3p1czRLY0hZbW1IMzIzQTF4ZFRWc3JQYkdMQUhVelpvQXZyZmhoNXYxdkl3?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-15T18:22:46+00:00",
-    "title": "Nutanix, Inc. (NTNX) Stock forecasts - Yahoo Finance Australia",
-    "source": "Yahoo Finance Australia",
-    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOdW8xekpPSkV3Um0wQThyV2FsNVAyZEN0cUR4dFhRNWE2dm5iNUxrUnIydGdkZlhScFlQZUZBdjRHTkJtVW9sbEhfQ3MwdjZyNDJXTnAtV2lER1NTRlRRUklFMjRJUkZPVFlFcXFVSnFuLXVMWmNTX1AtdGFaM01Sc1RIQU5JdS1wWHVaeUNHV1ZXcUE?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-15T13:19:27+00:00",
-    "title": "Nutanix Elevates Faiz Shakir as the new Vice President, Sales, APJ - IMPACT Magazine",
-    "source": "IMPACT Magazine",
-    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNeVhaTHVLckJzblMzQTh6cEE5cWJROE5hV2RLV2ZCalA5UTlQWTNCb1FNWmNZdDdnc0d0Vl9ZQlpNMGVEZXcwZlpHOWVMblBPbzlYXy1CeGVsMDltR19mdFl2b3EydlNIdTlHX0ZXOHd5WXRaaUNDRlpyRklGQ2NtcWRPdDl6MnBZS1pIZlo0YUtyN0xsQWhTSU9oSlFDQ2ROVWJ0bzBjUkRkTDR1ZzFacFZXMi0xTm1NdGVNNg?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-15T13:15:56+00:00",
-    "title": "Nutanix and NetApp let enterprises modernise virtualisation on existing storage - Intelligent CIO",
-    "source": "Intelligent CIO",
-    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQOWlsT1ctaUtwUFFxRWpEQkF4N2kxaW4tLTYyNjQwUjhUNFBkWUp3M2gwRTFpdExabEdzWFZocXNyT21WQUNpaUdoRkdPcnFfUnBGTnA1M3BJR05aSmNiVGJzN2tSVTROV3dBWjZ0NWY0dGxFZWwwMzdHWmdya3czbzNYRHpuSlh5Z2ZYRFk2cUVKdU9YVk5RdWlScDFCb1gxVXBkbWNKRXdYNjl5dTNUR09pRTV3Z1BHa0M2cnMzTkRjV2c?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-15T11:50:19+00:00",
-    "title": "Nutanix Appoints Faiz Shakir As Vice President, Sales, APJ - BW People",
-    "source": "BW People",
-    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQZnR5OW5tWkNhOXNPTWhXMENiaWJFSmRhYVlFSmkyeWVmMHZmWTM3ZW9TT1MwZExKY1BmMlcxa0VLWGRMU2JHQ2czckpIc2NEbzQyWnFmVURUaG5abEdmSjAwT3paNUVGem1TLXk0VHJHTVJSdnpQRUVFMXFlcUpjYTVNVjU3UkJib3B1VHFsQl9VdlBlUkhXd3o3QQ?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-15T11:22:42+00:00",
-    "title": "Nutanix expands Faiz Shakir to lead Asia Pacific and Japan - Exchange4Media",
-    "source": "Exchange4Media",
-    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOM2NZU2RCaEJVTE5XamNpMExWckliNDdvQU45YXlVOUJ0N3Z6ei1Wd2I2emloSWttUW5BWkFNV1ZjNndFVFZsUFRyUzFsRUdKYUliUzctNElwdEdQb0plU2k1ODZZNDRQaUkwdjNMQkptMU1XRndNeElrbnE0dTJoSkZRaXFWVU5ucXpibFZ5a3RDSkwwREZGdFppakt6U25HNEg5bkI4SjhjcWlHS0Q2Zjd1VldPRlduMThNWDI3OA?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -1340,30 +1216,6 @@
     "flag": ""
    },
    {
-    "date": "2026-10-14T13:14:13+00:00",
-    "title": "Nutanix Appoints Faiz Shakir to Lead Asia Pacific and Japan - https://hrtoday.in/",
-    "source": "https://hrtoday.in/",
-    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPUG5MNkI2WDZabkFBSkNzU3pna0hIUTVDQjc5Sm9rVW5fN1llUXRUVjBpMUU3ZUszUjdSTWwxZl8yOEF3b2MzZ0kxQmRKZlk0YnlCcmEzSVlyM3NSWnZxdVE2N0podW9IZmFmTUtJMm5WeFBFa1hYY3Z3VjQyVzFPXzczcDNUUQ?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-14T07:00:00+00:00",
-    "title": "How Much Did Nutanix Raise? Funding & Key Investors - Clay",
-    "source": "Clay",
-    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBJYmxpYklYMUJjUVdtWVFLa29rNnBnT2hlNDFGeDE0clBkY1VkaldRLW1rZUFuRVVpUnpCNDRhYm44Mk44dHdqRnRKdDhPOV9FbnkwTWlvdw?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-14T07:00:00+00:00",
-    "title": "BHEL accelerates innovation and readies for the AI era with Nutanix - varindia",
-    "source": "varindia",
-    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNNXQ5QldZRWtxcVM2SElsT01pd3JMazh2Wk9FSFhxNGxzelR2LXlKdGhOa2ZCM25sUTloYkotMXZxU2NERmFxRDFFOUNCbUJIR0t6cl83Vi1CQ2RjempnM3dkempaOHNCaDlKUWdFaTVxcHdUSm1hMUNYaXF4RmFUQUxCdG4xdW8tLVQteFJDTDZEM2pMeGZ1VVNTMjlPUQ?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
     "date": "2026-10-14T03:54:29+00:00",
     "title": "Board And Executive Changes Could Be A Game Changer For Nutanix Stock (NTNX) - Simply Wall Street",
     "source": "Simply Wall Street",
@@ -1396,14 +1248,6 @@
     "flag": ""
    },
    {
-    "date": "2026-10-12T16:54:00+00:00",
-    "title": "Nutanix on India’s next big AI leap: Control, cost and real-world impact - Digit",
-    "source": "Digit",
-    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNeFFldzBmVTdaanFFMkFyUDlkZGwzb0dLTXhrWTY5MGIzRG5ndzdhdDZSRWFkUzFQVm1uTlhLS1Y2OTROMXJYbmYyaWRiWUdEdVdMNW50MG9oYXRkNnZnTnBqY2lZa2ptak52RE5BVmVSeEFMV1ZxN1BtMlhzSmdUVHdaSUh6T1NISlZxWTFQX2hlclNlQWRJcWhLS2xQLXR3azVUWXE1S2lNSGZIRnlBTjh30gG4AUFVX3lxTE9iOEFvT2tUcWZQSHZMeFlMR3Z1U2JRRWRGMVd4cTUxMHZScGt1b2gtY3RXVDVTWVRCU2xRclFuSkFjZS1wbTFQdk02S2tqelZzYWlkdlFvcC1POHZJejEzZ0lucDBQUFNUWXk3ZlRwSjdOZWpSME5CTU5UUkRWVlpTcWZtWXpWOXVMVkR4Ynd5VEFGbHZUQ3pfUF9SUE5leWgzZWhyR1dmTnNwamEyMnh4cG00TWRNTDc?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
     "date": "2026-10-12T07:00:00+00:00",
     "title": "G vs. NTNX: Which Stock Should Value Investors Buy Now? - Yahoo Finance",
     "source": "Yahoo Finance",
@@ -1412,42 +1256,10 @@
     "flag": ""
    },
    {
-    "date": "2026-10-12T04:20:20+00:00",
-    "title": "Nutanix targets India growth on VMware migration, sovereign AI - Livemint",
-    "source": "Livemint",
-    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxON0FVcThVejlTYndQcWpLNTZnQ3JEejhSN0hzQ3Nnd2xYT0hZUWhKQlB0cUhSZFpHdURtMG82T1R4Q0M3dHRqTEltNjhsYWRUakxJMk5ELUlNNXBMTmg3dmtuZVlJRnY3Um51RDNxZmlYZEg3WWNNZ2R1Z2t1T0R1RVEtdkloNXYxdV8yb3NEMFdCLU93MG54Yk5ZbDdqTHRSNUM4aEd4M3JhLVRydElIRFVFTzBzZnFXX1hOXzJmZFk4MHJTbEgwZ0RxTElfR2ZF?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-12T00:00:00+00:00",
-    "title": "Nutanix acquires Ryax Technologies to advance agentic AI - KARV Tech Insider",
-    "source": "KARV Tech Insider",
-    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVDNLUWVyVno0cERlazVuQUlScWpaOVoyM3VkUklnY1cyem1WcFpieVZrZzFZaHFfV253dzF4Zk5FYlVPVHIzN1FNWWlKbzJYRGVTMHE1LVIyZDRrdEZZd0hyTkFybjhvUlpuWkpHa25Wa2plaUFsM2V2bU1BRU5Nbk5NNkRadjUwRWVfTHdWUl82NXFNYmRON2JsaDN4U0xqcGRIbmhVSXVfRmhwaHNacDBWQWt4WkJ1YXl2RUZHRU1BQzJwVFdyeFVR?oc=5",
-    "via": "google",
-    "flag": "event"
-   },
-   {
     "date": "2026-10-09T07:00:00+00:00",
     "title": "Nutanix (NTNX) Outperforms Broader Market: What You Need to Know - Yahoo Finance",
     "source": "Yahoo Finance",
     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQcC1lS2ZGRU1sVzZmZnFUOXNLZ2FhRmM3TUhVM0ZWY2JwNDRJRnptTTNFODd3T1B3UV8zdnZDcmFidGdyZU54LXUzeDhHSFVqRXZocEFENnZfejJsbTJPaE5IcmFsaXRGQkY1ZmRaQXFqUzhRem1xXzFzemNqalpYTUVmZVFiaFlLOXVhTzhYLUtFa0JvWGxBeVZYZ0I5NTdKVE9TVURtQQ?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-09T07:00:00+00:00",
-    "title": "Nutanix CEO Rajiv Ramaswami sells $29.46m in stock - Investing.com",
-    "source": "Investing.com",
-    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNRzYxUDkzdUp2ZGo0SkpOSXVON0VUajl6U2VfN1dqei1SZ0lqcUFJOWQ1RWtmTXJ5TTZuc0JGUDRXdVB5dXBHelRlZkhMc0tHOEFCS25kdUJKM0FPdUlpMWZOcFVYN0Q1VEtWcFJUbm41N2RPY21LZGo1dDMzUzNWWFQtWGVMaklNUGJpaEs0ZlAtdEZIeC11OVRxQmxlWlVuakNEOWJ0RnQzOERZdHQ4UG03aw?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-09T07:00:00+00:00",
-    "title": "Nutanix stock hits 52-week high at 74.43 USD - Investing.com",
-    "source": "Investing.com",
-    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPSURFeGhxTU83d21hcVczVW5RWVhhMG8xVGFyTGc5WGcxcmRpajExaU9zX3RDdUNQYWZJSzVMR3hjdXJVZVoxWUtnQmpBb1p0YTNGX1ZoN3l3YzkybGd3eFN4VWtGd2oweFNVUUl1UkctMjd1cXZQOVdvWERQa1NBVW41ZGpsQzN3T1ZvbnNvazJrNzVIb0phRmpiamY5emQz?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -1461,33 +1273,9 @@
    },
    {
     "date": "2026-10-09T07:00:00+00:00",
-    "title": "SIS Ltd modernizes core applications and drives AI readiness with Nutanix - ET CIO",
-    "source": "ET CIO",
-    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOQktOSWxrczZzM1o4YmdOWXlsel9JYmw3VTdTN0pHNGlJUk5ZM0pfYTU4LTlNaElmYzV4NE5VZWZVelR6RjV3cjhEWFFiWHEyZDU2R3g1NzhHTzhFZ0pXdFYwUU1URFhxSmY3N096V2dZSHFWVVBXMV9hU3FMTTcxY0N4LXhUVk54R2xKcWhZUVJjNm1najZiY1BxWmZDbGtKdDYwUS0wbGFsSVpOS0t5T2cxOVg1NUM2N2pMUzhXZUEza2t0NjRvdm5Mb0NIYWg5NFVtUGd2VlVMZU9V0gHiAUFVX3lxTE9Ec3JtM2N0a0g3UGtzeGNzZXU0UU1xZlNvZVh0aDBQWGJZb1RPNDlPd2s1WGdrb3M3WWNOdnJualA5YXdOdHFfX0xUWVVSYkxrMTA4SnpWX1gwazFjaUo2SkZhZmY1bnFsT1AybmxaS181eEwxUm9vMHB4c1JKWnJheGdmMGpuTXUxMlBLc1dNYXk4UmNlVWRFdDdxME9NNEV2alBPb3VoQUVYQmwtdDdzbXduNk1UZlJWanY1Ym9KMUUwMFh5QTN1WHNTRG5hX1V0aU9ZeVRzcF9lLUFMQy1xbUE?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-09T07:00:00+00:00",
     "title": "Under an automatic trading plan, Nutanix (NTNX) director sold 2,800 and 700 shares. - Stock Titan",
     "source": "Stock Titan",
     "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSmFyb1ZRN0xaa1FRMzNjZ3prcnVhS0J4ZEUwM2RFU21OV3pzbkxUTE9pVHo0U3g4QlRPSkh6MHFJQ3BudFNmLU9JX3pKVGJWWkFTTjdrbmhIaU9aZm1OVkJZOWZ0UlpLUnBKVjFYTlNFV3djNU1RNVI1Q20tWVI1enVWY25LaU11VTFhbTh2MFF4cTVMUWw0cjdUNVkwOUFPeEY5aFhsQzU?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-09T06:55:36+00:00",
-    "title": "Form 4 Nutanix Inc For: 9 October By Investing.com - Investing.com India",
-    "source": "Investing.com India",
-    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPQTRKME93Z1lPWWh4bmx1bDVfUUhHQ2dxNVpiT1ZUMldWS3Q3bHRranN6YnQzWHRydWc2a3dER3pEdkdWQV9ncGt6SU5Ydm9OLTdzQnk3RDBfU0RlbEhFTTR1b3FUVm9tMzBrdjIyREpYLXdzR1NWYTltTmFKR25ybHhFMW5RN21neG5NWWV2WUdfYWlyVElaSQ?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-08T22:47:53+00:00",
-    "title": "Nutanix (NTNX) CEO Rajiv Ramaswami Sells 400,000 Shares - GuruFocus",
-    "source": "GuruFocus",
-    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNRWcycUtWd0FvZERwZWpyQmIyNHRpdmlUZlFQYmlnWXRrTmJfdXdGVllreVhmblZHTUlrQm9sNERMVU9tZEdfU3lsV0UxemRhZUF4V3Q2dUd2ejBVNmZwN0tVNmZlODZhaTRYbFp5Mkc2T0d4M3ZHSmNYcFZlUGR0bzF0YzZyOVE0VnNOb2NidVg5b1l3Tnc?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -1516,58 +1304,10 @@
     "flag": ""
    },
    {
-    "date": "2026-10-06T16:35:18+00:00",
-    "title": "Nutanix appoints Vaishali B. Shivshankar as Marketing Director - Express Computer",
-    "source": "Express Computer",
-    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNaEdReThMcXBhOThTWURRV3hMRDV4TDVncWpKNHlyV3ZZRXVTd3hpcGdrUVZxdmtJVXhodjBNb09JREZ5aExZRzVINDNGVHlyaXJRdi1USExUU01SRlJhZV9nZTFOMGk3RWc4RnllOTJaVmo4VklJMUl1cUsyTW1hamczcUtOOVY0TEJpSUtNa25NNXNpbkZNVHM3UHVERWlycThJbmhWZnA?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-05T12:26:00+00:00",
-    "title": "Salam and Nutanix partner to empower B2B customers with private cloud infrastructure solutions for Saudi enterprises - Zawya",
-    "source": "Zawya",
-    "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxOcnhUSmNLUUp6NlVzT0RYUUxla244UnhERmY2UkQ1TnNoYzE3QmZrNkY2SVlLUVd4VnBfcTFsaDZDbldwRDFsUHBKUXJKWXNubWxFNGJzdVA3RmlCWkJ4eU1zNzFkLVRKVk02WVJFQ182X2RpMWg2MDZnSVVhM2hZUDFfZXVKTEFnb0JYNVFpU2dWVEFjWTdkbmRlNGdwRzItOEF3WjlvZmkxWWV6RWtpM0RIUnpYSEFWUEZmREt6LWtseU1oVTBteENNZkMtZFJjQ2swbzM0LWVWMnpxNkJQSGNTTjVhcnJHbWlyT1AwcGhkekVxOUd6VUJKaW9xYXk5aXlZcV9WSlJVdw?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
     "date": "2026-10-05T07:00:00+00:00",
     "title": "Arrow Electronics joins Nutanix Elevate Service Provider Programme - Comms Business",
     "source": "Comms Business",
     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNTlJPZ2VIcEtKRTRhWmFrcE9ISzBaa1N2M211c250b3o4WWJvSHFsZi1rWXFYVkNoSHlIZXkwQUpCOTN2QllXTW1rX0dwZ1VkdFV3WDlHT1lzV19WeHBUaDZqM3djU1ZNVTFpVUhKVXEtVWszR0ZOWnFteVE4ZGg2bUhmQ3drRXdIcXJnaDFweEg4RDF1RFV2NFlfcDVsN2UzbU5vNTJ6aUZia1F5RHRtbw?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-05T07:00:00+00:00",
-    "title": "Western Union and Everland on migrating to Nutanix - Frontier Enterprise",
-    "source": "Frontier Enterprise",
-    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPUl9hUi1CNGQ5dURqWWZLTm04R1ZmU3l4TFl5Y0otOWtvR3Zxd2VnQTBYVF9mOU5QNWxjbVpSYWgtOWl6eHhLN0F4ekU0UGJabFVydUJsLVJhbGxpNG5DTUJhOTk5aVdFSnprTTEyMGZrVk0zcGF5M1pNWlBKaXgyNlNwbDJyU3pVNTh1TzMwZFphdw?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-05T07:00:00+00:00",
-    "title": "Nutanix acquires Ryax Technologies to make scattered GPU infrastructure easier to manage for enterprise AI - Tech Critter",
-    "source": "Tech Critter",
-    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9PWFRBSk9wNzVnLVlPVVlYMWVBbkQ5Vy0wOEprS050NGgtTkt5eGstemp0bFpDMFRsemJTQlp0dWZqaXNGT0k0UXo4NWppRXNqLTgwZ2lUaHhSLTA2ejJuaVRpcUcteGszcVdJTnFPbTJndw?oc=5",
-    "via": "google",
-    "flag": "event"
-   },
-   {
-    "date": "2026-10-05T05:15:16+00:00",
-    "title": "Vaishali B. Shivshankar Joins Nutanix as Marketing Director - Veloxx media",
-    "source": "Veloxx media",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPMldKRUpvY1Fnc3JnQWNkcmg4c0hMbnplU0c4SGo2V2ROOXNhNlNHdFdqLVlmMDlGWWNCRFBGalRZTjZlczBWUHFGeE9ZWnpfN2ZySUZLS0xxTEozZkNnc2l5amZiOGc0ZThleXRpMHIzRWV2b05uNk9BM0QtdW1VR2dieHJOX1I2dXRF?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-04T07:00:00+00:00",
-    "title": "Vaishali B. Shivshankar Moves from F5 to Nutanix as Director, Field Marketing, India & SAARC - CXO Digitalpulse",
-    "source": "CXO Digitalpulse",
-    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPeDZFQnpENmlwUTdUN1QxeUx2a1FYdkhpbVFZT0FKN2JlTGpHdkVqeUVUSktsb1hUdTlka1hTM3lIajNNTWEyRVpJR3NJS18yN2YyN1AtUXVlc1ppUERHckVyZTg1ZmZsUnBOUnZ4TEROMjg1dWRiOEJ0U19QT2d4NDljTndEdXBBZXotMG9BcWxDTkFkVm5pZWo1dzE5UWxtM0xwTTNKTmIwTFhpRjQ0UEtvSW1mN2ZwYm4ydQ?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -1627,17 +1367,15 @@
   "ticker": "NTRS",
   "name": "Northern Trust",
   "sec_title": "NORTHERN TRUST CORP",
-  "errors": [
-   "gdelt: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "articles": [
    {
-    "date": "2026-10-23T23:44:32+00:00",
-    "title": "Northern Trust Price Target Cut to $170.00/Share From $186.00 by Citigroup - Moomoo",
+    "date": "2026-10-23T21:29:18+00:00",
+    "title": "Northern Trust Is Maintained at Neutral by Citigroup - Moomoo",
     "source": "Moomoo",
-    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQMmI2ak5xRHdpZFUzS3oyd0ppLVd1bk5TNW9KUlJCVk9LRUFnNkNaREZkeXNKTFg5TGNvUFV5Q2lveTU4TXJpb3ZaUV81d2huQl9JZGFUUVBNUl8ySVgyZmdDUmtjb0FFQTdRUFNuNWZBTW96NTdhZjlXM0NYaHlQOVFqeGxwc1hDa3NacElxNUFrMkc0VEZRZ2JUem0?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPZ1M3c01PTEtncG1mZklHX2RRdTJpUFhBenk4WHFfNXJQaUV3SjFvVkNMMkhMNG1xLXNMSEVmWHlRSjJWbmRqek5mRnF5TFdLYlJLYzBRVFJQX0Q3UHFQLXE0T2ozanFvcXYtYVlUTDBEd25FNzdKNl9LeWQwMnNRLWRINEdxeWNnWDV1ZVpxUnRjMjlURWZmUFU1S2w?oc=5",
     "via": "google",
-    "flag": "risk"
+    "flag": ""
    },
    {
     "date": "2026-10-23T20:57:00+00:00",
@@ -1704,12 +1442,12 @@
     "flag": ""
    },
    {
-    "date": "2026-10-23T10:59:16+00:00",
-    "title": "Northern Trust ESG & Climate In (^IBDW-TC) latest stock news and headlines - Yahoo Finance Australia",
-    "source": "Yahoo Finance Australia",
-    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1YdGd0VExpUU9ESmxDRXNabjA2ZDVTb1JjWFYyak9MX1VKUHppZm5BN2JYVmc1aXZ1OFZEcnVFSHRBbFNBMERzV1RrbWhwcVczZEdTbF9uMjNzSFJoYm1oSA?oc=5",
+    "date": "2026-10-23T10:11:10+00:00",
+    "title": "Northern Trust Quality Dividend (^SPLB-IV) Latest Stock News & Headlines - Yahoo Finance - Yahoo! Finance Canada",
+    "source": "Yahoo! Finance Canada",
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1kSG9pVXVwZVZ1ZlBHcmk3UllJMzEyQ1R4LVhwblFaN0lZQ3l5dUphbzlxRTdQMjg2MUhnUTBSTkF6VUZRLTZNQUhsYjRjZ29NZjNKcGNDbWNybzJ2V1NBcA?oc=5",
     "via": "google",
-    "flag": ""
+    "flag": "event"
    },
    {
     "date": "2026-10-23T01:48:11+00:00",
@@ -1856,10 +1594,10 @@
     "flag": "event"
    },
    {
-    "date": "2026-10-21T17:41:57+00:00",
+    "date": "2026-10-21T17:42:01+00:00",
     "title": "Thermo Fisher, CME, Capital One, Northern Trust - TradingView",
     "source": "TradingView",
-    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9HdHZMbWRCQnVncU1PblFBcEF6T3ZNdm9WNzJ3RHhpeDdCZjc0ek1kZG5ZWG9KaFhYYWY3TVQ1eVVNQmtOcnlGMWsyZHFQcTdyekxuSkc1V0lwNnAxeHZaRzhaazhXclZaOExfQ0YxaFNZTnRqb0NEUw?oc=5",
+    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1FSWVKQmZIN1dLeGd0LTc1dDVsUjByNnJNT3RxbzNvWnc4bVRSNjZ4UnpFSGNydThQT0tFdDNyaGNjXzJ6UUVOUU55WkhzMFBfZ3E3WjR3dUJKT3RkTVlvVy1GQmRVaVZxaFRjMVlWSmQ2S1ZNSGdkWA?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -2008,14 +1746,6 @@
     "flag": "event"
    },
    {
-    "date": "2026-10-21T11:08:52+00:00",
-    "title": "Northern Trust earnings beat by $0.53, revenue topped estimates - Investing.com",
-    "source": "Investing.com",
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNZlIzcWJiQUN6UHd1clg4MjhfVTNVYjhjeUMtT2ZlVDk1N3pQYU8zSnJ2Q29ZYTAyel9YNkJxbDJUa2NQeklpLWNQQ0R4cXVhOWtkR1pxeDQwUWxsTU03TWhxNWtvblhJNlY5a05RRDJ5ODFzMk82TnFGdEFkQTVoOEZlLUw0YzBWYTh3XzRNb3JnaHgydjAwUHRncTMwTDgxUUxFbmhwN0xJNnBy?oc=5",
-    "via": "google",
-    "flag": "event"
-   },
-   {
     "date": "2026-10-21T11:05:17+00:00",
     "title": "Northern Trust Corporation (NTRS) Q3 Earnings and Revenues Surpass Estimates - Yahoo Finance",
     "source": "Yahoo Finance",
@@ -2148,6 +1878,14 @@
     "title": "NTRS Nov 2026 165.000 call (NTRS261120C00165000) stock price, news, quote and history - Yahoo Finance Australia",
     "source": "Yahoo Finance Australia",
     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9TUXVXdUt4WmtlTm5oVE0xeWdIWVpxdmVWcUpfei1xOHJMMTVnYmVZTE5jRjFrR3FGLUM4bVhNS2FKTk1zMWRuZ1l2U1hZV0l1eTJsTEhoeGxCNUJsOTlLdmZuQzJGZw?oc=5",
+    "via": "google",
+    "flag": ""
+   },
+   {
+    "date": "2026-10-17T14:19:42+00:00",
+    "title": "NTRS Nov 2026 195.000 call (NTRS261120C00195000) stock price, news, quote and history - Yahoo Finance Australia",
+    "source": "Yahoo Finance Australia",
+    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0yMmVxLWRYaVdmZUNNWFB3NGtqZk5kcDNwQlJPZUdmOUk4dDVJNjNxdkgyNnhrN0Uwajg0TmhibE1FLU1TTFBFY005NlhjS3hCTnV1TTBtWUE0U1FsWDd1bkZXMDExUQ?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -2566,18 +2304,8 @@
   "ticker": "SEIC",
   "name": "SEI Investments",
   "sec_title": "SEI INVESTMENTS CO",
-  "errors": [
-   "gdelt: HTTP Error 429: Too Many Requests"
-  ],
+  "errors": [],
   "articles": [
-   {
-    "date": "2026-10-24T07:33:04+00:00",
-    "title": "SEI Investments Company $SEIC Shares Purchased by Crossmark Global Holdings Inc. - MarketBeat",
-    "source": "MarketBeat",
-    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOQUdWR0t4OXYtVUFkOTg4RGRwZU40TmdWYjZMQlQtRWpxNVgyTWNoWWVjeUR4aU8wbWhEUmxqZ0ZJQV9KNkQ4bVAwS0dONlN5dlM2a0tOSGx3OWoxR1RzWU5jS3ZJQW5zQUZISjNiVXEtYUo3UERPdmRFT3Q0cV80eEJoSndfcDhZcjVuR2ptTmJjbGo1clRFQ3lvQTRlYTZXZXRnQk9VOUU4eGtzdzJabjVNX0FrZURZcXB2NnItazk2R1QyLUE1OXdzbFdzWUp0QXNVRDNn?oc=5",
-    "via": "google",
-    "flag": "event"
-   },
    {
     "date": "2026-10-24T00:05:23+00:00",
     "title": "SEI Investments Company Estimates – NASDAQ:SEIC - TradingView",
@@ -2655,14 +2383,6 @@
     "title": "SEI Investments price target raised to $127 from $125 at Morgan Stanley - TipRanks",
     "source": "TipRanks",
     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZEJJanNOLVpOSENyVzI4ZWl4T0hqa0ZnQ0owMVkxLUl1MmI4RTJybVlwYmJ4bExuekc5ZkVhMlJJZ0FXY0ZiTmIzWUM2alZiVFF2LWZTNzNBc3FvSlotT0h1UlNqNHFKUlJnbFY2TW5HSzh0dHdZelYzUFFCdG9rS2dJOVNuaTZ5NjlDMk0yTHhrM1NaVDBMOV90UHp3eVJCbkpzV1M1SVBpN3NMRGpWWm50Tkw2NUh0MGxV?oc=5",
-    "via": "google",
-    "flag": ""
-   },
-   {
-    "date": "2026-10-22T12:02:03+00:00",
-    "title": "SEI Investments price target raised to $129 from $127 at Piper Sandler - TipRanks",
-    "source": "TipRanks",
-    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxObWtCR2ZWa0thaXU0aGZTVXNOblZtWFFoT0dJM0piWTlwMXdUcDUxc2tlSmRWRnNaS2c3Y2M4N2IzbTBUcUVDOXRtNG84Yk5lUEJDVGpSczNhQmNiVEMyX1ctS04wZFJmRmxZUnU2cXdJVkdUNHpJUTd3ZURtaVRseDRrUEZCM1A3RGFOdmZ0b2x2UTJUQldPd3hsamNjUWt3a3BMUGJUbXRvUURrQzdDMHdaQ3pnUXdsS2c?oc=5",
     "via": "google",
     "flag": ""
    },
@@ -2899,10 +2619,10 @@
     "flag": "event"
    },
    {
-    "date": "2026-10-21T14:37:29+00:00",
-    "title": "SEI Investments faces earnings test on margin sustainability By Investing.com - Investing.com Australia",
-    "source": "Investing.com Australia",
-    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPOGp3bXV2dV9IWmpPTmNIbkJFRlN6bUxkUmtyakRvNlNQNXd4S3ZodmNWWVpEU3lQYUw3TGdqVE9tNks4SHEyYXk2WVFIeXFIQlB2VGdoU0JtRXVwNVlKTWRlLW5ISTdSTXVKZXNYMnJhX1F3N19GUkpGTENVY0llY1ZWNWg4MFFNSEUwYTFULTlkckQ2czREWjdXdFNjZjlDMGtHaUZhRjNEeHNzTGlvbkk5aXBzNEgtRkZJcklR?oc=5",
+    "date": "2026-10-21T14:39:51+00:00",
+    "title": "SEI Investments faces earnings test on margin sustainability By Investing.com - Investing.com South Africa",
+    "source": "Investing.com South Africa",
+    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNYUd0eUtsSmRNemg0bTdrSEt2X3RHZzdhd0tFd1VsWDlFLUNpVWRXVFJtNGlxQ0pPRkp3WDluYUdZYnpqX1JCNHBiYUpZdkxkRGlfQm1RYmZGWmtFVDdpaHFPZUF0bWRENkpHbnV1LWlmMnJlcHZmbWZZdUR4c0gzMnJVOG1IOG5YdU5hSE1qOGkteFVhcDB0WkIyME9pZ2FzUDIzdlp5bE8zbVBVenQta2tZelJ2YzZzZ1VPSGpB?oc=5",
     "via": "google",
     "flag": "event"
    },
@@ -3095,6 +2815,14 @@
     "title": "SEI Investments Company Announces Appointment of Kristie Edling-Day as Chief Information Officer - marketscreener.com",
     "source": "marketscreener.com",
     "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPZHpTWXFrYmhGenlnSmdidm03cmZJRnJqMWI3b05xZWNIYllSYXFYN0x4VUFMN2lma1ZBN0cxQkstRFJyVjVrOTVWTzFTWnljdlBtTzlvb2l0akl3MW90NWdGNU1ienhiZzhpUzJVZ3VLd1Q3d2dGLUFTTnZ5bElLNlp5Y0p1SUctWTNnLXJTWUl5Tmt0c280ZE1GTnhWcVRjT1ZON3FyMERCRkNtRHlJTjVSY2NTTDBYTkc5RnVka0cwcW43dGw1Y0ZHTEptTHl5UzVERjZYUkxBWE4tZ3B2RVRsQQ?oc=5",
+    "via": "google",
+    "flag": ""
+   },
+   {
+    "date": "2026-10-15T15:56:09+00:00",
+    "title": "SEIC Oct 2026 100.000 put (SEIC261016P00100000) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+    "source": "Yahoo! Finance Canada",
+    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1ORHhTcU1nZ3R4amk0Q001ZE85REpvMnk2Q3dJVkxkR3N6bGV3RmpaZUZUUWttTkhWcUdqYjB6TjQ4aENMVm5ydmJhZGVrTjIybG5BdVhMcmx1TmdBZDhncXNqM2dTUQ?oc=5",
     "via": "google",
     "flag": ""
    },
