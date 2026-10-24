@@ -2,7 +2,7 @@
 S&P 500/400 now, price > $5 and <= CAP, 21-day dollar volume > $5M, no earnings within ±1 month, score >= 8,
 no IT / communication, above a rising 200-day average, below the 20-day average with RSI14 30-50.
 Ranked by score, then past +3% touch rate (doc rule) — also shown: ties by lowest RSI.
-Usage: python research/fullflow/pick_today.py [cap]
+Usage: python research/fullflow/pick_today.py [cap] [as-of date YYYY-MM-DD]
 """
 import sys
 
@@ -13,6 +13,8 @@ CAP = float(sys.argv[1]) if len(sys.argv) > 1 else 180.0
 D = "research/factors/data"
 cons = pd.read_csv(f"{D}/constituents.csv").set_index("yf")
 px = pd.read_csv(f"{D}/prices.csv.gz", parse_dates=["Date"])
+if len(sys.argv) > 2:
+    px = px[px["Date"] <= sys.argv[2]]
 P = {k: px.pivot(index="Date", columns="Ticker", values=k).sort_index() for k in ["High", "Close", "Volume"]}
 Hi, C, V = (P[k].reindex(columns=cons.index) for k in ["High", "Close", "Volume"])
 t = C.index[-1]
