@@ -374,18 +374,17 @@ PG,Consumer Staples,SP500,PG
 PGR,Financials,SP500,PGR
 PLD,Real Estate,SP500,PLD
 PRU,Financials,SP500,PRU
-PEG,Utilities,SP500,PEG
 PTC,Information Technology,SP500,PTC
+PEG,Utilities,SP500,PEG
 PSA,Real Estate,SP500,PSA
 PHM,Consumer Discretionary,SP500,PHM
-PWR,Industrials,SP500,PWR
-QCOM,Information Technology,SP500,QCOM
-DGX,Health Care,SP500,DGX
 Q,Information Technology,SP500,Q
+QCOM,Information Technology,SP500,QCOM
+PWR,Industrials,SP500,PWR
+DGX,Health Care,SP500,DGX
 RL,Consumer Discretionary,SP500,RL
 RJF,Financials,SP500,RJF
 RDDT,Communication Services,SP500,RDDT
-RTX,Industrials,SP500,RTX
 O,Real Estate,SP500,O
 REG,Real Estate,SP500,REG
 REGN,Health Care,SP500,REGN
@@ -399,6 +398,7 @@ ROL,Industrials,SP500,ROL
 ROP,Information Technology,SP500,ROP
 ROST,Consumer Discretionary,SP500,ROST
 RCL,Consumer Discretionary,SP500,RCL
+RTX,Industrials,SP500,RTX
 SPGI,Financials,SP500,SPGI
 CRM,Information Technology,SP500,CRM
 SNDK,Information Technology,SP500,SNDK
