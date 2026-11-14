@@ -1,0 +1,46 @@
+/home/runner/work/yahoo-finance-mcp/yahoo-finance-mcp/research/fullflow/pick_today.py:91: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  top["被套特征数"] = (lr <= 2).sum(1)
+/home/runner/work/yahoo-finance-mcp/yahoo-finance-mcp/research/fullflow/pick_today.py:92: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  top["均排名"] = lr.mean(1)
+/home/runner/work/yahoo-finance-mcp/yahoo-finance-mcp/research/fullflow/pick_today.py:97: UserWarning: obj.round has no effect with datetime, timedelta, or period dtypes. Use obj.dt.round(...) instead.
+  print(top[["src", "sector", "price", "score", "rsi", "ma20", "ma200", "last_earn", "reaction", "被套特征数", "7c"]].round(3).to_string()
+/home/runner/work/yahoo-finance-mcp/yahoo-finance-mcp/research/fullflow/pick_today.py:104: UserWarning: obj.round has no effect with datetime, timedelta, or period dtypes. Use obj.dt.round(...) instead.
+  print(near[["sector", "price", "score", "rsi", "ma20", "touch", "next_earn"]].round(3).to_string())
+数据日期 2026-11-13，股价上限 $185，通过全部条件 0 只
+价格/成交额: 614
++财报前后1个月: 21
++财务分>=8: 5
++排除科技通信: 5
++200日线上方且上升: 4
++20日线下方且RSI 30-50: 0
+今天没有符合全部条件的股票
+
+前五（财务分、RSI 最低优先；不够 5 只用财报平稳的补），被套特征数越少越好：
+                src                  sector   price  score     rsi   ma20  ma200  last_earn  reaction  被套特征数        7c
+yf                                                                                                                    
+COP   补选：刚发完财报、反应平稳                  Energy  142.28    9.0  39.048 -0.011  0.162 2026-11-05    -0.005      2          
+OXY   补选：刚发完财报、反应平稳                  Energy   58.75    8.0  31.917 -0.029  0.041 2026-11-09     0.009      3          
+AR    补选：刚发完财报、反应平稳                  Energy   38.74    8.0  38.331 -0.012  0.046 2026-10-28    -0.021      4          
+CVLT  补选：刚发完财报、反应平稳  Information Technology  152.07    8.0  38.880 -0.070  0.253 2026-10-27    -0.008      0  ← 7c 选这只
+AMCR  补选：刚发完财报、反应平稳               Materials   43.80    8.0  41.102 -0.044  0.035 2026-11-04    -0.024      5          
+
+7 个被套特征（每只数值；五只里最低的 2 只算满足）：
+      20日波动率  60日波动率   残差波动率  200日线斜率  离52周低点    6月涨幅  上次财报次日反应
+yf                                                             
+COP   0.0217  0.0195  0.0207   0.0409  0.6788  0.1701   -0.0049
+OXY   0.0204  0.0196  0.0196   0.0330  0.5307 -0.0055    0.0092
+AR    0.0244  0.0233  0.0256   0.0162  0.2345  0.0131   -0.0214
+CVLT  0.0340  0.0299  0.0325   0.0380  1.0227  0.4636   -0.0076
+AMCR  0.0231  0.0169  0.0203   0.0109  0.2311  0.2311   -0.0239
+
+只差“回调”条件的（等它们跌回 20 日线下方、RSI 30-50）：
+           sector   price  score     rsi   ma20  touch  next_earn
+yf                                                               
+FAST  Industrials   55.19    9.0  69.041  0.044  0.592 2027-01-19
+PAYX  Industrials  115.68    8.0  50.687  0.012  0.604 2026-12-18
+STT    Financials  173.45    8.0  56.470  0.020  0.644 2027-01-15
+TTC   Industrials  105.89    9.0  51.819  0.001  0.676 2026-12-17
+
+对比（旧版，排除科技、通信时 7c 会选）：COP
+
+已写入 research/news/tickers.txt：COP OXY AR CVLT AMCR（新闻排查：python research/news/fetch_news.py，或设 NEWS=1 直接跑）

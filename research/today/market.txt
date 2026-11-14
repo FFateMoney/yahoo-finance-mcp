@@ -1,0 +1,60 @@
+/home/runner/work/yahoo-finance-mcp/yahoo-finance-mcp/research/today/market.py:16: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  ew = (1 + r.mean(1).fillna(0)).cumprod()
+/home/runner/work/yahoo-finance-mcp/yahoo-finance-mcp/research/today/market.py:26: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  d = pd.DataFrame({"SPY": C["SPY"], "SPY日涨跌": C["SPY"].pct_change(), "池等权日涨跌": r.mean(1),
+/home/runner/work/yahoo-finance-mcp/yahoo-finance-mcp/research/today/market.py:27: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  "上涨家数比例": (r > 0).mean(1)}).tail(15)
+数据日期 2026-11-13
+SPY: 1月 -2.26% 3月 -2.13% 1年 +11.58% | 离20日线 -0.61% 50日线 -1.27% 200日线 +3.44% 离一年高点 -3.17%
+MDY: 1月 +0.99% 3月 -5.74% 1年 +13.61% | 离20日线 +0.45% 50日线 +0.56% 200日线 +1.06% 离一年高点 -5.94%
+池等权: 1月 +3.00% 3月 -0.90% 1年 +20.29% | 离20日线 +1.19% 50日线 +2.76% 200日线 +6.21% 离一年高点 -1.61%
+
+最近 15 个交易日：
+               SPY  SPY日涨跌  池等权日涨跌  上涨家数比例
+Date                                      
+2026-10-26  765.37  0.0071  0.0044  0.5891
+2026-10-27  769.66  0.0056  0.0026  0.5172
+2026-10-28  772.31  0.0034  0.0002  0.4662
+2026-10-29  769.36 -0.0038  0.0136  0.7951
+2026-10-30  755.72 -0.0177 -0.0086  0.4341
+2026-11-02  752.10 -0.0048  0.0097  0.7065
+2026-11-03  754.35  0.0030 -0.0012  0.3787
+2026-11-04  766.81  0.0165  0.0157  0.7287
+2026-11-05  733.00 -0.0441 -0.0337  0.1329
+2026-11-06  735.29  0.0031  0.0004  0.4042
+2026-11-09  752.69  0.0237  0.0267  0.8660
+2026-11-10  749.92 -0.0037 -0.0020  0.4651
+2026-11-11  759.81  0.0132  0.0086  0.6135
+2026-11-12  757.12 -0.0035 -0.0107  0.2193
+2026-11-13  754.37 -0.0036  0.0011  0.6035
+
+成分股在 50 日线上方比例 67.0%，200 日线上方 60.6%
+
+行业（等权）近 1 周 / 1 月：
+                            w1      m1
+sector                                
+Information Technology  0.0510 -0.0706
+Energy                  0.0623 -0.0133
+Materials              -0.0017  0.0293
+Communication Services  0.0338  0.0340
+Industrials             0.0347  0.0343
+Health Care             0.0081  0.0417
+Consumer Staples        0.0222  0.0523
+Consumer Discretionary  0.0010  0.0540
+Financials              0.0171  0.0547
+Real Estate             0.0038  0.0549
+Utilities               0.0231  0.0642
+
+VIX 最新 19.30（2026-11-13），1 月前 16.46，3 月均值 16.75，3 月最高 28.18
+Date
+2026-11-02    21.15
+2026-11-03    20.83
+2026-11-04    16.61
+2026-11-05    28.18
+2026-11-06    25.64
+2026-11-09    19.92
+2026-11-10    19.46
+2026-11-11    17.49
+2026-11-12    18.70
+2026-11-13    19.30
+Freq: B

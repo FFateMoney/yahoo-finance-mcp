@@ -268,7 +268,6 @@ J,Industrials,SP500,J
 JNJ,Health Care,SP500,JNJ
 JCI,Industrials,SP500,JCI
 JPM,Financials,SP500,JPM
-KVUE,Consumer Staples,SP500,KVUE
 KDP,Consumer Staples,SP500,KDP
 KEY,Financials,SP500,KEY
 KEYS,Information Technology,SP500,KEYS
@@ -346,6 +345,7 @@ NVR,Consumer Discretionary,SP500,NVR
 NXPI,Information Technology,SP500,NXPI
 ORLY,Consumer Discretionary,SP500,ORLY
 OXY,Energy,SP500,OXY
+OKTA,Information Technology,SP500,OKTA
 ODFL,Industrials,SP500,ODFL
 OMC,Communication Services,SP500,OMC
 ON,Information Technology,SP500,ON
@@ -374,18 +374,17 @@ PG,Consumer Staples,SP500,PG
 PGR,Financials,SP500,PGR
 PLD,Real Estate,SP500,PLD
 PRU,Financials,SP500,PRU
-PEG,Utilities,SP500,PEG
 PTC,Information Technology,SP500,PTC
+PEG,Utilities,SP500,PEG
 PSA,Real Estate,SP500,PSA
 PHM,Consumer Discretionary,SP500,PHM
-PWR,Industrials,SP500,PWR
-QCOM,Information Technology,SP500,QCOM
-DGX,Health Care,SP500,DGX
 Q,Information Technology,SP500,Q
+QCOM,Information Technology,SP500,QCOM
+PWR,Industrials,SP500,PWR
+DGX,Health Care,SP500,DGX
 RL,Consumer Discretionary,SP500,RL
 RJF,Financials,SP500,RJF
 RDDT,Communication Services,SP500,RDDT
-RTX,Industrials,SP500,RTX
 O,Real Estate,SP500,O
 REG,Real Estate,SP500,REG
 REGN,Health Care,SP500,REGN
@@ -399,6 +398,7 @@ ROL,Industrials,SP500,ROL
 ROP,Information Technology,SP500,ROP
 ROST,Consumer Discretionary,SP500,ROST
 RCL,Consumer Discretionary,SP500,RCL
+RTX,Industrials,SP500,RTX
 SPGI,Financials,SP500,SPGI
 CRM,Information Technology,SP500,CRM
 SNDK,Information Technology,SP500,SNDK
@@ -663,6 +663,7 @@ GBCI,Financials,SP400,GBCI
 GEF,Materials,SP400,GEF
 GGG,Industrials,SP400,GGG
 GHC,Consumer Discretionary,SP400,GHC
+GKOS,Health Care,SP400,GKOS
 GLPI,Real Estate,SP400,GLPI
 GME,Consumer Discretionary,SP400,GME
 GMED,Health Care,SP400,GMED
@@ -696,6 +697,7 @@ IRT,Real Estate,SP400,IRT
 ITT,Industrials,SP400,ITT
 JAZZ,Health Care,SP400,JAZZ
 JEF,Financials,SP400,JEF
+JHX,Materials,SP400,JHX
 JLL,Real Estate,SP400,JLL
 KBH,Consumer Discretionary,SP400,KBH
 KBR,Industrials,SP400,KBR
@@ -760,7 +762,6 @@ OC,Industrials,SP400,OC
 OGE,Utilities,SP400,OGE
 OGS,Utilities,SP400,OGS
 OHI,Real Estate,SP400,OHI
-OKTA,Information Technology,SP400,OKTA
 OLED,Information Technology,SP400,OLED
 OLLI,Consumer Discretionary,SP400,OLLI
 ONB,Financials,SP400,ONB
@@ -804,7 +805,6 @@ RLI,Financials,SP400,RLI
 RMBS,Information Technology,SP400,RMBS
 RNR,Financials,SP400,RNR
 ROIV,Health Care,SP400,ROIV
-ROKU,Communication Services,SP400,ROKU
 RPM,Materials,SP400,RPM
 RRC,Energy,SP400,RRC
 RRX,Industrials,SP400,RRX
