@@ -31,6 +31,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/today research/news research/pricedb/data research/fullflow/data/earnings_yf.csv.gz
+          git add research/today research/news research/pricedb/data research/fullflow/data/earnings_yf.csv.gz research/factors/data
           git commit -q -m "data: today's pick $(date -u +%F)"
           for i in 1 2 3 4; do git pull --rebase -q && git push -q && exit 0; sleep $((i*5)); done; exit 1

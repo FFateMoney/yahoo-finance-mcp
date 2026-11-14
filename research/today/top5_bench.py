@@ -15,7 +15,7 @@ mem = [c for c in cons["yf"] if c in C]
 
 def rets(s):
     s = s.dropna()
-    return [s.iat[-1] / s.iat[-22] - 1, s.iat[-1] / s.iat[-64] - 1, s.iat[-1] / s.iat[-253] - 1]
+    return [s.iat[-1] / s.iat[-k] - 1 if len(s) >= k else float("nan") for k in (22, 64, 253)]
 
 
 fwd = H[::-1].rolling(10).max()[::-1].shift(-1)
