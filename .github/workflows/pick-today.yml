@@ -1,0 +1,36 @@
+name: pick-today
+# Update prices + Yahoo earnings calendar in research/pricedb, then run the in-use pick (top 5 + 7c), news check and market state.
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/project-thread-2bh5tk]
+    paths: [research/today/RUN]
+permissions:
+  contents: write
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install "yfinance>=0.2.50" pandas pyarrow lxml numpy
+      - name: update price store
+        run: python research/pricedb/update.py $(head -n1 research/today/RUN | sed 's/#.*//')
+      - name: pick
+        run: |
+          set -o pipefail
+          python research/today/prep.py
+          CAP=$(sed -n 2p research/today/RUN | sed 's/#.*//')
+          python research/fullflow/pick_today.py ${CAP:-185} 2>&1 | tee research/today/pick_out.txt
+          python research/today/top5_bench.py 2>&1 | tee research/today/top5_bench.txt || true
+          python research/today/market.py 2>&1 | tee research/today/market.txt || true
+          python research/news/fetch_news.py --days 21 || true
+      - name: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/today research/news research/pricedb/data research/fullflow/data/earnings_yf.csv.gz
+          git commit -q -m "data: today's pick $(date -u +%F)"
+          for i in 1 2 3 4; do git pull --rebase -q && git push -q && exit 0; sleep $((i*5)); done; exit 1
