@@ -550,7 +550,6 @@ BHF,Financials,SP400,BHF
 BILL,Information Technology,SP400,BILL
 BIO,Health Care,SP400,BIO
 BJ,Consumer Staples,SP400,BJ
-BKH,Utilities,SP400,BKH
 BMRN,Health Care,SP400,BMRN
 BRKR,Health Care,SP400,BRKR
 BROS,Consumer Discretionary,SP400,BROS
@@ -579,6 +578,7 @@ CHE,Health Care,SP400,CHE
 CHH,Consumer Discretionary,SP400,CHH
 CHRD,Energy,SP400,CHRD
 CHWY,Consumer Discretionary,SP400,CHWY
+CHYM,Financials,SP400,CHYM
 CLF,Materials,SP400,CLF
 CLH,Industrials,SP400,CLH
 CMC,Materials,SP400,CMC
@@ -687,6 +687,7 @@ HRB,Consumer Discretionary,SP400,HRB
 HUBS,Information Technology,SP400,HUBS
 HWC,Financials,SP400,HWC
 HXL,Industrials,SP400,HXL
+HZN,Utilities,SP400,HZN
 IBOC,Financials,SP400,IBOC
 IDA,Utilities,SP400,IDA
 IDCC,Information Technology,SP400,IDCC
@@ -754,7 +755,6 @@ NOVT,Information Technology,SP400,NOVT
 NTNX,Information Technology,SP400,NTNX
 NVST,Health Care,SP400,NVST
 NVT,Industrials,SP400,NVT
-NWE,Utilities,SP400,NWE
 NXST,Communication Services,SP400,NXST
 NXT,Industrials,SP400,NXT
 NYT,Communication Services,SP400,NYT

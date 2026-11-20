@@ -6,41 +6,47 @@
   print(top[["src", "sector", "price", "score", "rsi", "ma20", "ma200", "last_earn", "reaction", "被套特征数", "7c"]].round(3).to_string()
 /home/runner/work/yahoo-finance-mcp/yahoo-finance-mcp/research/fullflow/pick_today.py:104: UserWarning: obj.round has no effect with datetime, timedelta, or period dtypes. Use obj.dt.round(...) instead.
   print(near[["sector", "price", "score", "rsi", "ma20", "touch", "next_earn"]].round(3).to_string())
-数据日期 2026-11-13，股价上限 $185，通过全部条件 0 只
-价格/成交额: 614
-+财报前后1个月: 21
-+财务分>=8: 5
-+排除科技通信: 5
-+200日线上方且上升: 4
-+20日线下方且RSI 30-50: 0
-今天没有符合全部条件的股票
+数据日期 2026-11-19，股价上限 $185，通过全部条件 6 只
+价格/成交额: 632
++财报前后1个月: 61
++财务分>=8: 23
++排除科技通信: 23
++200日线上方且上升: 9
++20日线下方且RSI 30-50: 6
+                      sector       price  score        rsi      ma20     ma200  touch  last_earn  next_earn  doc_rank  rsi_rank
+yf                                                                                                                             
+HAS   Consumer Discretionary  114.709999    8.0  42.634949 -0.034505  0.230572  0.660 2026-10-20 2027-02-09       1.0       4.0
+STT               Financials  161.229996    8.0  38.007816 -0.050600  0.004492  0.640 2026-10-14 2027-01-15       2.0       2.0
+PAYX             Industrials  111.400002    8.0  48.955867 -0.027944  0.089189  0.620 2026-09-23 2026-12-18       3.0       5.0
+GM    Consumer Discretionary   81.750000    8.0  39.918012 -0.041427  0.013571  0.588 2026-10-20 2027-01-27       4.5       3.0
+EWBC              Financials  123.959999    8.0  35.668362 -0.047781  0.009728  0.588 2026-10-20 2027-01-19       4.5       1.0
+CCK                Materials  118.430000    8.0  49.482134 -0.014791  0.087673  0.584 2026-10-19 2027-02-03       6.0       6.0
 
 前五（财务分、RSI 最低优先；不够 5 只用财报平稳的补），被套特征数越少越好：
-                src                  sector   price  score     rsi   ma20  ma200  last_earn  reaction  被套特征数        7c
-yf                                                                                                                    
-COP   补选：刚发完财报、反应平稳                  Energy  142.28    9.0  39.048 -0.011  0.162 2026-11-05    -0.005      2          
-OXY   补选：刚发完财报、反应平稳                  Energy   58.75    8.0  31.917 -0.029  0.041 2026-11-09     0.009      3          
-AR    补选：刚发完财报、反应平稳                  Energy   38.74    8.0  38.331 -0.012  0.046 2026-10-28    -0.021      4          
-CVLT  补选：刚发完财报、反应平稳  Information Technology  152.07    8.0  38.880 -0.070  0.253 2026-10-27    -0.008      0  ← 7c 选这只
-AMCR  补选：刚发完财报、反应平稳               Materials   43.80    8.0  41.102 -0.044  0.035 2026-11-04    -0.024      5          
+      src                  sector   price  score     rsi   ma20  ma200  last_earn  reaction  被套特征数        7c
+yf                                                                                                          
+EWBC  主规则              Financials  123.96    8.0  35.668 -0.048  0.010 2026-10-20     0.047      5          
+STT   主规则              Financials  161.23    8.0  38.008 -0.051  0.004 2026-10-14    -0.037      3          
+GM    主规则  Consumer Discretionary   81.75    8.0  39.918 -0.041  0.014 2026-10-20    -0.080      3          
+HAS   主规则  Consumer Discretionary  114.71    8.0  42.635 -0.035  0.231 2026-10-20     0.157      1  ← 7c 选这只
+PAYX  主规则             Industrials  111.40    8.0  48.956 -0.028  0.089 2026-09-23    -0.113      2          
 
 7 个被套特征（每只数值；五只里最低的 2 只算满足）：
       20日波动率  60日波动率   残差波动率  200日线斜率  离52周低点    6月涨幅  上次财报次日反应
 yf                                                             
-COP   0.0217  0.0195  0.0207   0.0409  0.6788  0.1701   -0.0049
-OXY   0.0204  0.0196  0.0196   0.0330  0.5307 -0.0055    0.0092
-AR    0.0244  0.0233  0.0256   0.0162  0.2345  0.0131   -0.0214
-CVLT  0.0340  0.0299  0.0325   0.0380  1.0227  0.4636   -0.0076
-AMCR  0.0231  0.0169  0.0203   0.0109  0.2311  0.2311   -0.0239
+EWBC  0.0140  0.0121  0.0095   0.0149  0.2596  0.0202    0.0469
+STT   0.0182  0.0142  0.0047   0.0266  0.4568  0.0599   -0.0373
+GM    0.0284  0.0248  0.0240   0.0038  0.2119  0.0633   -0.0802
+HAS   0.0149  0.0208  0.0123   0.0359  0.5433  0.3012    0.1575
+PAYX  0.0210  0.0218  0.0240   0.0118  0.3459  0.2064   -0.1130
 
 只差“回调”条件的（等它们跌回 20 日线下方、RSI 30-50）：
            sector   price  score     rsi   ma20  touch  next_earn
 yf                                                               
-FAST  Industrials   55.19    9.0  69.041  0.044  0.592 2027-01-19
-PAYX  Industrials  115.68    8.0  50.687  0.012  0.604 2026-12-18
-STT    Financials  173.45    8.0  56.470  0.020  0.644 2027-01-15
-TTC   Industrials  105.89    9.0  51.819  0.001  0.676 2026-12-17
+MMM   Industrials  178.47    8.0  56.633 -0.012  0.576 2027-01-19
+FAST  Industrials   52.68    9.0  55.637 -0.012  0.608 2027-01-19
+WRB    Financials   77.40    8.0  67.176  0.024  0.524 2027-01-25
 
-对比（旧版，排除科技、通信时 7c 会选）：COP
+对比（旧版，排除科技、通信时 7c 会选）：HAS
 
-已写入 research/news/tickers.txt：COP OXY AR CVLT AMCR（新闻排查：python research/news/fetch_news.py，或设 NEWS=1 直接跑）
+已写入 research/news/tickers.txt：EWBC STT GM HAS PAYX（新闻排查：python research/news/fetch_news.py，或设 NEWS=1 直接跑）
